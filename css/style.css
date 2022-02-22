@@ -11,6 +11,7 @@
 :root {
     --ff-primary: 'Montserrat', sans-serif;
     --ff-secondary: 'Poppins', sans-serif;
+    --ff-sign: 'Reenie Beanie', cursive;
 
     --fw-reg:300;
     --fw-bold:900;
@@ -248,7 +249,7 @@ img.logo{
     list-style: none;
     display: flex;
     justify-content: center;
-    margin: 2em 0;
+    margin: 2em 0 0;
     padding: 0;
 }
 
@@ -258,4 +259,12 @@ img.logo{
 
 .social-list__link:hover{
     opacity: 0.8;
+}
+
+.footer-sign{
+    font-family: var(--ff-sign);
+    color: var(--clr-light);
+    font-size: 1em;
+    text-align: center;
+    margin: 3em 0 0;
 }
