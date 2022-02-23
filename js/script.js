@@ -9,3 +9,13 @@ navLinks.forEach(link=>{
         document.body.classList.remove('nav-open');
     })
 });
+
+
+/*var overlay=document.getElementById("overlay");
+
+window.addEventListener('load', function()
+{
+    overlay.style.display='none';
+});*/
+
+

@@ -106,6 +106,95 @@ strong{
     text-align: center;
     margin-bottom: 1em;
 }
+/*
+.loader_bg{
+    position: fixed;
+    z-index: 9999;
+    background: var(--clr-dark);
+    width: 100%;
+    height: 100%;
+}
+
+.loader{
+    border: 0 solid transparent;
+    border-radius: 50%;
+    width: 150px;
+    height: 150px;
+    position: absolute;
+    top:calc(50vh-75px);
+    left: calc(50vw-75px);
+}
+
+.loader::before,
+.loader::after{
+    content: '';
+    border: 1em solid #ff5733;
+    border-radius: 50%;
+    width: inherit;
+    height: inherit;
+    position: absolute;
+    top: 0;
+    left: 0;
+    animation: loader 2s linear infinite;
+    opacity: 0;
+}
+.loader::before{
+    animation-delay: .5s;
+}
+
+@keyframes loader{
+    0%{
+        transform: scale(0);
+        opacity: 0;
+    }
+    50%{
+        opacity: 1;
+    }
+    100%{
+        transform: scale(1);
+        opacity: 0;
+    }
+}*/
+
+@keyframes fadeOutAnimation {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+.loader-bg{
+    position: fixed;
+    z-index: 4000;
+    background: #fafafa;
+    width: 100%;
+    height: 100%;
+    animation: fadeOutAnimation ease 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+    transition:1s ease;
+}
+
+.loader{
+    position: absolute;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 300px;
+    height: 300px;
+    z-index: 5000;
+    animation: fadeOutAnimation ease 1s;
+	animation-iteration-count: 1;
+	animation-fill-mode: forwards;
+    transition:1s ease;
+}
+.loader img{
+    width: 300px;
+}
 
 .intro{
     position: relative;
@@ -119,7 +208,7 @@ strong{
 }
 
 img.logo{
-    width: 100%; 
+    width: 80%; 
     display: block;
     margin-top: 4em;
     margin-left: auto;
