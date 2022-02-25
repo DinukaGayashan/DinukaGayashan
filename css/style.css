@@ -155,7 +155,7 @@ strong{
         opacity: 0;
     }
 }*/
-
+/*
 @keyframes fadeOutAnimation {
 	0% {
 		opacity: 1;
@@ -194,7 +194,7 @@ strong{
 }
 .loader img{
     width: 300px;
-}
+}*/
 
 .intro{
     position: relative;
