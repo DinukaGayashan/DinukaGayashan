@@ -46,25 +46,63 @@
         </header>
 
         <section class="intro" id="home">
+
             <p class="section__title section__title--hello">Hello, World!</p>
             <p class="section__title section__title--intro">
                 <strong>I'm Dinuka Gayashan</strong>
             </p>
             <p class="section__subtitle section__subtitle--intro">
+                <span
+                    class="txt-rotate"
+                    data-period="2000"
+                    data-rotate='[ "Computer Engineering Undergraduate", "Photographer" ]'></span>
+                </p>
+            <!--p class="section__subtitle section__subtitle--intro">
                 Computer Engineering Undergraduate
-            </p>
+            </p-->
             <div>
                 <a href="portfolio.html" class="button" id="button-5"><h3>PORTFOLIO</h3></a>
             </div>
         </section>
 
         <section class="about-me" id="about">
+            <h2 class="section__title section__title--about">About</h2>
             <img src="images/dp.jpg" alt="display image" class="dp" title="Dinuka Gayashan">
-            <h2 class="section__title section__title--about">Who I am</h2>
             <p class="section__subtitle section__subtitle--about">Computer Engineering Undergraduate</p>
             <div class="about-me__body">
                 <p>...</p>
             </div>
+            <p class="section__subtitle section__subtitle--timeline"><strong>Going back in time</strong></p>
+            <ul class="timeline">
+                <li>
+                    <div class="direction-l">
+                        <div class="flag-wrapper">
+                            <span class="flag"><a href="" class="timeline__link" target="_blank">Secondary Student</a></span>
+                            <span class="time-wrapper"><span class="time">2010 - 2018</span></span>
+                        </div>
+                        <div class="desc">Started Secondary Education at <a href="https://bcg.lk/" class="timeline__link" target="_blank">Bandaranayake College Gampaha</a>. Got passed the G.C.E.(O/L) examination in 2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra curricular activities.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="direction-r">
+                        <div class="flag-wrapper">
+                            <span class="flag"><a href="" class="timeline__link" target="_blank">Primary Student</a></span>
+                            <span class="time-wrapper"><span class="time">2005 - 2009</span></span>
+                        </div>
+                        <div class="desc">Entered Gothami Junior School, Gampaha for primary education and passed the grade 5 scholarship.</div>
+                    </div>
+                </li>
+                <li>
+                    <div class="direction-l">
+                        <div class="flag-wrapper">
+                            <span class="flag"><a href="" class="timeline__link" target="_blank">New born son</a></span>
+                            <span class="time-wrapper"><span class="time">1999</span></span>
+                        </div>
+                        <div class="desc">Born on 30th July 1999, at Ragama Hospital, Sri Lanka and got named Kasthuri Arachchige Dinuka Gayashan Kasthuriarachchi.</div>
+                    </div>
+                </li> 
+            </ul>
+            
         </section>
 
         <footer class="footer">
@@ -101,13 +139,73 @@
                 </li>
             </ul>
             <p class="footer-sign">
-                ©<span id='year'></span> Dinuka Gayashan<br>All rights reserved
+                Dinuka Gayashan
+            </p>
+            <p class="footer-copyright">
+                © <span id='year'></span> All rights reserved.
             </p>
         </footer>
         <script src="js/script.js"></script>
         <script>
             var dt = new Date();
             document.getElementById("year").innerHTML = (dt.getFullYear());
+            
+            var TxtRotate = function(el, toRotate, period) {
+                this.toRotate = toRotate;
+                this.el = el;
+                this.loopNum = 0;
+                this.period = parseInt(period, 10) || 2000;
+                this.txt = '';
+                this.tick();
+                this.isDeleting = false;
+            };
+            
+            TxtRotate.prototype.tick = function() {
+                var i = this.loopNum % this.toRotate.length;
+                var fullTxt = this.toRotate[i];
+            
+                if (this.isDeleting) {
+                this.txt = fullTxt.substring(0, this.txt.length - 1);
+                } else {
+                this.txt = fullTxt.substring(0, this.txt.length + 1);
+                }
+            
+                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
+            
+                var that = this;
+                var delta = 300 - Math.random() * 100;
+            
+                if (this.isDeleting) { delta /= 2; }
+            
+                if (!this.isDeleting && this.txt === fullTxt) {
+                delta = this.period;
+                this.isDeleting = true;
+                } else if (this.isDeleting && this.txt === '') {
+                this.isDeleting = false;
+                this.loopNum++;
+                delta = 500;
+                }
+            
+                setTimeout(function() {
+                that.tick();
+                }, delta);
+            };
+            
+            window.onload = function() {
+                var elements = document.getElementsByClassName('txt-rotate');
+                for (var i=0; i<elements.length; i++) {
+                var toRotate = elements[i].getAttribute('data-rotate');
+                var period = elements[i].getAttribute('data-period');
+                if (toRotate) {
+                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
+                }
+                }
+                // INJECT CSS
+                var css = document.createElement("style");
+                css.type = "text/css";
+                css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
+                document.body.appendChild(css);
+            };
         </script>
     </body>
 </html>
