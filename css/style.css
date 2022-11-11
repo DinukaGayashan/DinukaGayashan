@@ -336,7 +336,7 @@ img.logo{
 
 .nav__link{
     color: inherit;
-    font-size: var(--fs-h3);
+    font-size: var(--fs-h4);
     text-decoration: none;
 }
 
