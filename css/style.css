@@ -166,8 +166,16 @@ strong{
 }
 
 .section__subtitle--work{
+    text-decoration: none;
     font-family: var(--ff-secondary);
     color: var(--clr-dark);
+    text-align: center;
+    margin-top: 1em;
+}
+
+.section__subtitle--work:hover{
+    font-family: var(--ff-secondary);
+    color: var(--clr-primary);
     text-align: center;
     margin-top: 1em;
 }
