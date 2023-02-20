@@ -1,0 +1,48 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+
+/*tag selectors*/
+
+body {
+    background-color: gray;
+    margin: 0;
+}
+
+
+/*class selectors*/
+
+.header {
+    background-color: black;
+    position: fixed;
+    width: 100%;
+    height: 4em;
+    overflow: hidden;
+    top: 0;
+    display: flex;
+    align-items: center;
+}
+
+.header-logo {
+    float: left;
+    align-self: center;
+    width: 100px;
+}
+
+.home {
+    margin-top: 200px;
+}
+
+.professional-picture {
+    border-radius: 100%;
+    width: 20%;
+    float: right;
+    margin-left: 5%;
+}
+
+.timeline {
+    clear: both;
+}
+
+/*id selectors*/
