@@ -2,6 +2,12 @@
     display: none;
 }
 
+:root {
+    --clr-background: #151616;
+    --clr-theme: #087777;
+    --clr-light: white;
+}
+
 
 /*tag selectors*/
 
@@ -10,28 +16,30 @@ html {
 }
 
 body {
-    background-color: black;
+    background-color: var(--clr-background);
     margin: auto;
     text-align: center;
     font-family: 'Noto Sans', sans-serif;
-    color: white;
+    color: var(--clr-light);
 }
 
 a {
     text-decoration: none;
 }
 
-/* nav {
-    display: inline-block;
-} */
-
 
 /*class selectors*/
 
 .header {
-    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+    background-image: linear-gradient(to bottom,
+            rgba(0, 0, 0, 1),
+            rgba(0, 0, 0, 0.98),
+            rgba(0, 0, 0, 0.95),
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.8),
+            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0));
     padding: 20px 1% 20px 10%;
-    max-height: 50px;
     position: fixed;
     top: 0;
     width: 100%;
@@ -57,18 +65,34 @@ a {
     display: inline-block;
     text-decoration: none;
     margin: 0 10px;
-    color: #333;
+    color: var(--clr-light);
 }
 
 .page-sections a:hover {
-    color: #ff0;
+    color: var(--clr-theme);
 }
-
 
 .home {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 200px;
+    height: 100vh;
+    background-color: var(--clr-background);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.name {
+    font-size: 500%;
+    transition: 0.5s ease-out;
+}
+
+.name:hover {
+    letter-spacing: 5px;
+    transition: 0.5s ease-out;
+    color: #fff;
+    text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 20px #fff;
 }
 
 .professional-picture {
@@ -81,5 +105,6 @@ a {
 .timeline {
     clear: both;
 }
+
 
 /*id selectors*/
