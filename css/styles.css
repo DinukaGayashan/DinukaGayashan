@@ -124,48 +124,35 @@ a {
 
 
 
-/* .project-cards {
-    display: flex;
-    padding: 25px 0px;
-    list-style: none;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-}
-
-.project-card {
-    min-width: 30%;
-    margin: 1em;
-    padding: 1em;
-    box-shadow: 0 4px 8px 0 rgba(255, 255, 255, 0.2);
-    transition: 0.3s;
-
-}
-
-.project-card:hover {
-    box-shadow: 0 8px 16px 0 rgba(255, 255, 255, 0.2);
-}
-
-.project-card-image {
-    width: 50%;
-} */
-
 .card {
     margin: 1em;
     padding: 2.5em;
     border-radius: 1em;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
+    background: rgba(16, 16, 16, 0.8);
+    min-width: 100px;
+
     /* border: 1px solid transparent; */
     /* backdrop-filter: blur(1em); */
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.1);
     /* background-color: var(--clr-background); */
-    background: rgba(16, 16, 16, 0.8);
     /* box-shadow: 0 1px 1px 0 rgba(255, 255, 255, 0.2); */
-    /* transition: 0.5s; */
+    transition: 0.5s;
     overflow: hidden;
 }
 
 .card:hover {
-    transform: scale(1.005);
+    transform: scale(1.003);
     transition: 200ms transform ease-in-out;
+}
+
+.experience-cards {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 1em;
 }
 
 .project-cards {
@@ -175,11 +162,7 @@ a {
     grid-auto-columns: 30%;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-}
-
-.project-card {
-    min-width: 100px;
-    
+    padding: 1em;
 }
 
 .project-card>img {
@@ -189,7 +172,25 @@ a {
     object-position: center;
 }
 
+.achievement-cards {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 23%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 1em;
+}
 
+.certification-cards {
+    list-style: none;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 21%;
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+    padding: 1em;
+}
 
 
 
