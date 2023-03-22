@@ -3,18 +3,18 @@
 
 <head>
     <meta charset="utf-8" />
+    <meta name="description" content="Personal website of Dinuka Gayashan">
     <title>Dinuka Gayashan</title>
-    <meta name="description" content="Personal website of Dinuka Gayashan" />
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&display=swap" rel="stylesheet">
     <link rel="icon" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-    <link rel="stylesheet" href="css/styles.css">
+
 </head>
 
 <body>
-
     <header class="header">
         <nav>
             <a href="">
@@ -38,7 +38,8 @@
     <section class="home" id="home">
         <span class="hello">Hello World!, I'm</span><br>
         <span class="name"><strong>Dinuka Gayashan</strong></span><br>
-        <span class="titles">A Human · Tech Enthusiast · Computer Engineering Undergraduate · Programmer · Software Developer ·
+        <span class="titles">A Human · Tech Enthusiast · Computer Engineering Undergraduate · Programmer · Software
+            Developer ·
             Hobbyist Photographer · Freelancer
         </span><br>
         <span class="motto">Do what you love - Love what you do.</span>
@@ -59,6 +60,12 @@
         </div>
         <div class="timeline">
             <h2>Timeline</h2>
+
+            <button onclick="togglePopup()">View All</button>
+            <div class="full-screen-popup hidden">
+                <button onclick="togglePopup()">Close</button>
+            </div>
+
             <ul>
                 <li>
                     <span>Undergraduate</span>
@@ -153,6 +160,10 @@
         <h1>Experience</h1>
         <table>
             <td>
+                <h5>Axiata Digital Labs</h5>
+                Software Engineering Intern · Feb 2023-Present
+            </td>
+            <td>
                 <h5>CENSOC - Computer Engineering Society of FOE USJ</h5>
                 Committee Member · Nov 2022-Present
                 Member · Apr 2022-Nov 2022
@@ -170,70 +181,82 @@
 
     <section class="projects" id="projects">
         <h1>Projects</h1>
-        <table>
-            <td>
+        <ul class="project-cards" id="project-cards">
+            <li class="project-card card">
+                <img src="https://github.com/DinukaGayashan/CryptoPal/raw/master/assets/CryptoPal-logo-with-name.png?raw=true">
                 <h4>CryptoPal</h4>
-                <span>Computer Engineering Project</span>
+                <span>Computer Engineering Project</span><br>
                 <span>Mar 2022-Oct 2022</span>
                 <p>
                     Advisory software system for cryptocurrency investments aims to provide users with the knowledge,
                     understanding and experience by acknowledging users with market data and related news, providing
                     forecast prices, and allowing users to add price predictions and view the prediction
-                    statistics.<br>
+                    statistics.
+                </p>
+                <p>
                     Flutter | Dart | Firebase (Firestore, Authentication, Cloud Functions, Hosting) |
                     NodeJS | Python | TensorFlow | Keras | Heroku | Git | GitHub
                 </p>
-            </td>
-            <td>
+            </li>
+            <li class="project-card card">
+                <img src="https://github.com/DinukaGayashan/ezDelivery/raw/master/Mobile%20Application/ezdelivery/assets/images/ezdelivery.png?raw=true">
                 <h4>ezDelivery</h4>
-                <span>Cloud Computing Mini Project</span>
+                <span>Cloud Computing Mini Project</span><br>
                 <span>Mar 2022-Aug 2022</span>
                 <p>
                     Software solution to overcome issues with the traditional package
                     delivery systems with functionalities such as package delivery
-                    tracking, location sharing, and managing available times.<br>
+                    tracking, location sharing, and managing available times.</p>
+                    <p>
                     Flutter | Dart | Firebase (Firestore, Authentication, Cloud Functions) | NodeJS | Git | GitHub
                 </p>
-            </td>
-            <td>
+            </li>
+            <li class="project-card card">
+                <img src="https://github.com/ChathurindaRanasinghe/Mereter/raw/master/Logo.png?raw=true">
                 <h4>Mereter</h4>
-                <span>Software Engineering Group Project</span>
+                <span>Software Engineering Group Project</span><br>
                 <span>Aug 2021-Dec 2021</span>
                 <p>
                     Software solution that enables softcopy-based reporting system and
                     more additional features related to procedures of a Sri Lankan
                     government hospital. The system includes a web application, mobile
                     application, and a backend.<br>
-                    Contribued on Backend development.<br>
+                    Contribued on Backend development.</p>
+                    <p>
                     Firebase (Firestore, Authentication, Cloud Functions, Storage, Hosting) |
                     NodeJS | Flutter | Dart | HTML | CSS | JavasScript | BootStrap | Git | GitHub
                 </p>
-            </td>
-            <td>
+            </li>
+            <li class="project-card card">
+                <img src="./images/logo.png">
                 <h4>Supermarket Inventory Management System</h4>
-                <span>Object Oriented Programming Group Project</span>
+                <span>Object Oriented Programming Group Project</span><br>
                 <span>Apr 2021-Jul 2021</span>
                 <p>
                     Console based inventory management system to manage and store
-                    product data in a supermarket.<br>
+                    product data in a supermarket.</p>
+                    <p>
                     C++ | Git | GitHub
                 </p>
-            </td>
-            <td>
+            </li>
+            <li class="project-card card">
+                <img src="./images/logo.png">
                 <h4>Sky Attack Game</h4>
-                <span>Programming for Engineers Group Project</span>
+                <span>Programming for Engineers Group Project</span><br>
                 <span>Aug 2020-Nov 2020</span>
                 <p>
                     Console based shooting game developed as the 2nd semester programming project using basic C++
-                    programming.<br>
+                    programming.</p>
+                    <p>
                     C++ | Git | GitHub
                 </p>
-            </td>
-        </table>
+            </li>
+        </ul>
     </section>
 
     <section class="achievements" id="achievements">
         <h1>Achievements</h1>
+
         <table>
             <td>
                 <span>IEEEXtreme 16.0 - Island 54th (Global 756th) place</span>
@@ -242,7 +265,7 @@
             </td>
             <td>
                 <span>MoraXtreme 7.0 - 7th place</span>
-                <br><span>IEEE computer society University of Moratuwa · Oct 2022</span>
+                <br><span>IEEE Computer Society University of Moratuwa · Oct 2022</span>
                 <br>Team '0_o'
             </td>
             <td>
@@ -336,8 +359,32 @@
         <button onclick="location.href='mailto:dinukagayashankasthuriarachchi@gmail.com';">
             Write me an email
         </button>
-        <ul>
-            Social List
+        <ul class="social-list">
+            <li class="social-list-item">
+                <a class="social-list__link" href="https://www.facebook.com/DinukaGayashan.di" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a class="social-list__link" href="https://www.linkedin.com/in/dinukagayashan" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a class="social-list__link" href="https://twitter.com/Dinuka_Gayashan" target="_blank">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a class="social-list__link" href="https://www.instagram.com/dinukagayashan.di" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a class="social-list__link" href="https://github.com/DinukaGayashan" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </li>
         </ul>
     </section>
 
@@ -345,6 +392,9 @@
         <p>Dinuka Gayashan</p>
         <p>© 2023 All rights reserved.</p>
     </footer>
+
+    <script src="js/script.js"></script>
+    <script src="https://kit.fontawesome.com/eaf42d5d06.js" crossorigin="anonymous"></script>
 
 </body>
 
