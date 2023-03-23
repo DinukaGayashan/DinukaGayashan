@@ -3,7 +3,7 @@
 
 
 function togglePopup() {
-    document.querySelector('.full-screen-popup').classList.toggle('hidden');
+    document.querySelector(".full-screen-popup").classList.toggle("hidden");
 }
 
 

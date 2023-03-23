@@ -25,7 +25,7 @@
                 <a href="#about">About</a>
                 <a href="#skills">Skills</a>
                 <a href="#blogs">Blogs</a>
-                <a href="#experience">Experience</a>
+                <a href="#experiences">Experiences</a>
                 <a href="#projects">Projects</a>
                 <a href="#achievements">Achievements</a>
                 <a href="#certifications">Certifications</a>
@@ -45,83 +45,98 @@
         <span class="motto">Do what you love - Love what you do.</span>
     </section>
 
+    <div class="section-breaker"></div>
+
     <section class="about" id="about">
         <h1>About</h1>
-        <div>
-            <img class="professional-picture" src="./images/professional-picture.jpg">
-            I am a passionate Computer Engineering Undergraduate enthusiastic about technology and willing to
-            explore new things in the field of computer engineering. I have interests in areas such as software
-            engineering, data science and cloud computing.<br>
-            <hr>Name: Dinuka Gayashan<br>
-            <hr>Age: 23 years<br>
-            <hr>Studies: Faculty of Engineering, University of Sri Jayewardenepura<br>
-            <hr>From: Gampaha, Sri Lanka<br>
-            <button>Curriculum Vitae</button>
-        </div>
-        <div class="timeline">
-            <h2>Timeline</h2>
-
-            <button onclick="togglePopup()">View All</button>
-            <div class="full-screen-popup hidden">
-                <button onclick="togglePopup()">Close</button>
+        <div class="about-horizontal">
+            <div class="about-image-column">
+                <img src="./images/professional-picture.jpg">
             </div>
-
-            <ul>
-                <li>
-                    <span>Undergraduate</span>
-                    <span>Dec 2019-Present</span>
-                    Studies at the Faculty of Engineering, University of Sri Jayewardenepura and pursuing Honours Degree
-                    of Bachelor of Science in Engineering (BscEngHons) with a Computer Engineering major and a Data
-                    Management minor.
-
-                    Activities and societies: IEEE, IESL, Computer Engineering Society
-                </li>
-                <li>
-                    <span>Secondary Student</span>
-                    <span>Jan 2010-Sep 2018</span>
-                    Got secondary education at Bandaranayake College Gampaha. Got passed the G.C.E.(O/L) examination in
-                    2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra curricular activities.
-
-                    G.C.E. Advanced Level (Sri Lanka) · Aug 2018
-                    Score: 2As & 1B
-                    Index Number - 1345443
-
-                    Physical Science Stream
-                    District Rank - 118
-                    Island Rank - 1334
-                    Z-score - 1.7299
-
-                    Physics - B
-                    Chemistry - A
-                    Combined Mathematics - A
-                    General English - A
-                    Common General Test - 85
-
-                    G.C.E. Ordinary Level (Sri Lanka) · Dec 2015
-                    Score: 9As
-                    Index Number - 50545590
-
-                    Buddhism - A
-                    Sinhala Language & Literature - A
-                    English - A
-                    Science - A
-                    Mathematics - A
-                    History - A
-                    Oriental Music - A
-                    Business & Accounting Studies - A
-                    Information & Communication Technology - A
-
-                    Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
-                </li>
-                <li>
-                    <span>Primary Student</span>
-                    <span>Jan 2005-Dec 2009</span>
-                    Entered Gothami Junior School, Gampaha for primary education and got passed the grade
-                    5 scholarship.
-                </li>
-            </ul>
+            <div class="about-text-column">
+                <p class="about-text">
+                    <span class="heading">I'm Dinuka Gayashan, a Computer Engineering Undergraduate.</span><br>
+                    I am a passionate Computer Engineering Undergraduate enthusiastic about technology and willing to
+                    explore new things in the field of computer engineering. I have interests in areas such as software
+                    engineering, data science and cloud computing.
+                </p>
+                <div class="about-details-list">
+                    <span>Name</span><br> Dinuka Gayashan<br>
+                    <span>Age</span><br> 23 years<br>
+                    <span>Study</span><br> Faculty of Engineering, University of Sri Jayewardenepura<br>
+                    <span>From</span><br> Gampaha, Sri Lanka<br>
+                </div>
+                <div>
+                    <button>Curriculum Vitae</button>
+                    <button onclick="togglePopup()">Timeline</button>
+                    <div class="full-screen-popup hidden">
+                        <div class="timeline">
+                            <button onclick="togglePopup()">Close</button>
+                            <h2>Timeline</h2>
+                            <ul>
+                                <li>
+                                    <span>Undergraduate</span>
+                                    <span>Dec 2019-Present</span>
+                                    Studies at the Faculty of Engineering, University of Sri Jayewardenepura and pursuing Honours
+                                    Degree
+                                    of Bachelor of Science in Engineering (BscEngHons) with a Computer Engineering major and a Data
+                                    Management minor.
+            
+                                    Activities and societies: IEEE, IESL, Computer Engineering Society
+                                </li>
+                                <li>
+                                    <span>Secondary Student</span>
+                                    <span>Jan 2010-Sep 2018</span>
+                                    Got secondary education at Bandaranayake College Gampaha. Got passed the G.C.E.(O/L) examination
+                                    in
+                                    2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra curricular activities.
+            
+                                    G.C.E. Advanced Level (Sri Lanka) · Aug 2018
+                                    Score: 2As & 1B
+                                    Index Number - 1345443
+            
+                                    Physical Science Stream
+                                    District Rank - 118
+                                    Island Rank - 1334
+                                    Z-score - 1.7299
+            
+                                    Physics - B
+                                    Chemistry - A
+                                    Combined Mathematics - A
+                                    General English - A
+                                    Common General Test - 85
+            
+                                    G.C.E. Ordinary Level (Sri Lanka) · Dec 2015
+                                    Score: 9As
+                                    Index Number - 50545590
+            
+                                    Buddhism - A
+                                    Sinhala Language & Literature - A
+                                    English - A
+                                    Science - A
+                                    Mathematics - A
+                                    History - A
+                                    Oriental Music - A
+                                    Business & Accounting Studies - A
+                                    Information & Communication Technology - A
+            
+                                    Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
+                                </li>
+                                <li>
+                                    <span>Primary Student</span>
+                                    <span>Jan 2005-Dec 2009</span>
+                                    Entered Gothami Junior School, Gampaha for primary education and got passed the grade
+                                    5 scholarship.
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
+
+    <div class="section-breaker"></div>
 
     <section class="skills" id="skills">
         <h1>Skills</h1>
@@ -152,21 +167,27 @@
         </p>
     </section>
 
+    <div class="section-breaker"></div>
+
     <section class="blogs" id="blogs">
         <h1>Blogs</h1>
     </section>
 
-    <section class="experience" id="experience">
-        <h1>Experience</h1>
+    <div class="section-breaker"></div>
+
+    <section class="experiences" id="experiences">
+        <h1>Experiences</h1>
         <ul class="experience-cards" id="experience-cards">
             <li class="experience-card card">
-                <img src="https://media.licdn.com/dms/image/C560BAQE9-4bSDMJ8mg/company-logo_200_200/0/1631153820838?e=1687392000&v=beta&t=7Ak4qmzWNyXX7A36FUiCI7ctmhEtDaOXdAJC8dLY6EI">
+                <img
+                    src="https://media.licdn.com/dms/image/C560BAQE9-4bSDMJ8mg/company-logo_200_200/0/1631153820838?e=1687392000&v=beta&t=7Ak4qmzWNyXX7A36FUiCI7ctmhEtDaOXdAJC8dLY6EI">
                 <h5>Axiata Digital Labs</h5>
                 Software Engineering Intern
                 <br>Feb 2023-Present
             </li>
             <li class="experience-card card">
-                <img src="https://media.licdn.com/dms/image/C560BAQFBT_Kinltf7Q/company-logo_200_200/0/1651473122801?e=1687392000&v=beta&t=UTG7mveZ-w5EK3gh_7PPSAO1asugW-5hlfb7yp6mtWU">
+                <img
+                    src="https://media.licdn.com/dms/image/C560BAQFBT_Kinltf7Q/company-logo_200_200/0/1651473122801?e=1687392000&v=beta&t=UTG7mveZ-w5EK3gh_7PPSAO1asugW-5hlfb7yp6mtWU">
                 <h5>CENSOC - Computer Engineering Society of FOE USJ</h5>
                 Committee Member
                 <br>Nov 2022-Present<br><br>
@@ -174,13 +195,15 @@
                 <br>Apr 2022-Nov 2022
             </li>
             <li class="experience-card card">
-                <img src="https://media.licdn.com/dms/image/D560BAQEGJQGU0fkM6w/company-logo_200_200/0/1665911325335?e=1687392000&v=beta&t=ZFwE4Qth60jb6asNzIvckCbtDbsDcuKYIb1-TtRW9Rg">
+                <img
+                    src="https://media.licdn.com/dms/image/D560BAQEGJQGU0fkM6w/company-logo_200_200/0/1665911325335?e=1687392000&v=beta&t=ZFwE4Qth60jb6asNzIvckCbtDbsDcuKYIb1-TtRW9Rg">
                 <h5>Code Squad V3.0</h5>
                 Treasurer | Problem Setter
                 <br>Aug 2022-Dec 2022
             </li>
             <li class="experience-card card">
-                <img src="https://media.licdn.com/dms/image/C560BAQGvcpReaIn60A/company-logo_200_200/0/1676448691486?e=1687392000&v=beta&t=B1Gru5OFU8l0YW1MPu3dJGT0q139HMPKp0aOq__S9JQ">
+                <img
+                    src="https://media.licdn.com/dms/image/C560BAQGvcpReaIn60A/company-logo_200_200/0/1676448691486?e=1687392000&v=beta&t=B1Gru5OFU8l0YW1MPu3dJGT0q139HMPKp0aOq__S9JQ">
                 <h5>People's Bank</h5>
                 Temporary Office Assistant
                 <br>Jan 2019-Sep 2019
@@ -188,11 +211,14 @@
         </ul>
     </section>
 
+    <div class="section-breaker"></div>
+
     <section class="projects" id="projects">
         <h1>Projects</h1>
         <ul class="project-cards" id="project-cards">
             <li class="project-card card">
-                <img src="https://github.com/DinukaGayashan/CryptoPal/raw/master/assets/CryptoPal-logo-with-name.png?raw=true">
+                <img
+                    src="https://github.com/DinukaGayashan/CryptoPal/raw/master/assets/CryptoPal-logo-with-name.png?raw=true">
                 <h4>CryptoPal</h4>
                 <span>Computer Engineering Project</span><br>
                 <span>Mar 2022-Oct 2022</span>
@@ -208,7 +234,8 @@
                 </p>
             </li>
             <li class="project-card card">
-                <img src="https://github.com/DinukaGayashan/ezDelivery/raw/master/Mobile%20Application/ezdelivery/assets/images/ezdelivery.png?raw=true">
+                <img
+                    src="https://github.com/DinukaGayashan/ezDelivery/raw/master/Mobile%20Application/ezdelivery/assets/images/ezdelivery.png?raw=true">
                 <h4>ezDelivery</h4>
                 <span>Cloud Computing Mini Project</span><br>
                 <span>Mar 2022-Aug 2022</span>
@@ -216,7 +243,7 @@
                     Software solution to overcome issues with the traditional package
                     delivery systems with functionalities such as package delivery
                     tracking, location sharing, and managing available times.</p>
-                    <p>
+                <p>
                     Flutter | Dart | Firebase (Firestore, Authentication, Cloud Functions) | NodeJS | Git | GitHub
                 </p>
             </li>
@@ -231,7 +258,7 @@
                     government hospital. The system includes a web application, mobile
                     application, and a backend.<br>
                     Contribued on Backend development.</p>
-                    <p>
+                <p>
                     Firebase (Firestore, Authentication, Cloud Functions, Storage, Hosting) |
                     NodeJS | Flutter | Dart | HTML | CSS | JavasScript | BootStrap | Git | GitHub
                 </p>
@@ -244,7 +271,7 @@
                 <p>
                     Console based inventory management system to manage and store
                     product data in a supermarket.</p>
-                    <p>
+                <p>
                     C++ | Git | GitHub
                 </p>
             </li>
@@ -256,12 +283,14 @@
                 <p>
                     Console based shooting game developed as the 2nd semester programming project using basic C++
                     programming.</p>
-                    <p>
+                <p>
                     C++ | Git | GitHub
                 </p>
             </li>
         </ul>
     </section>
+
+    <div class="section-breaker"></div>
 
     <section class="achievements" id="achievements">
         <h1>Achievements</h1>
@@ -308,6 +337,8 @@
             </li>
         </ul>
     </section>
+
+    <div class="section-breaker"></div>
 
     <section class="certifications" id="certifications">
         <h1>Certifications</h1>
@@ -359,9 +390,13 @@
         </ul>
     </section>
 
+    <div class="section-breaker"></div>
+
     <section class="gallery" id="gallery">
         <h1>Gallery</h1>
     </section>
+
+    <div class="section-breaker"></div>
 
     <section class="contact" id="contact">
         <button onclick="location.href='mailto:dinukagayashankasthuriarachchi@gmail.com';">
