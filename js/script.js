@@ -3,7 +3,7 @@
 
 
 function togglePopup() {
-    document.querySelector(".full-screen-popup").classList.toggle("hidden");
+    document.querySelector(".timeline-full-screen").classList.toggle("hidden");
 }
 
 
@@ -12,7 +12,7 @@ let isDragging = false;
 let startX, scrollLeft, container;
 
 document.addEventListener("mousedown", (e) => {
-    container = e.target.closest("#experience-cards,#project-cards, #achievement-cards,#certification-cards");
+    container = e.target.closest("#experience-cards, #project-cards, #achievement-cards, #certification-cards");
     if (container) {
         isDragging = true;
         startX = e.pageX - container.offsetLeft;
