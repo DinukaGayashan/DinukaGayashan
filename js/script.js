@@ -1,7 +1,6 @@
 
 
 
-
 function togglePopup() {
     document.querySelector(".timeline-full-screen").classList.toggle("hidden");
 }
