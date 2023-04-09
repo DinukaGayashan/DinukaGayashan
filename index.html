@@ -15,13 +15,15 @@
 
     <div class="animated-loading">
         <div class="text-top">
-          <div>Do what you love</div>
+            <div>Do what you love</div>
         </div>
         <div class="text-bottom">
-          <div>Love what you do</div>
+            <div>Love what you do</div>
         </div>
-      </div>
+    </div>
 
+    <div id="blob">
+    </div>
 
     <header class="header">
         <nav>
@@ -46,9 +48,7 @@
     <section class="home" id="home">
         <span class="hello">Hello World!, I'm</span><br>
         <span class="name"><strong>Dinuka Gayashan</strong></span><br>
-        <span class="titles">A Human · Tech Enthusiast · Computer Engineering Undergraduate · Programmer · Software
-            Developer · Hobbyist Photographer · Freelancer
-        </span><br>
+        <span class="titles"></span><br>
     </section>
 
     <section class="about" id="about">
@@ -75,45 +75,51 @@
                     <button class="outline-button" onclick="togglePopup()">Timeline</button>
                     <div class="timeline-full-screen hidden">
                         <div class="timeline">
-                            <button onclick="togglePopup()">Close</button>
+                            <button class="outline-button" onclick="togglePopup()">Close</button>
+
+
                             <h2>Timeline</h2>
-                            <ul>
-                                <li>
+                            <ul class="timeline-content">
+                                <li class="timeline-content-item">
                                     <span>Undergraduate</span>
                                     <span>Dec 2019-Present</span>
-                                    Studies at the Faculty of Engineering, University of Sri Jayewardenepura and pursuing Honours
+                                    Studies at the Faculty of Engineering, University of Sri Jayewardenepura and
+                                    pursuing Honours
                                     Degree
-                                    of Bachelor of Science in Engineering (BscEngHons) with a Computer Engineering major and a Data
+                                    of Bachelor of Science in Engineering (BscEngHons) with a Computer Engineering
+                                    major and a Data
                                     Management minor.
-            
+
                                     Activities and societies: IEEE, IESL, Computer Engineering Society
                                 </li>
-                                <li>
+                                <li class="timeline-content-item">
                                     <span>Secondary Student</span>
                                     <span>Jan 2010-Sep 2018</span>
-                                    Got secondary education at Bandaranayake College Gampaha. Got passed the G.C.E.(O/L) examination
+                                    Got secondary education at Bandaranayake College Gampaha. Got passed the
+                                    G.C.E.(O/L) examination
                                     in
-                                    2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra curricular activities.
-            
+                                    2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra
+                                    curricular activities.
+
                                     G.C.E. Advanced Level (Sri Lanka) · Aug 2018
                                     Score: 2As & 1B
                                     Index Number - 1345443
-            
+
                                     Physical Science Stream
                                     District Rank - 118
                                     Island Rank - 1334
                                     Z-score - 1.7299
-            
+
                                     Physics - B
                                     Chemistry - A
                                     Combined Mathematics - A
                                     General English - A
                                     Common General Test - 85
-            
+
                                     G.C.E. Ordinary Level (Sri Lanka) · Dec 2015
                                     Score: 9As
                                     Index Number - 50545590
-            
+
                                     Buddhism - A
                                     Sinhala Language & Literature - A
                                     English - A
@@ -123,22 +129,38 @@
                                     Oriental Music - A
                                     Business & Accounting Studies - A
                                     Information & Communication Technology - A
-            
+
                                     Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
                                 </li>
-                                <li>
+                                <li class="timeline-content-item">
                                     <span>Primary Student</span>
                                     <span>Jan 2005-Dec 2009</span>
-                                    Entered Gothami Junior School, Gampaha for primary education and got passed the grade
+                                    Entered Gothami Junior School, Gampaha for primary education and got passed the
+                                    grade
+                                    5 scholarship.
+                                </li>
+                                <li class="timeline-content-item">
+                                    <span>Primary Student</span>
+                                    <span>Jan 2005-Dec 2009</span>
+                                    Entered Gothami Junior School, Gampaha for primary education and got passed the
+                                    grade
+                                    5 scholarship.
+                                </li>
+                                <li class="timeline-content-item">
+                                    <span>Primary Student</span>
+                                    <span>Jan 2005-Dec 2009</span>
+                                    Entered Gothami Junior School, Gampaha for primary education and got passed the
+                                    grade
                                     5 scholarship.
                                 </li>
                             </ul>
+
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </section>    
+    </section>
 
     <section class="skills" id="skills">
         <h1>Skills</h1>
@@ -330,7 +352,7 @@
                 <br><span>Provincial Department of Education, Western Province · Dec 2014</span>
             </li>
         </ul>
-    </section>    
+    </section>
 
     <section class="certifications" id="certifications">
         <h1>Certifications</h1>
@@ -385,7 +407,7 @@
     <section class="gallery" id="gallery">
         <h1>Gallery</h1>
     </section>
-   
+
     <section class="contact" id="contact">
         <button class="outline-button" onclick="location.href='mailto:dinukagayashankasthuriarachchi@gmail.com';">
             Write me an email
@@ -421,7 +443,7 @@
 
     <footer class="footer">
         <p>Dinuka Gayashan</p>
-        <p>© 2023 All rights reserved.</p>
+        <p class="copyright">© 2023 All rights reserved.</p>
     </footer>
 
     <script src="js/script.js"></script>
