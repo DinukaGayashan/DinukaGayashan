@@ -87,7 +87,7 @@ let isDragging = false;
 let startX, scrollLeft, container;
 
 document.addEventListener("mousedown", (e) => {
-    container = e.target.closest("#experience-cards, #project-cards, #achievement-cards, #certification-cards");
+    container = e.target.closest("#experience-cards, #project-cards, #achievement-cards, #certification-cards, #timeline-content");
     if (container) {
         isDragging = true;
         startX = e.pageX - container.offsetLeft;
@@ -127,9 +127,18 @@ window.onpointermove = event => {
       left: `${pageX}px`,
       top: `${pageY}px`
     },
-    { duration: 2000, fill: "forwards" }
+    { duration: 3000, fill: "forwards" }
   );
 };
 
 
 
+
+function leftScroll() {
+    const left = document.querySelector("#timeline-content");
+    left.scrollBy(-10, 0);
+  }
+  function rightScroll() {
+    const right = document.querySelector("#timeline-content");
+    right.scrollBy(10, 0);
+  }

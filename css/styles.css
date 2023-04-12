@@ -19,13 +19,13 @@
 } */
 
 :root {
-    --clr-background: rgba(26, 26, 27, 0.9);
-    --clr-background-two: rgba(15, 19, 19, 0.9);
+    --clr-background: rgba(6, 6, 7, 0.5);
+    --clr-background-two: rgba(15, 19, 19, 0.5);
     --clr-theme: rgba(55, 170, 156, 0.9);
     --clr-theme-two: rgba(148, 243, 228, 0.9);
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
-    --clr-card-color: rgba(15, 15, 15, 0.8);
+    --clr-card-color: rgba(15, 15, 15, 0.7);
 }
 
 
@@ -44,20 +44,22 @@ html {
   } */
 
 body {
-    background-color: var(--clr-background);
+    background-color: var(--clr-dark);
     margin: auto;
     text-align: center;
     font-family: 'Noto Sans', sans-serif;
     color: var(--clr-light);
 
-    background-image: url(../images/background-picture.png);
+    /* filter: blur(10px); */
+
+    /* background-image: url(../images/background-picture.png);
     background-size: contain;
     background-repeat: no-repeat;
     width: 100%;
     height: 100vh;
     background-position: right;
     background-blend-mode: multiply;
-    background-attachment: fixed;
+    background-attachment: fixed; */
 }
 
 a {
@@ -77,11 +79,11 @@ h1 {
 .header {
     background: linear-gradient(to bottom,
             rgba(0, 0, 0, 1),
-            rgba(0, 0, 0, 0.98),
             rgba(0, 0, 0, 0.95),
             rgba(0, 0, 0, 0.9),
             rgba(0, 0, 0, 0.8),
-            rgba(0, 0, 0, 0.6),
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0));
     padding: 20px 1% 20px 10%;
     position: fixed;
@@ -152,6 +154,7 @@ h1 {
 .about {
     padding-bottom: 2em;
     background-color: var(--clr-background-two);
+    /* backdrop-filter:blur(100px); */
 }
 
 .about-horizontal {
@@ -253,21 +256,31 @@ h1 {
 }
 
 
+
+
+
+
+
+
+
+
+
 .hidden {
     display: none;
 }
 
 .timeline-full-screen {
+    text-align: center;
     position: fixed;
     height: 100vh;
-    /* vertical-align: middle; */
     padding-top: 15vh;
     top: 0;
     right: 0;
     bottom: 0;
     left: 0;
     background: var(--clr-card-color);
-    backdrop-filter: blur(15px);
+    backdrop-filter: blur(20px);
+    z-index: 50;
 }
 
 .timeline {
@@ -277,32 +290,76 @@ h1 {
     bottom: 0em;
     left: 3%;
     clear: both;
-    background-color: black;
 }
 
 .timeline-content {
     display: grid;
-    text-align: center;
-    vertical-align: middle;
     grid-auto-flow: column;
-    grid-auto-columns: 25%;
-    overflow-x: auto;
+    grid-auto-columns: 100%;
+    overflow-x: scroll;
     overscroll-behavior-inline: contain;
     padding: 0;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    list-style: none;
+    height: 60vh;
+    align-items: center;
 }
 
 .timeline-content-item {
-    /* margin: 1em; */
-    padding: 2.5em;
+    padding-top: 5%;
+    padding-right: 25%;
+    padding-bottom: 5%;
+    padding-left: 25%;
     /* border-radius: 1em; */
-    background: var(--clr-card-color);
-    min-width: 100px;
-    max-height: 50vh;
+    /* background: black; */
+    /* min-width: 100px; */
+    /* max-height: 50vh; */
+    /* height: 40vh; */
+    /* text-align: center; */
+    /* vertical-align: middle;   */
     /* backdrop-filter: blur(10px); */
     /* transition: 0.5s; */
-    overflow-y: auto;
+    /* overflow-x: auto; */
+    scroll-snap-align: start;
 }
 
+.timeline-content-item-title {
+    font-size: 3em;
+}
+
+.close-button {
+    text-align: right;
+    margin-right: 2em;
+}
+
+.left-button {
+    position: absolute;
+    left: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 15px;
+    background-color: transparent;
+    border: none;
+    color: var(--clr-light);
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.right-button {
+    position: absolute;
+    right: 1em;
+    top: 50%;
+    transform: translateY(-50%);
+
+    padding: 15px;
+    background-color: transparent;
+    border: none;
+    color: var(--clr-light);
+    font-size: 20px;
+    cursor: pointer;
+}
 
 
 .card {
@@ -322,7 +379,7 @@ h1 {
 }
 
 .card:hover {
-    transform: scale(1.003);
+    transform: scale(1.01);
     transition: 200ms transform ease-in-out;
 }
 
@@ -496,12 +553,31 @@ h1 {
 
 #blob {
     background-color: var(--clr-light);
-    width: 10%;
+    width: 30%;
     aspect-ratio: 1;
     position: absolute;
     z-index: -100;
     left: 50%;
-    transform: translateX(-50%);
     top: 50%;
-    transform: translate(-50%, -50%);
+    translate: -50% -50%;
+    border-radius: 35% 65% 70% 30% / 38% 46% 54% 62%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: blob-rotate 20s infinite;
+    opacity: 0.8;
+    filter: blur(100px);
+}
+
+@keyframes blob-rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    /* 50% { */
+    /* scale: 1 1.25;
+        border-radius: 46% 54% 41% 59% / 54% 40% 60% 46%;
+    } */
+
+    to {
+        rotate: 360deg;
+    }
 }

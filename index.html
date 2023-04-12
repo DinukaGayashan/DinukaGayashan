@@ -22,8 +22,7 @@
         </div>
     </div>
 
-    <div id="blob">
-    </div>
+    <div id="blob"></div>
 
     <header class="header">
         <nav>
@@ -75,14 +74,17 @@
                     <button class="outline-button" onclick="togglePopup()">Timeline</button>
                     <div class="timeline-full-screen hidden">
                         <div class="timeline">
-                            <button class="outline-button" onclick="togglePopup()">Close</button>
+                            <div class="close-button">
+                                <button class="outline-button" onclick="togglePopup()">Close</button>
+                            </div>
 
-
-                            <h2>Timeline</h2>
-                            <ul class="timeline-content">
+                            <!-- <h2>Timeline</h2> -->
+                            <button class="left-button" onclick="leftScroll()">&lt</button>
+                            <ul class="timeline-content" id="timeline-content">
                                 <li class="timeline-content-item">
-                                    <span>Undergraduate</span>
-                                    <span>Dec 2019-Present</span>
+                                    <span class="timeline-content-item-title">Undergraduate</span><br>
+                                    <span class="timeline-content-item-time">Dec 2019-Present</span>
+                                    <hr>
                                     Studies at the Faculty of Engineering, University of Sri Jayewardenepura and
                                     pursuing Honours
                                     Degree
@@ -90,11 +92,14 @@
                                     major and a Data
                                     Management minor.
 
+                                    Internship: Axiata Digital Labs
+
                                     Activities and societies: IEEE, IESL, Computer Engineering Society
                                 </li>
                                 <li class="timeline-content-item">
-                                    <span>Secondary Student</span>
-                                    <span>Jan 2010-Sep 2018</span>
+                                    <span class="timeline-content-item-title">Secondary Student</span><br>
+                                    <span class="timeline-content-item-time">Jan 2010-Sep 2018</span>
+                                    <hr>
                                     Got secondary education at Bandaranayake College Gampaha. Got passed the
                                     G.C.E.(O/L) examination
                                     in
@@ -133,28 +138,17 @@
                                     Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
                                 </li>
                                 <li class="timeline-content-item">
-                                    <span>Primary Student</span>
-                                    <span>Jan 2005-Dec 2009</span>
+                                    <span class="timeline-content-item-title">Primary Student</span><br>
+                                    <span class="timeline-content-item-time">Jan 2005-Dec 2009</span>
+                                    <hr>
                                     Entered Gothami Junior School, Gampaha for primary education and got passed the
-                                    grade
-                                    5 scholarship.
-                                </li>
-                                <li class="timeline-content-item">
-                                    <span>Primary Student</span>
-                                    <span>Jan 2005-Dec 2009</span>
-                                    Entered Gothami Junior School, Gampaha for primary education and got passed the
-                                    grade
-                                    5 scholarship.
-                                </li>
-                                <li class="timeline-content-item">
-                                    <span>Primary Student</span>
-                                    <span>Jan 2005-Dec 2009</span>
-                                    Entered Gothami Junior School, Gampaha for primary education and got passed the
-                                    grade
-                                    5 scholarship.
+                                    grade 5 scholarship.
+
+                                    Grade 5 Scholarship (Sri Lanka) · Aug 2009
+                                    Score: 164
                                 </li>
                             </ul>
-
+                            <button class="right-button" onclick="rightScroll()">&gt</button>
                         </div>
                     </div>
                 </div>
