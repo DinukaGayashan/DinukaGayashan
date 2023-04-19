@@ -47,7 +47,7 @@
     <section class="home" id="home">
         <span class="hello">Hello World!, I'm</span><br>
         <span class="name"><strong>Dinuka Gayashan</strong></span><br>
-        <span class="titles"></span><br>
+        <span id="titles"></span><br>
     </section>
 
     <section class="about" id="about">
@@ -72,13 +72,12 @@
                 <div class="about-details-buttons">
                     <button class="filled-button">Curriculum Vitae</button>
                     <button class="outline-button" onclick="togglePopup()">Timeline</button>
-                    <div class="timeline-full-screen hidden">
+                    <div class="timeline-full-screen hidden" id="timeline-full-screen">
                         <div class="timeline">
                             <div class="close-button">
                                 <button class="outline-button" onclick="togglePopup()">Close</button>
                             </div>
 
-                            <!-- <h2>Timeline</h2> -->
                             <button class="left-button" onclick="leftScroll()">&lt</button>
                             <ul class="timeline-content" id="timeline-content">
                                 <li class="timeline-content-item">
@@ -158,28 +157,28 @@
 
     <section class="skills" id="skills">
         <h1>Skills</h1>
-        <table>
-            <td>Problem Solving</td>
-            <td>Software Engineering</td>
-            <td>Application Development</td>
-            <td>Cloud Computing</td>
-            <td>Artificial Intelligence</td>
-        </table>
-        <table>
-            <td>
+        <ul class="main-skills">
+            <li class="main-skill">Problem Solving</li>
+            <li class="main-skill">Software Engineering</li>
+            <li class="main-skill">Application Development</li>
+            <li class="main-skill">Cloud Computing</li>
+            <li class="main-skill">Artificial Intelligence</li>
+        </ul>
+        <ul class="skill-categories">
+            <li class="skill-category">
                 <h4>Programming Languages</h4>
-                C++, Python, Dart, Java, HTML, CSS, JavaScript,SQL
-            </td>
-            <td>
+                C++, Python, Dart, Java, HTML, CSS, JavaScript, SQL
+            </li>
+            <li class="skill-category">
                 <h4>Frameworks & Libraries</h4>
-                Flutter, Angular, Bootstrap, Keras, TensorFlow
-            </td>
-            <td>
+                Flutter, NodeJS, Angular, Bootstrap, Keras, TensorFlow
+            </li>
+            <li class="skill-category">
                 <h4>Tools & Technologies</h4>
-                Git, GitHub, Docker, NodeJS, Firebase, Google Cloud Platform, MongoDB, Heroku, Arduino
-            </td>
-        </table>
-        <p>
+                Git, GitHub, Docker, Firebase, Google Cloud Platform, MongoDB, Heroku, Arduino
+            </li>
+        </ul>
+        <p class="soft-skills">
         <h3>Soft Skills</h3>
         Communication, Adaptability, Self-Learning, Collaboration, Teamwork
         </p>
@@ -187,6 +186,7 @@
 
     <section class="blogs" id="blogs">
         <h1>Blogs</h1>
+        <p>Nothing here</p>
     </section>
 
     <section class="experiences" id="experiences">

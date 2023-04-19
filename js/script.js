@@ -1,11 +1,11 @@
 class TextScramble {
-    constructor(el) {
-        this.el = el
+    constructor(element) {
+        this.element = element
         this.chars = '!<>-_\\/[]{}—=+*^?#________'
         this.update = this.update.bind(this)
     }
     setText(newText) {
-        const oldText = this.el.innerText
+        const oldText = this.element.innerText
         const length = Math.max(oldText.length, newText.length)
         const promise = new Promise((resolve) => this.resolve = resolve)
         this.queue = []
@@ -39,7 +39,7 @@ class TextScramble {
                 output += from
             }
         }
-        this.el.innerHTML = output
+        this.element.innerHTML = output
         if (complete === this.queue.length) {
             this.resolve()
         } else {
@@ -62,7 +62,7 @@ const phrases = [
     'Freelancer'
 ]
 
-const el = document.querySelector('.titles')
+const el = document.querySelector("#titles")
 const fx = new TextScramble(el)
 
 let counter = 0
@@ -78,7 +78,7 @@ next()
 
 
 function togglePopup() {
-    document.querySelector(".timeline-full-screen").classList.toggle("hidden");
+    document.querySelector("#timeline-full-screen").classList.toggle("hidden");
 }
 
 
@@ -117,18 +117,18 @@ document.addEventListener("mousemove", (e) => {
 
 
 
-const blob = document.getElementById("blob");
+const blob = document.querySelector("#blob");
 
 window.onpointermove = event => {
-  const { pageX, pageY } = event;
+    const { pageX, pageY } = event;
 
-  blob.animate(
-    {
-      left: `${pageX}px`,
-      top: `${pageY}px`
-    },
-    { duration: 3000, fill: "forwards" }
-  );
+    blob.animate(
+        {
+            left: `${pageX}px`,
+            top: `${pageY}px`
+        },
+        { duration: 3000, fill: "forwards" }
+    );
 };
 
 
@@ -137,8 +137,20 @@ window.onpointermove = event => {
 function leftScroll() {
     const left = document.querySelector("#timeline-content");
     left.scrollBy(-10, 0);
-  }
-  function rightScroll() {
+}
+
+function rightScroll() {
     const right = document.querySelector("#timeline-content");
     right.scrollBy(10, 0);
-  }
+}
+
+
+
+
+const nameBackground = document.querySelector(".name");
+
+nameBackground.addEventListener("mousemove", (e) => {
+    nameBackground.style.backgroundPositionX = -e.offsetX + "px";
+    nameBackground.style.backgroundPositionY = -e.offsetY + "px";
+});
+
