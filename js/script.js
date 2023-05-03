@@ -89,8 +89,8 @@ function toggleProgrammingLanguages() {
 
     let programmingLanguages = document.querySelectorAll(".programming-language");
     for (let i = 0; i < programmingLanguages.length; i++) {
-      programmingLanguages[i].classList.toggle("skills-selected");
-    }    
+        programmingLanguages[i].classList.toggle("skills-selected");
+    }
 }
 
 function toggleFrameworkLibraries() {
@@ -120,42 +120,42 @@ window.addEventListener("resize", setSkillPositions);
 function setSkillPositions() {
     let containerWidth = skillContainer.offsetWidth;
     let containerHeight = skillContainer.offsetHeight;
-    
+
     let positions = [];
-    
+
     for (let i = 0; i < skills.length; i++) {
-      let element = skills[i];
-      
-      let elementWidth = element.offsetWidth;
-      let elementHeight = element.offsetHeight;
-      
-      let maxX = containerWidth - elementWidth;
-      let maxY = containerHeight - elementHeight;
-      
-      let randomX = Math.floor(Math.random() * maxX);
-      let randomY = Math.floor(Math.random() * maxY);
-      
-      let overlapping = true;
-      while (overlapping) {
-        overlapping = false;
-        for (let j = 0; j < positions.length; j++) {
-          let position = positions[j];
-          if (randomX < position.x + position.width &&
-              randomX + elementWidth > position.x &&
-              randomY < position.y + position.height &&
-              randomY + elementHeight > position.y) {
-            overlapping = true;
-            randomX = Math.floor(Math.random() * maxX);
-            randomY = Math.floor(Math.random() * maxY);
-            break;
-          }
+        let element = skills[i];
+
+        let elementWidth = element.offsetWidth;
+        let elementHeight = element.offsetHeight;
+
+        let maxX = containerWidth - elementWidth;
+        let maxY = containerHeight - elementHeight;
+
+        let randomX = Math.floor(Math.random() * maxX);
+        let randomY = Math.floor(Math.random() * maxY);
+
+        let overlapping = true;
+        while (overlapping) {
+            overlapping = false;
+            for (let j = 0; j < positions.length; j++) {
+                let position = positions[j];
+                if (randomX < position.x + position.width &&
+                    randomX + elementWidth > position.x &&
+                    randomY < position.y + position.height &&
+                    randomY + elementHeight > position.y) {
+                    overlapping = true;
+                    randomX = Math.floor(Math.random() * maxX);
+                    randomY = Math.floor(Math.random() * maxY);
+                    break;
+                }
+            }
         }
-      }
-      
-      element.style.left = randomX + 'px';
-      element.style.top = randomY + 'px';
-      
-      positions.push({x: randomX, y: randomY, width: elementWidth, height: elementHeight});
+
+        element.style.left = randomX + 'px';
+        element.style.top = randomY + 'px';
+
+        positions.push({ x: randomX, y: randomY, width: elementWidth, height: elementHeight });
     }
 }
 // function setSkillPositions() {
