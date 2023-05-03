@@ -83,6 +83,110 @@ function togglePopup() {
 
 
 
+
+function toggleProgrammingLanguages() {
+    document.querySelector("#programming-languages-skill-button").classList.toggle("skill-selected");
+
+    let programmingLanguages = document.querySelectorAll(".programming-language");
+    for (let i = 0; i < programmingLanguages.length; i++) {
+      programmingLanguages[i].classList.toggle("skills-selected");
+    }    
+}
+
+function toggleFrameworkLibraries() {
+    document.querySelector("#frameworks-libraries-skill-button").classList.toggle("skill-selected");
+
+    let frameworksLibraries = document.querySelectorAll(".framework-library");
+    for (let i = 0; i < frameworksLibraries.length; i++) {
+        frameworksLibraries[i].classList.toggle("skills-selected");
+    }
+}
+
+function toggleToolsTechnologies() {
+    document.querySelector("#tools-technologies-skill-button").classList.toggle("skill-selected");
+
+    let toolsTechnologies = document.querySelectorAll(".tool-technology");
+    for (let i = 0; i < toolsTechnologies.length; i++) {
+        toolsTechnologies[i].classList.toggle("skills-selected");
+    }
+}
+
+
+let skills = document.querySelectorAll("#skill");
+let skillContainer = document.querySelector("#skill-pool");
+setSkillPositions();
+window.addEventListener("resize", setSkillPositions);
+
+function setSkillPositions() {
+    let containerWidth = skillContainer.offsetWidth;
+    let containerHeight = skillContainer.offsetHeight;
+    
+    let positions = [];
+    
+    for (let i = 0; i < skills.length; i++) {
+      let element = skills[i];
+      
+      let elementWidth = element.offsetWidth;
+      let elementHeight = element.offsetHeight;
+      
+      let maxX = containerWidth - elementWidth;
+      let maxY = containerHeight - elementHeight;
+      
+      let randomX = Math.floor(Math.random() * maxX);
+      let randomY = Math.floor(Math.random() * maxY);
+      
+      let overlapping = true;
+      while (overlapping) {
+        overlapping = false;
+        for (let j = 0; j < positions.length; j++) {
+          let position = positions[j];
+          if (randomX < position.x + position.width &&
+              randomX + elementWidth > position.x &&
+              randomY < position.y + position.height &&
+              randomY + elementHeight > position.y) {
+            overlapping = true;
+            randomX = Math.floor(Math.random() * maxX);
+            randomY = Math.floor(Math.random() * maxY);
+            break;
+          }
+        }
+      }
+      
+      element.style.left = randomX + 'px';
+      element.style.top = randomY + 'px';
+      
+      positions.push({x: randomX, y: randomY, width: elementWidth, height: elementHeight});
+    }
+}
+// function setSkillPositions() {
+//     let skillContainerWidth = skillContainer.offsetWidth;
+//     let skillContainerHeight = skillContainer.offsetHeight;
+
+//     for (let i = 0; i < skills.length; i++) {
+//         let element = skills[i];
+
+//         let elementWidth = element.offsetWidth;
+//         let elementHeight = element.offsetHeight;
+
+//         let maxX = skillContainerWidth - elementWidth;
+//         let maxY = skillContainerHeight - elementHeight;
+
+//         let randomX = Math.floor(Math.random() * maxX);
+//         let randomY = Math.floor(Math.random() * maxY);
+
+//         element.style.left = randomX + 'px';
+//         element.style.top = randomY + 'px';
+//     }
+// }
+
+
+
+
+
+
+
+
+
 let isDragging = false;
 let startX, scrollLeft, container;
 
@@ -121,6 +225,8 @@ const blob = document.querySelector("#blob");
 
 window.onpointermove = event => {
     const { pageX, pageY } = event;
+    // target.style.setProperty("--mouse-x",`${pageX}px`);
+    // target.style.setProperty("--mouse-y",`${pageY}px`);
 
     blob.animate(
         {
@@ -147,10 +253,10 @@ function rightScroll() {
 
 
 
-const nameBackground = document.querySelector(".name");
+// const nameBackground = document.querySelector(".name");
 
-nameBackground.addEventListener("mousemove", (e) => {
-    nameBackground.style.backgroundPositionX = -e.offsetX + "px";
-    nameBackground.style.backgroundPositionY = -e.offsetY + "px";
-});
+// nameBackground.addEventListener("mousemove", (e) => {
+//     nameBackground.style.backgroundPositionX = -e.offsetX + "px";
+//     nameBackground.style.backgroundPositionY = -e.offsetY + "px";
+// });
 

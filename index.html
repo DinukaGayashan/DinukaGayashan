@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="css/styles.css">
     <link rel="icon" href="images/favicon.png">
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-
+    <script defer src="js/script.js"></script>
+    <script defer src="https://kit.fontawesome.com/eaf42d5d06.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
@@ -157,27 +158,65 @@
 
     <section class="skills" id="skills">
         <h1>Skills</h1>
-        <ul class="main-skills">
-            <li class="main-skill">Problem Solving</li>
-            <li class="main-skill">Software Engineering</li>
-            <li class="main-skill">Application Development</li>
-            <li class="main-skill">Cloud Computing</li>
-            <li class="main-skill">Artificial Intelligence</li>
+        <ul class="main-skills">            
+            <li class="main-skill">
+                <i class="fa-regular fa-lightbulb"></i>
+                Problem Solving
+            </li>            
+            <li class="main-skill">
+                <i class="fa-brands fa-uncharted"></i>
+                Software Engineering
+            </li>            
+            <li class="main-skill">
+                <i class="fa-solid fa-code"></i>
+                Application Development
+            </li>            
+            <li class="main-skill">
+                <i class="fa-solid fa-cloud-arrow-up"></i>
+                Cloud Computing
+            </li>
+            <li class="main-skill">
+                <i class="fa-solid fa-magnifying-glass-chart"></i>
+                Artificial Intelligence
+            </li>
         </ul>
         <ul class="skill-categories">
             <li class="skill-category">
-                <h4>Programming Languages</h4>
-                C++, Python, Dart, Java, HTML, CSS, JavaScript, SQL
+                <button class="skill-toggle-button programming-languages" id="programming-languages-skill-button" onclick="toggleProgrammingLanguages()">Programming Languages</button>
             </li>
             <li class="skill-category">
-                <h4>Frameworks & Libraries</h4>
-                Flutter, NodeJS, Angular, Bootstrap, Keras, TensorFlow
+                <button class="skill-toggle-button frameworks-libraries" id="frameworks-libraries-skill-button" onclick="toggleFrameworkLibraries()">Frameworks & Libraries</button>
             </li>
             <li class="skill-category">
-                <h4>Tools & Technologies</h4>
-                Git, GitHub, Docker, Firebase, Google Cloud Platform, MongoDB, Heroku, Arduino
+                <button class="skill-toggle-button tools-technologies" id="tools-technologies-skill-button" onclick="toggleToolsTechnologies()">Tools & Technologies</button>
             </li>
         </ul>
+        <div class="skill-pool" id="skill-pool">
+            <div class="skill programming-language" id="skill">C++</div>
+            <div class="skill programming-language" id="skill">Python</div>
+            <div class="skill programming-language" id="skill">Dart</div>
+            <div class="skill programming-language" id="skill">Java</div>
+            <div class="skill programming-language" id="skill">HTML</div>
+            <div class="skill programming-language" id="skill">CSS</div>
+            <div class="skill programming-language" id="skill">JavaScript</div>
+            <div class="skill programming-language" id="skill">SQL</div>
+
+            <div class="skill framework-library" id="skill">Flutter</div>
+            <div class="skill framework-library" id="skill">NodeJS</div>
+            <div class="skill framework-library" id="skill">Angular</div>
+            <div class="skill framework-library" id="skill">Bootstrap</div>
+            <div class="skill framework-library" id="skill">Keras</div>
+            <div class="skill framework-library" id="skill">TensorFlow</div>
+
+            <div class="skill tool-technology" id="skill">Git</div>
+            <div class="skill tool-technology" id="skill">GitHub</div>
+            <div class="skill tool-technology" id="skill">Docker</div>
+            <div class="skill tool-technology" id="skill">Firebase</div>
+            <div class="skill tool-technology" id="skill">Google Cloud Platform</div>
+            <div class="skill tool-technology" id="skill">MongoDB</div>
+            <div class="skill tool-technology" id="skill">Heroku</div>
+            <div class="skill tool-technology" id="skill">Arduino</div>
+        </div>
         <p class="soft-skills">
         <h3>Soft Skills</h3>
         Communication, Adaptability, Self-Learning, Collaboration, Teamwork
@@ -439,9 +478,6 @@
         <p>Dinuka Gayashan</p>
         <p class="copyright">© 2023 All rights reserved.</p>
     </footer>
-
-    <script src="js/script.js"></script>
-    <script src="https://kit.fontawesome.com/eaf42d5d06.js" crossorigin="anonymous"></script>
 
 </body>
 
