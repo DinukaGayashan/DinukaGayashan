@@ -116,6 +116,7 @@ let skills = document.querySelectorAll("#skill");
 let skillContainer = document.querySelector("#skill-pool");
 setSkillPositions();
 window.addEventListener("resize", setSkillPositions);
+document.querySelector("#skill-pool").addEventListener("click", setSkillPositions);
 
 function setSkillPositions() {
     let containerWidth = skillContainer.offsetWidth;

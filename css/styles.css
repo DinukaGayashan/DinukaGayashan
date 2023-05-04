@@ -103,7 +103,7 @@ h1 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    /* display: none; */
+    display: none;
 }
 
 .text-top {
@@ -516,7 +516,34 @@ h1 {
 
 .main-skills {
     list-style: none;
-    padding: 0;
+    padding: 2em 5% 2em 5%;
+    display: flex;
+    flex-wrap: wrap;
+    /* display: grid; */
+    /* grid-auto-flow: column; */
+    /* grid-template-columns: repeat(auto-fit, minmax(25%, 1fr)); */
+    /* grid-gap: 1em; */
+    /* grid-auto-flow: dense; */
+    justify-content: center;
+    align-items: center;
+}
+
+.main-skill {
+    width: 400px;
+    padding: 2em 0;
+    transition: 0.3s;
+    /* height: 3em; */
+    /* background-color: #00a4cc; */
+}
+
+.main-skill:hover {
+    text-shadow: 0 0 10px var(--clr-light);
+    /* background-color: #00a4cc; */
+}
+
+
+.main-skill-title {
+    font-size: 1.5em;
 }
 
 .skill-categories {
@@ -525,7 +552,7 @@ h1 {
     /* align-items: center; */
     display: flex;
     justify-content: space-between;
-    padding: 0 20%;
+    padding: 2em 20% 0 20%;
     /* grid-auto-flow: column;
     grid-auto-columns: 33.33%; */
 }
@@ -534,7 +561,7 @@ h1 {
 .skill-toggle-button {
     background: transparent;
     border: none;
-    font-size: 20px;
+    font-size: 1.25em;
     position: relative;
     transition: 0.3s;
     padding: 10px;
@@ -581,14 +608,18 @@ h1 {
     padding-bottom: 2em;
     /* overflow: hidden; */
     position: relative;
+    border: 1px solid var(--clr-3d-black);
 }
 
 .skill {
     /* padding: 1em 1em; */
     position: absolute;
-    font-size: 1.25em;
+    font-size: 1.1em;
 }
 
+.soft-skills {
+    padding-top: 5em;
+}
 
 
 
@@ -702,7 +733,10 @@ h1 {
     font-size: larger;
 } */
 
-
+.footer {
+    background-color: var(--clr-background-two);
+    padding: 1em;
+}
 
 
 
