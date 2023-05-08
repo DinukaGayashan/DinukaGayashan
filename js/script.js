@@ -1,3 +1,22 @@
+//blob animation
+const blob = document.querySelector("#blob");
+
+window.onpointermove = event => {
+    const { pageX, pageY } = event;
+
+    blob.animate(
+        {
+            left: `${pageX}px`,
+            top: `${pageY}px`
+        },
+        {
+            duration: 3000,
+            fill: "forwards"
+        }
+    );
+};
+
+
 class TextScramble {
     constructor(element) {
         this.element = element
@@ -52,7 +71,10 @@ class TextScramble {
     }
 }
 
-const phrases = [
+const title = document.querySelector("#titles");
+const textScramble = new TextScramble(title);
+
+const titles = [
     'A Human',
     'Tech Enthusiast',
     'Computer Engineering Undergraduate',
@@ -60,20 +82,17 @@ const phrases = [
     'Software Developer',
     'Hobbyist Photographer',
     'Freelancer'
-]
-
-const el = document.querySelector("#titles")
-const fx = new TextScramble(el)
+];
 
 let counter = 0
-const next = () => {
-    fx.setText(phrases[counter]).then(() => {
-        setTimeout(next, 1000)
+const changeTitle = () => {
+    textScramble.setText(titles[counter]).then(() => {
+        setTimeout(changeTitle, 1500)
     })
-    counter = (counter + 1) % phrases.length
-}
+    counter = (counter + 1) % titles.length
+};
 
-next()
+changeTitle();
 
 
 
@@ -82,11 +101,20 @@ function togglePopup() {
 }
 
 
+function leftScroll() {
+    const timeline = document.querySelector("#timeline-content");
+    timeline.scrollBy(-10, 0);
+}
+
+function rightScroll() {
+    const timeline = document.querySelector("#timeline-content");
+    timeline.scrollBy(10, 0);
+}
+
 
 
 function toggleProgrammingLanguages() {
     document.querySelector("#programming-languages-skill-button").classList.toggle("skill-selected");
-
     let programmingLanguages = document.querySelectorAll(".programming-language");
     for (let i = 0; i < programmingLanguages.length; i++) {
         programmingLanguages[i].classList.toggle("skills-selected");
@@ -95,7 +123,6 @@ function toggleProgrammingLanguages() {
 
 function toggleFrameworkLibraries() {
     document.querySelector("#frameworks-libraries-skill-button").classList.toggle("skill-selected");
-
     let frameworksLibraries = document.querySelectorAll(".framework-library");
     for (let i = 0; i < frameworksLibraries.length; i++) {
         frameworksLibraries[i].classList.toggle("skills-selected");
@@ -104,7 +131,6 @@ function toggleFrameworkLibraries() {
 
 function toggleToolsTechnologies() {
     document.querySelector("#tools-technologies-skill-button").classList.toggle("skill-selected");
-
     let toolsTechnologies = document.querySelectorAll(".tool-technology");
     for (let i = 0; i < toolsTechnologies.length; i++) {
         toolsTechnologies[i].classList.toggle("skills-selected");
@@ -159,34 +185,21 @@ function setSkillPositions() {
         positions.push({ x: randomX, y: randomY, width: elementWidth, height: elementHeight });
     }
 }
-// function setSkillPositions() {
-//     let skillContainerWidth = skillContainer.offsetWidth;
-//     let skillContainerHeight = skillContainer.offsetHeight;
-
-//     for (let i = 0; i < skills.length; i++) {
-//         let element = skills[i];
-
-//         let elementWidth = element.offsetWidth;
-//         let elementHeight = element.offsetHeight;
-
-//         let maxX = skillContainerWidth - elementWidth;
-//         let maxY = skillContainerHeight - elementHeight;
-
-//         let randomX = Math.floor(Math.random() * maxX);
-//         let randomY = Math.floor(Math.random() * maxY);
-
-//         element.style.left = randomX + 'px';
-//         element.style.top = randomY + 'px';
-//     }
-// }
 
 
+const handleOnMouseMove=e=>{
+    const{currentTarget:target}=e;
+    const rect=target.getBoundingClientRect(),
+    x=e.clientX-rect.left;
+    y=e.clientY-rect.top;
 
+    target.style.setProperty("--mouse-x",`${x}px`);
+    target.style.setProperty("--mouse-y",`${y}px`);
+}
 
-
-
-
-
+for(const card of document.querySelectorAll(".card")){
+    card.onpointermove = e => handleOnMouseMove(e);
+}
 
 let isDragging = false;
 let startX, scrollLeft, container;
@@ -219,45 +232,19 @@ document.addEventListener("mousemove", (e) => {
 });
 
 
-
-
-
-const blob = document.querySelector("#blob");
-
-window.onpointermove = event => {
-    const { pageX, pageY } = event;
-    // target.style.setProperty("--mouse-x",`${pageX}px`);
-    // target.style.setProperty("--mouse-y",`${pageY}px`);
-
-    blob.animate(
-        {
-            left: `${pageX}px`,
-            top: `${pageY}px`
-        },
-        { duration: 3000, fill: "forwards" }
-    );
-};
-
-
-
-
-function leftScroll() {
-    const left = document.querySelector("#timeline-content");
-    left.scrollBy(-10, 0);
+function writeEmail(){
+    window.open('mailto:dinukagayashankasthuriarachchi@gmail.com');
 }
 
-function rightScroll() {
-    const right = document.querySelector("#timeline-content");
-    right.scrollBy(10, 0);
-}
+let date=new Date();
+document.querySelector("#date").innerText=date.toDateString();
 
 
 
 
-// const nameBackground = document.querySelector(".name");
 
-// nameBackground.addEventListener("mousemove", (e) => {
-//     nameBackground.style.backgroundPositionX = -e.offsetX + "px";
-//     nameBackground.style.backgroundPositionY = -e.offsetY + "px";
-// });
+
+
+
+
 

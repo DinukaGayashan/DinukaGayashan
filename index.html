@@ -26,29 +26,26 @@
     <div id="blob"></div>
 
     <header class="header">
-        <nav>
-            <a href="">
-                <img class="header-logo" alt="logo-image" src="./images/logo.png">
-            </a>
-            <div class="page-sections">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#blogs">Blogs</a>
-                <a href="#experiences">Experiences</a>
-                <a href="#projects">Projects</a>
-                <a href="#achievements">Achievements</a>
-                <a href="#certifications">Certifications</a>
-                <a href="#gallery">Gallery</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </nav>
+        <a href="">
+            <img class="header-logo" alt="logo-image" src="./images/logo.png">
+        </a>
+        <div class="page-sections">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experiences">Experiences</a>
+            <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
     </header>
 
     <section class="home" id="home">
-        <span class="hello">Hello World!, I'm</span><br>
+        <!-- <span class="hello">Hello World!, I'm</span><br> -->
         <span class="name"><strong>Dinuka Gayashan</strong></span><br>
-        <span id="titles"></span><br>
+        <span class="titles" id="titles"></span>
     </section>
 
     <section class="about" id="about">
@@ -74,82 +71,75 @@
                     <button class="filled-button">Curriculum Vitae</button>
                     <button class="outline-button" onclick="togglePopup()">Timeline</button>
                     <div class="timeline-full-screen hidden" id="timeline-full-screen">
-                        <div class="timeline">
-                            <div class="close-button">
-                                <button class="outline-button" onclick="togglePopup()">Close</button>
-                            </div>
-
-                            <button class="left-button" onclick="leftScroll()">&lt</button>
-                            <ul class="timeline-content" id="timeline-content">
-                                <li class="timeline-content-item">
-                                    <span class="timeline-content-item-title">Undergraduate</span><br>
-                                    <span class="timeline-content-item-time">Dec 2019-Present</span>
-                                    <hr>
-                                    Studies at the Faculty of Engineering, University of Sri Jayewardenepura and
-                                    pursuing Honours
-                                    Degree
-                                    of Bachelor of Science in Engineering (BscEngHons) with a Computer Engineering
-                                    major and a Data
-                                    Management minor.
-
-                                    Internship: Axiata Digital Labs
-
-                                    Activities and societies: IEEE, IESL, Computer Engineering Society
-                                </li>
-                                <li class="timeline-content-item">
-                                    <span class="timeline-content-item-title">Secondary Student</span><br>
-                                    <span class="timeline-content-item-time">Jan 2010-Sep 2018</span>
-                                    <hr>
-                                    Got secondary education at Bandaranayake College Gampaha. Got passed the
-                                    G.C.E.(O/L) examination
-                                    in
-                                    2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra
-                                    curricular activities.
-
-                                    G.C.E. Advanced Level (Sri Lanka) · Aug 2018
-                                    Score: 2As & 1B
-                                    Index Number - 1345443
-
-                                    Physical Science Stream
-                                    District Rank - 118
-                                    Island Rank - 1334
-                                    Z-score - 1.7299
-
-                                    Physics - B
-                                    Chemistry - A
-                                    Combined Mathematics - A
-                                    General English - A
-                                    Common General Test - 85
-
-                                    G.C.E. Ordinary Level (Sri Lanka) · Dec 2015
-                                    Score: 9As
-                                    Index Number - 50545590
-
-                                    Buddhism - A
-                                    Sinhala Language & Literature - A
-                                    English - A
-                                    Science - A
-                                    Mathematics - A
-                                    History - A
-                                    Oriental Music - A
-                                    Business & Accounting Studies - A
-                                    Information & Communication Technology - A
-
-                                    Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
-                                </li>
-                                <li class="timeline-content-item">
-                                    <span class="timeline-content-item-title">Primary Student</span><br>
-                                    <span class="timeline-content-item-time">Jan 2005-Dec 2009</span>
-                                    <hr>
-                                    Entered Gothami Junior School, Gampaha for primary education and got passed the
-                                    grade 5 scholarship.
-
-                                    Grade 5 Scholarship (Sri Lanka) · Aug 2009
-                                    Score: 164
-                                </li>
-                            </ul>
-                            <button class="right-button" onclick="rightScroll()">&gt</button>
+                        <div class="close-button">
+                            <button class="close-button outline-button" onclick="togglePopup()">Close</button>
                         </div>
+
+                        <button class="left-button" onclick="leftScroll()">&lt</button>
+                        <ul class="timeline-content" id="timeline-content">
+                            <li class="timeline-content-item">
+                                <span class="timeline-content-item-title">Undergraduate</span><br>
+                                <span class="timeline-content-item-time">Dec 2019-Present</span>
+                                <hr>
+                                Studies at the Faculty of Engineering, University of Sri Jayewardenepura and
+                                pursuing Honours Degree of Bachelor of Science in Engineering (BscEngHons) with a
+                                Computer Engineering major and a Data Management minor.
+                                <br>
+                                <br>Internship: Axiata Digital Labs
+                                <br>
+                                <br>Activities and societies: IEEE, IESL, CENSOC (Computer Engineering Society)
+                            </li>
+                            <li class="timeline-content-item">
+                                <span class="timeline-content-item-title">Secondary Student</span><br>
+                                <span class="timeline-content-item-time">Jan 2010-Sep 2018</span>
+                                <hr>
+                                Got secondary education at Bandaranayake College Gampaha. Got passed the
+                                G.C.E.(O/L) examination in 2015 and G.C.E.(A/L) examination in 2018.
+                                Also got engaged in some extra curricular activities.
+                                <br>
+                                <br>G.C.E. Advanced Level (Sri Lanka) · Aug 2018
+                                <br>Score: 2As & 1B
+                                <br>Index Number - 1345443
+                                <br>
+                                <br>Physical Science Stream
+                                <br>District Rank - 118
+                                <br>Island Rank - 1334
+                                <br>Z-score - 1.7299
+                                <br>
+                                <br>Physics - B
+                                <br>Chemistry - A
+                                <br>Combined Mathematics - A
+                                <br>General English - A
+                                <br>Common General Test - 85
+                                <br>
+                                <br>G.C.E. Ordinary Level (Sri Lanka) · Dec 2015
+                                <br>Score: 9As
+                                <br>Index Number - 50545590
+                                <br>
+                                <br>Buddhism - A
+                                <br>Sinhala Language & Literature - A
+                                <br>English - A
+                                <br>Science - A
+                                <br>Mathematics - A
+                                <br>History - A
+                                <br>Oriental Music - A
+                                <br>Business & Accounting Studies - A
+                                <br>Information & Communication Technology - A
+                                <br>
+                                <br>Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
+                            </li>
+                            <li class="timeline-content-item">
+                                <span class="timeline-content-item-title">Primary Student</span><br>
+                                <span class="timeline-content-item-time">Jan 2005-Dec 2009</span>
+                                <hr>
+                                Entered Gothami Junior School, Gampaha for primary education and got passed the
+                                grade 5 scholarship.
+                                <br>
+                                <br>Grade 5 Scholarship (Sri Lanka) · Aug 2009
+                                <br>Score: 164
+                            </li>
+                        </ul>
+                        <button class="right-button" onclick="rightScroll()">&gt</button>
                     </div>
                 </div>
             </div>
@@ -229,11 +219,6 @@
         <h2>Soft Skills</h2>
         Communication, Adaptability, Self-Learning, Collaboration, Teamwork
         </p>
-    </section>
-
-    <section class="blogs" id="blogs">
-        <h1>Blogs</h1>
-        <p>Nothing here</p>
     </section>
 
     <section class="experiences" id="experiences">
@@ -352,45 +337,45 @@
     <section class="achievements" id="achievements">
         <h1>Achievements</h1>
         <ul class="achievement-cards" id="achievement-cards">
-            <li class="achievement-card card">
-                <span>IEEEXtreme 16.0 - Island 54th (Global 756th) place</span>
-                <br><span>IEEE · Nov 2022</span>
-                <br>Team 'Tensors'
+            <li class="achievement-card card achievement-level-two">
+                <span class="achievement-title">IEEEXtreme 16.0</span>
+                <span class="achievement-issuer">IEEE · Nov 2022</span><br>
+                <span class="achievement-place">Island 54th (Global 756th) place<br>Team 'Tensors'</span>
             </li>
-            <li class="achievement-card card">
-                <span>MoraXtreme 7.0 - 7th place</span>
-                <br><span>IEEE Computer Society University of Moratuwa · Oct 2022</span>
-                <br>Team '0_o'
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">MoraXtreme 7.0</span>
+                <span class="achievement-issuer">IEEE Computer Society, University of Moratuwa · Oct 2022</span><br>
+                <span class="achievement-place">7th place<br>Team '0_o'</span>
             </li>
-            <li class="achievement-card card">
-                <span>Aurora Competition - 3rd place</span>
-                <br><span>Society of Computer Science, University of Sri Jayewardenepura · Mar 2022</span>
-                <br>Team 'CPDS'
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">Aurora Competition</span>
+                <span class="achievement-issuer">Society of Computer Science, University of Sri Jayewardenepura · Mar 2022</span><br>
+                <span class="achievement-place">3rd place<br>Team 'CPDS'</span>
             </li>
-            <li class="achievement-card card">
-                <span>RealHack 3.0 - finalist</span>
-                <br><span>Software Engineering Student's Association, University of Kelaniya · Jan 2022</span>
-                <br>Team 'CND'
+            <li class="achievement-card card achievement-level-three">
+                <span class="achievement-title">RealHack 3.0</span>
+                <span class="achievement-issuer">Software Engineering Student's Association, University of Kelaniya · Jan 2022</span><br>
+                <span class="achievement-place">Finalist<br>Team 'CND'</span>
             </li>
-            <li class="achievement-card card">
-                <span>IEEEXtreme 15.0 - Island 30th (Global 368th) place</span>
-                <br><span>IEEE · Oct 2021</span>
-                <br>Team 'CND'
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">IEEEXtreme 15.0</span>
+                <span class="achievement-issuer">IEEE · Oct 2021</span><br>
+                <span class="achievement-place">Island 30th (Global 368th) place<br>Team 'CND'</span>
             </li>
-            <li class="achievement-card card">
-                <span>e-Coding International Hackathon - top 20</span>
-                <br><span>Electronics and Embedded Systems Society, University of Sri Jayewardenepura · Aug 2021</span>
+            <li class="achievement-card card achievement-level-three">
+                <span class="achievement-title">e-Coding International Hackathon</span>
+                <span class="achievement-issuer">Electronics and Embedded Systems Society, University of Sri Jayewardenepura · Aug 2021</span><br>
+                <span class="achievement-place">Top 20</span>
             </li>
-            <li class="achievement-card card">
-                <span>Code Squad V2.0 - 10th place</span>
-                <br><span> Department of Computer Engineering, Faculty of Engineering, University of Sri Jayewardenepura
-                    · Jan 2021</span>
-                <br>Team 'CDPD HACKERS'
+            <li class="achievement-card card achievement-level-two">
+                <span class="achievement-title">Code Squad V2.0</span>
+                <span class="achievement-issuer">Department of Computer Engineering, Faculty of Engineering, University of Sri Jayewardenepura · Jan 2021</span><br>
+                <span class="achievement-place">10th place<br>Team 'CDPD HACKERS'</span>
             </li>
-            <li class="achievement-card card">
-                <span>Information & Communication Technology Quiz Competition 2014 - Zonal 1st (Provincial 6th)
-                    place</span>
-                <br><span>Provincial Department of Education, Western Province · Dec 2014</span>
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">Information & Communication Technology Quiz Competition 2014</span>
+                <span class="achievement-issuer">Provincial Department of Education, Western Province, Sri Lanka · Dec 2014</span><br>
+                <span class="achievement-place">Zonal 1st place & Provincial 6th place</span>
             </li>
         </ul>
     </section>
@@ -399,48 +384,49 @@
         <h1>Certifications</h1>
         <ul class="certification-cards" id="certification-cards">
             <li class="certification-card card">
-                <span>Docker Course for Beginners</span>
-                <br><span>Udemy · Nov 2022</span>
+                <img src="./images/logo.png">
+                <span class="certification-title">Docker Course for Beginners</span>
+                <br><span class="certification-issuer">Udemy · Nov 2022</span>
             </li>
             <li class="certification-card card">
-                <span>Introduction to Microservices</span>
-                <br><span>Udemy · Nov 2022</span>
+                <span class="certification-title">Introduction to Microservices</span>
+                <br><span class="certification-issuer">Udemy · Nov 2022</span>
             </li>
             <li class="certification-card card">
-                <span>Problem Solving (Intermediate)</span>
-                <br><span>HackerRank · Oct 2022</span>
+                <span class="certification-title">Problem Solving (Intermediate)</span>
+                <br><span class="certification-issuer">HackerRank · Oct 2022</span>
             </li>
             <li class="certification-card card">
-                <span>The Complete 2021 Flutter Development Bootcamp with Dart</span>
-                <br><span>Udemy · June 2022</span>
+                <span class="certification-title">The Complete 2021 Flutter Development Bootcamp with Dart</span>
+                <br><span class="certification-issuer">Udemy · June 2022</span>
             </li>
             <li class="certification-card card">
-                <span>Git from Basics to Advanced: Practical Guide for Developers</span>
-                <br><span>Udemy · Mar 2022</span>
+                <span class="certification-title">Git from Basics to Advanced: Practical Guide for Developers</span>
+                <br><span class="certification-issuer">Udemy · Mar 2022</span>
             </li>
             <li class="certification-card card">
-                <span>Problem Solving (Basic)</span>
-                <br><span>Udemy · Feb 2022</span>
+                <span class="certification-title">Problem Solving (Basic)</span>
+                <br><span class="certification-issuer">Udemy · Feb 2022</span>
             </li>
             <li class="certification-card card">
-                <span>HTML & CSS - Certification Course for Beginners</span>
-                <br><span>Udemy · Dec 2021</span>
+                <span class="certification-title">HTML & CSS - Certification Course for Beginners</span>
+                <br><span class="certification-issuer">Udemy · Dec 2021</span>
             </li>
             <li class="certification-card card">
-                <span>JavaScript for Beginners - The Complete introduction to JS</span>
-                <br><span>Udemy · Nov 2021</span>
+                <span class="certification-title">JavaScript for Beginners - The Complete introduction to JS</span>
+                <br><span class="certification-issuer">Udemy · Nov 2021</span>
             </li>
             <li class="certification-card card">
-                <span>Kick-starter on Embedded System Design</span>
-                <br><span>Electronic and Telecommunication Engineering - University of Moratuwa · Nov 2021</span>
+                <span class="certification-title">Kick-starter on Embedded System Design</span>
+                <br><span class="certification-issuer">Electronic and Telecommunication Engineering - University of Moratuwa · Nov 2021</span>
             </li>
             <li class="certification-card card">
-                <span>Learn to Code in Python 3: Programming beginner to advanced</span>
-                <br><span>Udemy · Sep 2021</span>
+                <span class="certification-title">Learn to Code in Python 3: Programming beginner to advanced</span>
+                <br><span class="certification-issuer">Udemy · Sep 2021</span>
             </li>
             <li class="certification-card card">
-                <span>Certificate Course in English Language (Higher Level)</span>
-                <br><span>IHRA, University of Colombo · Mar 2020</span>
+                <span class="certification-title">Certificate Course in English Language (Higher Level)</span>
+                <br><span class="certification-issuer">IHRA, University of Colombo · Mar 2020</span>
             </li>
         </ul>
     </section>
@@ -451,9 +437,6 @@
     </section>
 
     <section class="contact" id="contact">
-        <button class="outline-button" onclick="location.href='mailto:dinukagayashankasthuriarachchi@gmail.com';">
-            Write me an email
-        </button>
         <ul class="social-list">
             <li class="social-list-item">
                 <a class="social-list__link" href="https://www.facebook.com/DinukaGayashan.di" target="_blank">
@@ -481,11 +464,15 @@
                 </a>
             </li>
         </ul>
+        <button class="outline-button" onclick="writeEmail()">
+            Write me an email
+        </button>
+        <button class="outline-button">Connect More</button>
     </section>
 
     <footer class="footer">
-        <p>Dinuka Gayashan</p>
-        <p class="copyright">© 2023 All rights reserved.</p>
+        <p class="signature-name">Dinuka Gayashan</p>
+        <p class="copyright">© <span id="date"></span><br>All rights reserved.</p>
     </footer>
 
 </body>
