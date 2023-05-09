@@ -138,7 +138,7 @@ function toggleToolsTechnologies() {
 }
 
 
-let skills = document.querySelectorAll("#skill");
+let skills = document.querySelectorAll(".skill");
 let skillContainer = document.querySelector("#skill-pool");
 setSkillPositions();
 window.addEventListener("resize", setSkillPositions);
