@@ -1,4 +1,4 @@
-//blob animation
+
 const blob = document.querySelector("#blob");
 
 window.onpointermove = event => {
@@ -114,7 +114,7 @@ function rightScroll() {
 
 
 function toggleProgrammingLanguages() {
-    document.querySelector("#programming-languages-skill-button").classList.toggle("skill-selected");
+    document.querySelector(".skill-toggle-button.programming-languages").classList.toggle("skill-selected");
     let programmingLanguages = document.querySelectorAll(".programming-language");
     for (let i = 0; i < programmingLanguages.length; i++) {
         programmingLanguages[i].classList.toggle("skills-selected");
@@ -122,7 +122,7 @@ function toggleProgrammingLanguages() {
 }
 
 function toggleFrameworkLibraries() {
-    document.querySelector("#frameworks-libraries-skill-button").classList.toggle("skill-selected");
+    document.querySelector(".skill-toggle-button.frameworks-libraries").classList.toggle("skill-selected");
     let frameworksLibraries = document.querySelectorAll(".framework-library");
     for (let i = 0; i < frameworksLibraries.length; i++) {
         frameworksLibraries[i].classList.toggle("skills-selected");
@@ -130,7 +130,7 @@ function toggleFrameworkLibraries() {
 }
 
 function toggleToolsTechnologies() {
-    document.querySelector("#tools-technologies-skill-button").classList.toggle("skill-selected");
+    document.querySelector(".skill-toggle-button.tools-technologies").classList.toggle("skill-selected");
     let toolsTechnologies = document.querySelectorAll(".tool-technology");
     for (let i = 0; i < toolsTechnologies.length; i++) {
         toolsTechnologies[i].classList.toggle("skills-selected");
@@ -187,17 +187,17 @@ function setSkillPositions() {
 }
 
 
-const handleOnMouseMove=e=>{
-    const{currentTarget:target}=e;
-    const rect=target.getBoundingClientRect(),
-    x=e.clientX-rect.left;
-    y=e.clientY-rect.top;
+const handleOnMouseMove = e => {
+    const { currentTarget: target } = e;
+    const rect = target.getBoundingClientRect(),
+        x = e.clientX - rect.left;
+    y = e.clientY - rect.top;
 
-    target.style.setProperty("--mouse-x",`${x}px`);
-    target.style.setProperty("--mouse-y",`${y}px`);
+    target.style.setProperty("--mouse-x", `${x}px`);
+    target.style.setProperty("--mouse-y", `${y}px`);
 }
 
-for(const card of document.querySelectorAll(".card")){
+for (const card of document.querySelectorAll(".card")) {
     card.onpointermove = e => handleOnMouseMove(e);
 }
 
@@ -232,12 +232,16 @@ document.addEventListener("mousemove", (e) => {
 });
 
 
-function writeEmail(){
+function openURL(url) {
+    window.open(url);
+}
+
+function writeEmail() {
     window.open('mailto:dinukagayashankasthuriarachchi@gmail.com');
 }
 
-let date=new Date();
-document.querySelector("#date").innerText=date.toDateString();
+let date = new Date();
+document.querySelector("#date").innerText = date.getFullYear();
 
 
 

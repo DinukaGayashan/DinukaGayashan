@@ -83,7 +83,7 @@ h1 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    display: none;
+    /* display: none; */
 }
 
 @keyframes hide {
@@ -175,6 +175,32 @@ h1 {
     }
 }
 
+
+
+.blob {
+    width: 30%;
+    aspect-ratio: 1;
+    position: absolute;
+    z-index: -100;
+    left: 50%;
+    top: 50%;
+    translate: -50% -50%;
+    border-radius: 35% 65% 70% 30% / 38% 46% 54% 62%;
+    background: linear-gradient(to right, aquamarine, mediumpurple);
+    animation: blob-rotate 20s infinite;
+    opacity: 0.8;
+    filter: blur(100px);
+}
+
+@keyframes blob-rotate {
+    from {
+        rotate: 0deg;
+    }
+
+    to {
+        rotate: 360deg;
+    }
+}
 
 
 
@@ -301,7 +327,7 @@ h1 {
     margin-left: 1em;
 }
 
-.heading {
+.about-text>span {
     font-weight: bold;
     font-size: 1.5em;
     display: flex;
@@ -461,12 +487,12 @@ h1 {
     transform: scale(1.01);
 }
 
-.skill-icon{
+.main-skill>i{
     font-size: 2em;
     padding-right: 0.5em;
 }
 
-.main-skill-title {
+.main-skill>span {
     font-size: 1.5em;
 }
 
@@ -476,7 +502,7 @@ h1 {
     /* align-items: center; */
     display: flex;
     justify-content: space-between;
-    padding: 2em 20% 0 20%;
+    padding:1em 20% 0 20%;
     /* grid-auto-flow: column;
     grid-auto-columns: 33.33%; */
 }
@@ -535,17 +561,39 @@ h1 {
 }
 
 .skill {
-    /* padding: 1em 1em; */
     position: absolute;
     font-size: 1.1em;
 }
 
-.soft-skills {
-    padding-top: 5em;
+.soft-skills-title{
+    padding-top: 4em;
 }
 
+.soft-skills {
+    list-style: none;
+    padding: 0 5% 2em 5%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+}
 
+.soft-skill>i{
+    font-size: 1.5em;
+    padding: 0.5em 0;
+}
 
+.soft-skill {
+    min-width: 150px;
+    padding: 2em 1em;
+    transition: 0.3s;
+    font-size: 1.25em;
+}
+
+.soft-skill:hover {
+    text-shadow: 0 0 20px var(--clr-light);
+    transform: scale(1.02);
+}
 
 
 .card {
@@ -558,7 +606,6 @@ h1 {
     transition: 0.3s;
     overflow: hidden;
     position: relative;
-
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -566,7 +613,6 @@ h1 {
 }
 
 .card:hover {
-    /* transform: scale(1.01); */
     transition: 0.3s transform ease-out;
 }
 
@@ -597,10 +643,16 @@ h1 {
     padding: 1em;
 }
 
+.experience-card{
+    justify-content: flex-start;
+    padding-top: 0;
+}
+
 .experience-card>img {
     width: 80%;
     object-fit: cover;
     aspect-ratio: 1/1;
+    padding-top: 2.5em;
 }
 
 
@@ -630,17 +682,17 @@ h1 {
     padding: 1em;
 }
 
+.achievement-card {
+    font-size: medium;
+}
+
 .achievement-title {
     font-size: large;
     font-weight: 800;
 }
 
 .achievement-issuer {
-    font-size: large;
-}
-
-.achievement-place {
-    font-size: larger;
+    font-size: small;
 }
 
 .achievement-level-one::after,
@@ -691,6 +743,7 @@ h1 {
 
 .certification-card {
     position: relative;
+    font-size: medium;
 }
 
 .certification-card>img {
@@ -710,6 +763,7 @@ h1 {
 
 .certification-card:hover>img {
     transform: scale(1.1);
+    opacity: 0.1;
 }
 
 .certification-title {
@@ -717,19 +771,15 @@ h1 {
     font-weight: 800;
 }
 
-.certification-issuer {
-    font-size: large;
+
+.gallery{
+    padding-bottom: 5em;
 }
 
 
 .contact {
     padding: 5em;
     background-color: var(--clr-background-two);
-}
-
-.gallery{
-    padding-bottom: 5em;
-
 }
 
 .social-list {
@@ -740,6 +790,7 @@ h1 {
 }
 
 .social-list li {
+    font-size: 1.25em;
     padding: 1em;
 }
 
@@ -766,43 +817,4 @@ h1 {
 .footer {
     background-color: var(--clr-background-two);
     padding: 2em;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-#blob {
-    /* background-color: var(--clr-light); */
-    width: 30%;
-    aspect-ratio: 1;
-    position: absolute;
-    z-index: -100;
-    left: 50%;
-    top: 50%;
-    translate: -50% -50%;
-    border-radius: 35% 65% 70% 30% / 38% 46% 54% 62%;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
-    animation: blob-rotate 20s infinite;
-    opacity: 0.8;
-    filter: blur(100px);
-}
-
-@keyframes blob-rotate {
-    from {
-        rotate: 0deg;
-    }
-
-    to {
-        rotate: 360deg;
-    }
 }
