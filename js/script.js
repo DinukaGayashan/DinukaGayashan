@@ -225,7 +225,7 @@ document.addEventListener("mousemove", (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = (x - startX) * 2;
     requestAnimationFrame(() => {
         container.scrollLeft = scrollLeft - walk;
     });
@@ -242,11 +242,6 @@ function writeEmail() {
 
 let date = new Date();
 document.querySelector("#date").innerText = date.getFullYear();
-
-
-
-
-
 
 
 
