@@ -23,8 +23,6 @@
         </div>
     </div>
 
-    <div class="blob" id="blob"></div>
-
     <header class="header">
         <a href="">
             <img class="header-logo" alt="logo" src="assets/logos/logo.png">
@@ -41,6 +39,8 @@
             <a href="#contact">Contact</a>
         </div>
     </header>
+
+    <div class="blob" id="blob"></div>
 
     <section class="home" id="home">
         <!-- <span class="hello">Hello World!, I'm</span><br> -->
@@ -512,14 +512,15 @@
                 </a>
             </li>
         </ul>
-        <button class="outline-button" onclick="writeEmail()">
-            Write me an email
+        <button class="outline-button" onclick="openURL('mailto:dinukagayashankasthuriarachchi@gmail.com')">
+            <i class="fa-solid fa-paper-plane"></i> Write me an email
         </button>
-        <button class="outline-button">Connect More</button>
+        <button class="outline-button">Find More</button>
     </section>
 
     <footer class="footer">
-        <span class="signature-name">Dinuka Gayashan</span>
+        <img alt="profile-picture" src="assets/images/self/profile-picture.jpg">
+        <br><span class="signature-name">Dinuka Gayashan</span>
         <br>© <span id="date"></span>. All rights reserved.
     </footer>
 

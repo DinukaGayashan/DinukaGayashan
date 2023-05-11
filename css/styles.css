@@ -50,16 +50,7 @@ body {
     text-align: center;
     font-family: var(--ff-primary);
     color: var(--clr-light);
-    /* filter: blur(10px); */
-    /* background-image: url(../images/background-picture.png);
-    background-size: contain;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100vh;
-    background-position: right;
-    background-blend-mode: multiply;
-    background-attachment: fixed; */
-    overflow-x: hidden;
+    overflow: auto;
 }
 
 a {
@@ -190,6 +181,10 @@ h1 {
     animation: blob-rotate 20s infinite;
     opacity: 0.8;
     filter: blur(100px);
+    
+    /* pointer-events: none;
+    touch-action: none;
+    z-index: -5; */
 }
 
 @keyframes blob-rotate {
@@ -785,7 +780,7 @@ h1 {
 }
 
 .social-list li {
-    font-size: 1.25em;
+    /* font-size: 1.25em; */
     padding: 1em;
 }
 
@@ -812,4 +807,14 @@ h1 {
 .footer {
     background-color: var(--clr-background-two);
     padding: 2em;
+}
+
+.footer>img{
+    border-radius: 50%;
+    width: 7%;
+    margin: 1em;
+    aspect-ratio: 1/1;
+    object-fit: cover;
+    object-position: center;
+    transition-duration: 1s;
 }
