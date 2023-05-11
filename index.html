@@ -1,215 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-    
-    <head>
-        <title>Dinuka Gayashan</title>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
-        <link href="images/favicon.png" rel="icon">
-        <link href="images/apple-touch-icon.png" rel="apple-touch-icon">
 
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;400&family=Poppins:wght@100;200;300&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/css2?family=Reenie+Beanie&display=swap" rel="stylesheet">
+<head>
+    <meta charset="utf-8" />
+    <meta name="description" content="Personal website of Dinuka Gayashan">
+    <title>Dinuka Gayashan</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="icon" href="assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+    <script src="https://kit.fontawesome.com/eaf42d5d06.js" crossorigin="anonymous"></script>
+    <script defer src="js/script.js"></script>
+</head>
 
-        <script src="https://kit.fontawesome.com/eaf42d5d06.js" crossorigin="anonymous"></script>
-        
-        <link rel="stylesheet" href="css/style.css">
-    </head>
+<body>
 
-    <body>
-        <!--div id="overlay" class="loader_bg">
-            <div class="loader"></div>
-        </div-->
+    <div class="animated-loading">
+        <div class="text-top">
+            <div>Do what you love</div>
+        </div>
+        <div class="text-bottom">
+            <div>Love what you do</div>
+        </div>
+    </div>
 
-        <!--div id="loader-bg" class="loader-bg">
-            <div id="loader" class="loader">
-                <img src="images/loading.gif" alt="loading...">
+    <div class="blob" id="blob"></div>
+
+    <header class="header">
+        <a href="">
+            <img class="header-logo" alt="logo" src="assets/logos/logo.png">
+        </a>
+        <div class="page-sections">
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
+            <a href="#skills">Skills</a>
+            <a href="#experiences">Experiences</a>
+            <a href="#projects">Projects</a>
+            <a href="#achievements">Achievements</a>
+            <a href="#certifications">Certifications</a>
+            <a href="#gallery">Gallery</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </header>
+
+    <section class="home" id="home">
+        <!-- <span class="hello">Hello World!, I'm</span><br> -->
+        <span class="name"><strong>Dinuka Gayashan</strong></span><br>
+        <span class="titles" id="titles"></span>
+    </section>
+
+    <section class="about" id="about">
+        <h1>About</h1>
+        <div class="about-horizontal">
+            <div class="about-image-column">
+                <img alt="professional-picture" src="assets/images/self/professional-picture.jpg">
             </div>
-        </div-->
-
-        <header>
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamberger"></span>
-            </button>
-            <nav class="nav">
-                <a href="index.html">
-                    <img src="images/logo.png" alt="logo" class="logo" title="click to view main page">
-                </a>
-                <ul class="nav__list">
-                    <li class="nav__item"><a href="#home" class="nav__link">Home</a></li>
-                    <li class="nav__item"><a href="#about" class="nav__link">About</a></li>
-                    <li class="nav__item"><a href="portfolio.html" class="nav__link">Portfolio</a></li>
-                </ul>
-            </nav>
-        </header>
-
-        <section class="intro" id="home">
-
-            <p class="section__title section__title--hello">Hello World!</p>
-            <p class="section__title section__title--intro">
-                <strong>I'm Dinuka Gayashan</strong>
-            </p>
-            <p class="section__subtitle section__subtitle--intro">
-                <span
-                    class="txt-rotate"
-                    data-period="2000"
-                    data-rotate='[ "A human", "Computer Engineering Undergraduate", "Hobbyist Photographer","Software Developer" ]'></span>
+            <div class="about-text-column">
+                <p class="about-text">
+                    <span>I'm Dinuka Gayashan, a Computer Engineering Undergraduate.</span><br>
+                    I am a passionate Computer Engineering Undergraduate enthusiastic about technology and willing to
+                    explore new things in the field of computer engineering. I have interests in areas such as software
+                    engineering, data science and cloud computing.
                 </p>
-            <!--p class="section__subtitle section__subtitle--intro">
-                Computer Engineering Undergraduate
-            </p-->
-            <div>
-                <a href="portfolio.html" class="button" id="button-5"><h3>PORTFOLIO</h3></a>
-            </div>
-        </section>
+                <div class="about-details-list">
+                    Name<br><span>Dinuka Gayashan</span><br>
+                    Age<br><span>23 years</span><br>
+                    Study<br><span>Faculty of Engineering, University of Sri Jayewardenepura</span><br>
+                    From<br><span>Gampaha, Sri Lanka</span><br>
+                </div>
+                <div class="about-details-buttons">
+                    <button class="filled-button" onclick="openURL('')">Curriculum Vitae</button>
+                    <button class="outline-button" onclick="togglePopup()">Timeline</button>
+                    <div class="timeline-full-screen hidden" id="timeline-full-screen">
+                        <div class="close-button">
+                            <button class="outline-button" onclick="togglePopup()">Close</button>
+                        </div>
 
-        <section class="about-me" id="about">
-            <h2 class="section__title section__title--about">About</h2>
-            <img src="images/dp.jpg" alt="display image" class="dp" title="Dinuka Gayashan">
-            <p class="section__subtitle section__subtitle--about">Computer Engineering Undergraduate</p>
-            <div class="about-me__body">
-                <p>...</p>
+                        <button class="left-button" onclick="leftScroll()">&lt</button>
+                        <ul class="timeline-content" id="timeline-content">
+                            <li class="timeline-content-item">
+                                <span class="timeline-content-item-title">Undergraduate</span><br>
+                                <span class="timeline-content-item-time">Dec 2019-Present</span>
+                                <hr>
+                                Studies at the Faculty of Engineering, University of Sri Jayewardenepura and
+                                pursuing Honours Degree of Bachelor of Science in Engineering (BscEngHons) with a
+                                Computer Engineering major and a Data Management minor.
+                                <br>
+                                <br>Internship: Axiata Digital Labs
+                                <br>
+                                <br>Activities and societies: IEEE, IESL, CENSOC (Computer Engineering Society)
+                            </li>
+                            <li class="timeline-content-item">
+                                <span class="timeline-content-item-title">Secondary Student</span><br>
+                                <span class="timeline-content-item-time">Jan 2010-Sep 2018</span>
+                                <hr>
+                                Got secondary education at Bandaranayake College Gampaha. Got passed the
+                                G.C.E.(O/L) examination in 2015 and G.C.E.(A/L) examination in 2018.
+                                Also got engaged in some extra curricular activities.
+                                <br>
+                                <br>G.C.E. Advanced Level (Sri Lanka) · Aug 2018
+                                <br>Score: 2As & 1B
+                                <br>Index Number - 1345443
+                                <br>
+                                <br>Physical Science Stream
+                                <br>District Rank - 118
+                                <br>Island Rank - 1334
+                                <br>Z-score - 1.7299
+                                <br>
+                                <br>Physics - B
+                                <br>Chemistry - A
+                                <br>Combined Mathematics - A
+                                <br>General English - A
+                                <br>Common General Test - 85
+                                <br>
+                                <br>G.C.E. Ordinary Level (Sri Lanka) · Dec 2015
+                                <br>Score: 9As
+                                <br>Index Number - 50545590
+                                <br>
+                                <br>Buddhism - A
+                                <br>Sinhala Language & Literature - A
+                                <br>English - A
+                                <br>Science - A
+                                <br>Mathematics - A
+                                <br>History - A
+                                <br>Oriental Music - A
+                                <br>Business & Accounting Studies - A
+                                <br>Information & Communication Technology - A
+                                <br>
+                                <br>Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
+                            </li>
+                            <li class="timeline-content-item">
+                                <span class="timeline-content-item-title">Primary Student</span><br>
+                                <span class="timeline-content-item-time">Jan 2005-Dec 2009</span>
+                                <hr>
+                                Entered Gothami Junior School, Gampaha for primary education and got passed the
+                                grade 5 scholarship.
+                                <br>
+                                <br>Grade 5 Scholarship (Sri Lanka) · Aug 2009
+                                <br>Score: 164
+                            </li>
+                        </ul>
+                        <button class="right-button" onclick="rightScroll()">&gt</button>
+                    </div>
+                </div>
             </div>
-            <p class="section__subtitle section__subtitle--timeline"><strong>Going back in time</strong></p>
-            <ul class="timeline">
-                <li>
-                    <div class="direction-r">
-                        <div class="flag-wrapper">
-                            <span class="flag"><a href="" class="timeline__link" target="_blank"> Undergraduate</a></span>
-                            <span class="time-wrapper"><span class="time">2019 - Present</span></span>
-                        </div>
-                        <div class="desc">Entered to the Faculty of Engineering, University of Sri Jayewardenepura to obtain the Bachelor's degree in Science of Engineering (BscEngHons).</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="direction-l">
-                        <div class="flag-wrapper">
-                            <span class="flag"><a href="" class="timeline__link" target="_blank">Secondary Student</a></span>
-                            <span class="time-wrapper"><span class="time">2010 - 2018</span></span>
-                        </div>
-                        <div class="desc">Started Secondary Education at <a href="https://bcg.lk/" class="timeline__link" target="_blank">Bandaranayake College Gampaha</a>. Got passed the G.C.E.(O/L) examination in 2015 and G.C.E.(A/L) examination in 2018. Also got engaged in some extra curricular activities.</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="direction-r">
-                        <div class="flag-wrapper">
-                            <span class="flag"><a href="" class="timeline__link" target="_blank">Primary Student</a></span>
-                            <span class="time-wrapper"><span class="time">2005 - 2009</span></span>
-                        </div>
-                        <div class="desc">Entered Gothami Junior School, Gampaha for primary education and passed the grade 5 scholarship.</div>
-                    </div>
-                </li>
-                <li>
-                    <div class="direction-l">
-                        <div class="flag-wrapper">
-                            <span class="flag"><a href="" class="timeline__link" target="_blank">Kid</a></span>
-                            <span class="time-wrapper"><span class="time">1999 - 2004</span></span>
-                        </div>
-                        <div class="desc">Born on 30th July 1999, at Ragama Hospital, Sri Lanka and got named Kasthuri Arachchige Dinuka Gayashan Kasthuriarachchi.</div>
-                    </div>
-                </li> 
-            </ul>
-            
-        </section>
+        </div>
+    </section>
 
-        <footer class="footer">
-            <ul class="social-list">
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.facebook.com/DinukaGayashan.di" target="_blank">
-                        <i class="fa-brands fa-facebook-f"></i>
-                    </a> 
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.linkedin.com/in/dinukagayashan" target="_blank">
-                        <i class="fa-brands fa-linkedin-in"></i>
-                    </a> 
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://twitter.com/Dinuka_Gayashan" target="_blank">
-                        <i class="fa-brands fa-twitter"></i>
-                    </a> 
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://www.instagram.com/dinukagayashan.di" target="_blank">
-                        <i class="fa-brands fa-instagram"></i>
-                    </a> 
-                </li>
-                <li class="social-list__item">
-                    <a class="social-list__link" href="https://github.com/DinukaGayashan" target="_blank">
-                        <i class="fa-brands fa-github"></i>
-                    </a> 
-                </li>
-            </ul>
-            <p class="footer-sign">
-                Dinuka Gayashan
-            </p>
-            <p class="footer-copyright">
-                © <span id='year'></span> All rights reserved.
-            </p>
-        </footer>
-        <script src="js/script.js"></script>
-        <script>
-            var dt = new Date();
-            document.getElementById("year").innerHTML = (dt.getFullYear());
-            
-            var TxtRotate = function(el, toRotate, period) {
-                this.toRotate = toRotate;
-                this.el = el;
-                this.loopNum = 0;
-                this.period = parseInt(period, 10) || 2000;
-                this.txt = '';
-                this.tick();
-                this.isDeleting = false;
-            };
-            
-            TxtRotate.prototype.tick = function() {
-                var i = this.loopNum % this.toRotate.length;
-                var fullTxt = this.toRotate[i];
-            
-                if (this.isDeleting) {
-                this.txt = fullTxt.substring(0, this.txt.length - 1);
-                } else {
-                this.txt = fullTxt.substring(0, this.txt.length + 1);
-                }
-            
-                this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
-            
-                var that = this;
-                var delta = 150 - Math.random() * 100;
-            
-                if (this.isDeleting) { delta /= 2; }
-            
-                if (!this.isDeleting && this.txt === fullTxt) {
-                delta = this.period;
-                this.isDeleting = true;
-                } else if (this.isDeleting && this.txt === '') {
-                this.isDeleting = false;
-                this.loopNum++;
-                delta = 500;
-                }
-            
-                setTimeout(function() {
-                that.tick();
-                }, delta);
-            };
-            
-            window.onload = function() {
-                var elements = document.getElementsByClassName('txt-rotate');
-                for (var i=0; i<elements.length; i++) {
-                var toRotate = elements[i].getAttribute('data-rotate');
-                var period = elements[i].getAttribute('data-period');
-                if (toRotate) {
-                    new TxtRotate(elements[i], JSON.parse(toRotate), period);
-                }
-                }
-                // INJECT CSS
-                var css = document.createElement("style");
-                css.type = "text/css";
-                css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #666 }";
-                document.body.appendChild(css);
-            };
-        </script>
-    </body>
+    <section class="skills" id="skills">
+        <h1>Skills</h1>
+        <ul class="main-skills">
+            <li class="main-skill">
+                <i class="fa-solid fa-puzzle-piece"></i>
+                <span>Problem Solving</span>
+                <p>Analytical thinking, Creativity, Attention to detail, Critical thinking, Data analysis and
+                    interpretation</p>
+            </li>
+            <li class="main-skill">
+                <i class="fa-solid fa-object-group"></i>
+                <span>Software Engineering</span>
+                <p>Object-oriented design, Software development methodologies, Database management systems</p>
+            </li>
+            <li class="main-skill">
+                <i class="fa-solid fa-code"></i>
+                <span>Application Development</span>
+                <p>Cross-platform development, Mobile application development, Back-end development</p>
+            </li>
+            <li class="main-skill">
+                <i class="fa-solid fa-cubes"></i>
+                <span>Cloud Computing</span>
+                <p>Cloud services, Cloud deployment, Virtualization, Containerization</p>
+            </li>
+            <li class="main-skill">
+                <i class="fa-solid fa-microchip"></i>
+                <span>Artificial Intelligence</span>
+                <p>Machine learning, Deep learning, Natural language processing</p>
+            </li>
+        </ul>
+        <h2>Tech Stack</h2>
+        <ul class="skill-categories">
+            <li class="skill-category">
+                <button class="skill-toggle-button programming-languages" onclick="toggleProgrammingLanguages()">Programming Languages</button>
+            </li>
+            <li class="skill-category">
+                <button class="skill-toggle-button frameworks-libraries" onclick="toggleFrameworkLibraries()">Frameworks
+                    & Libraries</button>
+            </li>
+            <li class="skill-category">
+                <button class="skill-toggle-button tools-technologies" onclick="toggleToolsTechnologies()">Tools &
+                    Technologies</button>
+            </li>
+        </ul>
+        <div class="skill-pool" id="skill-pool">
+            <div class="skill programming-language">C++</div>
+            <div class="skill programming-language">Python</div>
+            <div class="skill programming-language">Dart</div>
+            <div class="skill programming-language">Java</div>
+            <div class="skill programming-language">HTML</div>
+            <div class="skill programming-language">CSS</div>
+            <div class="skill programming-language">JavaScript</div>
+            <div class="skill programming-language">SQL</div>
+            <div class="skill framework-library">Flutter</div>
+            <div class="skill framework-library">NodeJS</div>
+            <div class="skill framework-library">Angular</div>
+            <div class="skill framework-library">Bootstrap</div>
+            <div class="skill framework-library">Keras</div>
+            <div class="skill framework-library">TensorFlow</div>
+            <div class="skill tool-technology">Git</div>
+            <div class="skill tool-technology">GitHub</div>
+            <div class="skill tool-technology">Docker</div>
+            <div class="skill tool-technology">Firebase</div>
+            <div class="skill tool-technology">GCP</div>
+            <div class="skill tool-technology">MongoDB</div>
+            <div class="skill tool-technology">Heroku</div>
+            <div class="skill tool-technology">Arduino</div>
+        </div>
+        <h2 class="soft-skills-title">Soft Skills</h2>
+        <ul class="soft-skills">
+            <li class="soft-skill">
+                <i class="fa-solid fa-person-chalkboard"></i>
+                <br>Communication
+            </li>
+            <li class="soft-skill">
+                <i class="fa-solid fa-user-gear"></i>
+                <br>Adaptability
+            </li>
+            <li class="soft-skill">
+                <i class="fa-solid fa-chalkboard-user"></i>
+                <br>Self-Learning
+            </li>
+            <li class="soft-skill">
+                <i class="fa-solid fa-people-arrows"></i>
+                <br>Collaboration
+            </li>
+            <li class="soft-skill">
+                <i class="fa-solid fa-people-group"></i>
+                <br>Teamwork
+            </li>
+        </ul>
+
+    </section>
+
+    <section class="experiences" id="experiences">
+        <h1>Experiences</h1>
+        <ul class="experience-cards" id="experience-cards">
+            <li class="experience-card card">
+                <img alt="ADL-logo" src="assets/logos/experiences/ADL-logo.jpeg">
+                <h3>Axiata Digital Labs</h3>
+                Software Engineering Intern
+                <br>Feb 2023-Present
+            </li>
+            <li class="experience-card card">
+                <img alt="CENSOC-logo" src="assets/logos/experiences/CENSOC-logo.jpeg">
+                <h3>CENSOC - Computer Engineering Society of FOE USJ</h3>
+                Committee Member
+                <br>Nov 2022-Present<br><br>
+                Member
+                <br>Apr 2022-Nov 2022
+            </li>
+            <li class="experience-card card">
+                <img alt="Code_Squad-logo" src="assets/logos/experiences/Code_Squad-logo.jpeg">
+                <h3>Code Squad V3.0</h3>
+                Treasurer | Problem Setter
+                <br>Aug 2022-Dec 2022
+            </li>
+            <li class="experience-card card">
+                <img alt="Peoples_Bank-logo" src="assets/logos/experiences/Peoples_Bank-logo.jpeg">
+                <h3>People's Bank</h3>
+                Temporary Office Assistant
+                <br>Jan 2019-Sep 2019
+            </li>
+        </ul>
+    </section>
+
+    <section class="projects" id="projects">
+        <h1>Projects</h1>
+        <ul class="project-cards" id="project-cards">
+            <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/CryptoPal')">
+                <img alt="ryptoPal-logo" src="assets/logos/projects/CryptoPal-logo.png">
+                <h4>CryptoPal</h4>
+                <span>Computer Engineering Project</span><br>
+                <span>Mar 2022-Oct 2022</span>
+                <p>
+                    Advisory software system for cryptocurrency investments aims to provide users with the knowledge,
+                    understanding and experience by acknowledging users with market data and related news, providing
+                    forecast prices, and allowing users to add price predictions and view the prediction
+                    statistics.
+                </p>
+                <p>
+                    Flutter | Dart | Firebase (Firestore, Authentication, Cloud Functions, Hosting) |
+                    NodeJS | Python | TensorFlow | Keras | Heroku | Git | GitHub
+                </p>
+            </li>
+            <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/ezDelivery')">
+                <img alt="ezDelivery-logo" src="assets/logos/projects/ezDelivery-logo.png">
+                <h4>ezDelivery</h4>
+                <span>Cloud Computing Mini Project</span><br>
+                <span>Mar 2022-Aug 2022</span>
+                <p>
+                    Software solution to overcome issues with the traditional package
+                    delivery systems with functionalities such as package delivery
+                    tracking, location sharing, and managing available times.</p>
+                <p>
+                    Flutter | Dart | Firebase (Firestore, Authentication, Cloud Functions) | NodeJS | Git | GitHub
+                </p>
+            </li>
+            <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/Mereter')">
+                <img alt="Mereter-logo" src="assets/logos/projects/Mereter-logo.png">
+                <h4>Mereter</h4>
+                <span>Software Engineering Group Project</span><br>
+                <span>Aug 2021-Dec 2021</span>
+                <p>
+                    Software solution that enables softcopy-based reporting system and
+                    more additional features related to procedures of a Sri Lankan
+                    government hospital. The system includes a web application, mobile
+                    application, and a backend.<br>
+                    Contribued on Backend development.</p>
+                <p>
+                    Firebase (Firestore, Authentication, Cloud Functions, Storage, Hosting) |
+                    NodeJS | Flutter | Dart | HTML | CSS | JavasScript | BootStrap | Git | GitHub
+                </p>
+            </li>
+            <li class="project-card card"
+                onclick="openURL('https://github.com/DinukaGayashan/Supermarket-Inventory-Management-System')">
+                <img alt="Supermarket_Inventory_System-logo" src="assets/logos/projects/Supermarket_Inventory_System-logo.png">
+                <h4>Supermarket Inventory Management System</h4>
+                <span>Object Oriented Programming Group Project</span><br>
+                <span>Apr 2021-Jul 2021</span>
+                <p>
+                    Console based inventory management system to manage and store
+                    product data in a supermarket.</p>
+                <p>
+                    C++ | Git | GitHub
+                </p>
+            </li>
+            <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/SKY-ATTACK-Game')">
+                <img alt="Sky_Attack-logo" src="assets/logos/projects/Sky_Attack-logo.png">
+                <h4>Sky Attack Game</h4>
+                <span>Programming for Engineers Group Project</span><br>
+                <span>Aug 2020-Nov 2020</span>
+                <p>
+                    Console based shooting game developed as the 2nd semester programming project using basic C++
+                    programming.</p>
+                <p>
+                    C++ | Git | GitHub
+                </p>
+            </li>
+        </ul>
+    </section>
+
+    <section class="achievements" id="achievements">
+        <h1>Achievements</h1>
+        <ul class="achievement-cards" id="achievement-cards">
+            <li class="achievement-card card achievement-level-two">
+                <span class="achievement-title">IEEEXtreme 16.0</span>
+                <span class="achievement-issuer">IEEE · Nov 2022</span><br>
+                Island 54th (Global 756th) place<br>Team 'Tensors'
+            </li>
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">MoraXtreme 7.0</span>
+                <span class="achievement-issuer">IEEE Computer Society, University of Moratuwa · Oct 2022</span><br>
+                7th place<br>Team '0_o'
+            </li>
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">Aurora Competition</span>
+                <span class="achievement-issuer">Society of Computer Science, University of Sri Jayewardenepura · Mar
+                    2022</span><br>
+                3rd place<br>Team 'CPDS'
+            </li>
+            <li class="achievement-card card achievement-level-three">
+                <span class="achievement-title">RealHack 3.0</span>
+                <span class="achievement-issuer">Software Engineering Student's Association, University of Kelaniya ·
+                    Jan 2022</span><br>
+                Finalist<br>Team 'CND'
+            </li>
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">IEEEXtreme 15.0</span>
+                <span class="achievement-issuer">IEEE · Oct 2021</span><br>
+                Island 30th (Global 368th) place<br>Team 'CND'
+            </li>
+            <li class="achievement-card card achievement-level-three">
+                <span class="achievement-title">e-Coding International Hackathon</span>
+                <span class="achievement-issuer">Electronics and Embedded Systems Society, University of Sri
+                    Jayewardenepura · Aug 2021</span><br>
+                Top 20
+            </li>
+            <li class="achievement-card card achievement-level-two">
+                <span class="achievement-title">Code Squad V2.0</span>
+                <span class="achievement-issuer">Department of Computer Engineering, Faculty of Engineering, University
+                    of Sri Jayewardenepura · Jan 2021</span><br>
+                10th place<br>Team 'CDPD HACKERS'
+            </li>
+            <li class="achievement-card card achievement-level-one">
+                <span class="achievement-title">Information & Communication Technology Quiz Competition 2014</span>
+                <span class="achievement-issuer">Provincial Department of Education, Western Province, Sri Lanka · Dec
+                    2014</span><br>
+                Zonal 1st place & Provincial 6th place
+            </li>
+        </ul>
+    </section>
+
+    <section class="certifications" id="certifications">
+        <h1>Certifications</h1>
+        <ul class="certification-cards" id="certification-cards">
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Docker Course for Beginners.jpg">
+                <span class="certification-title">Docker Course for Beginners</span>
+                <br>Udemy · Nov 2022
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Introduction to Microservices.jpg">
+                <span class="certification-title">Introduction to Microservices</span>
+                <br>Udemy · Nov 2022
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Problem Solving (Intermediate).jpg">
+                <span class="certification-title">Problem Solving (Intermediate)</span>
+                <br>HackerRank · Oct 2022
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/The Complete 2021 Flutter Development Bootcamp with Dart.jpg">
+                <span class="certification-title">The Complete 2021 Flutter Development Bootcamp with Dart</span>
+                <br>Udemy · June 2022
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Git from Basics to Advanced Practical Guide for Developers.jpg">
+                <span class="certification-title">Git from Basics to Advanced: Practical Guide for Developers</span>
+                <br>Udemy · Mar 2022
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Problem Solving (Basic).jpg">
+                <span class="certification-title">Problem Solving (Basic)</span>
+                <br>Udemy · Feb 2022
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/HTML & CSS - Certification Course for Beginners.jpg">
+                <span class="certification-title">HTML & CSS - Certification Course for Beginners</span>
+                <br>Udemy · Dec 2021
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/JavaScript for Beginners - The Complete introduction to JS.jpg">
+                <span class="certification-title">JavaScript for Beginners - The Complete introduction to JS</span>
+                <br>Udemy · Nov 2021
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Kick-starter on Embedded System Design.jpg">
+                <span class="certification-title">Kick-starter on Embedded System Design</span>
+                <br>Electronic and Telecommunication Engineering - University of Moratuwa · Nov 2021
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Learn to Code in Python 3 Programming beginner to advanced.jpg">
+                <span class="certification-title">Learn to Code in Python 3: Programming beginner to advanced</span>
+                <br>Udemy · Sep 2021
+            </li>
+            <li class="certification-card card">
+                <img alt="certificate" src="assets/images/certificates/Certificate Course in English Language (Higher Level).jpg">
+                <span class="certification-title">Certificate Course in English Language (Higher Level)</span>
+                <br>IHRA, University of Colombo · Mar 2020
+            </li>
+        </ul>
+    </section>
+
+    <section class="gallery" id="gallery">
+        <h1>Gallery</h1>
+        No content
+    </section>
+
+    <section class="contact" id="contact">
+        <ul class="social-list">
+            <li class="social-list-item">
+                <a href="https://www.facebook.com/DinukaGayashan.di" target="_blank">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a href="https://www.linkedin.com/in/dinukagayashan" target="_blank">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a href="https://twitter.com/Dinuka_Gayashan" target="_blank">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a href="https://www.instagram.com/dinukagayashan.di" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </li>
+            <li class="social-list-item">
+                <a href="https://github.com/DinukaGayashan" target="_blank">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+            </li>
+        </ul>
+        <button class="outline-button" onclick="writeEmail()">
+            Write me an email
+        </button>
+        <button class="outline-button">Connect More</button>
+    </section>
+
+    <footer class="footer">
+        <span class="signature-name">Dinuka Gayashan</span>
+        <br>© <span id="date"></span>. All rights reserved.
+    </footer>
+
+</body>
+
 </html>
