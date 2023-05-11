@@ -4,10 +4,13 @@ const blob = document.querySelector("#blob");
 window.onpointermove = event => {
     const { pageX, pageY } = event;
 
+    const maxX = document.body.clientWidth - blob.offsetWidth / 2;
+    const maxY = document.body.clientHeight - blob.offsetHeight / 2;
+    console.log(blob.offsetHeight);
     blob.animate(
         {
-            left: `${pageX}px`,
-            top: `${pageY}px`
+            left: Math.min(pageX, maxX) + 'px',
+            top: Math.min(pageY, maxY) + 'px'
         },
         {
             duration: 3000,
@@ -225,7 +228,7 @@ document.addEventListener("mousemove", (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - container.offsetLeft;
-    const walk = (x - startX) * 1.5;
+    const walk = (x - startX) * 2;
     requestAnimationFrame(() => {
         container.scrollLeft = scrollLeft - walk;
     });
@@ -236,17 +239,8 @@ function openURL(url) {
     window.open(url);
 }
 
-function writeEmail() {
-    window.open('mailto:dinukagayashankasthuriarachchi@gmail.com');
-}
-
 let date = new Date();
 document.querySelector("#date").innerText = date.getFullYear();
-
-
-
-
-
 
 
 
