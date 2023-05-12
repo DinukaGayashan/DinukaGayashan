@@ -13,6 +13,7 @@
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
     --clr-card-color: rgba(15, 15, 15, 0.7);
+    --clr-blob: linear-gradient(to right, aquamarine, mediumpurple);
     --clr-3d-red: rgba(255, 0, 0, 0.67);
     --clr-3d-blue: rgba(0, 255, 255, 0.67);
     --clr-skill-one: #ff3ea5;
@@ -33,8 +34,8 @@
     --achievement-level-two-gradient: linear-gradient(315deg, rgba(34, 141, 212, 0.3), rgba(179, 22, 58, 0.3));
     --achievement-level-three-gradient: linear-gradient(315deg, rgba(255, 200, 0, 0.3), rgba(255, 0, 58, 0.3));
 
-    --ff-primary:'Noto Sans', sans-serif;
-    --ff-signature:'Reenie Beanie', cursive;
+    --ff-primary: 'Noto Sans', sans-serif;
+    --ff-signature: 'Reenie Beanie', cursive;
 }
 
 
@@ -61,12 +62,16 @@ h1 {
     font-size: 350%;
 }
 
-h2{
+h2 {
     font-size: 250%;
 }
 
-h3{
-    font-size: 150%;
+h3 {
+    font-size: 200%;
+}
+
+h4{
+    font-size: 125%;
 }
 
 
@@ -103,7 +108,7 @@ h3{
     width: 50%;
     overflow: hidden;
     position: absolute;
-    border-bottom: 0.15em solid var(--clr-theme);
+    border-bottom: 0.15 solid var(--clr-theme);
 }
 
 .text-top>div {
@@ -179,13 +184,13 @@ h3{
     width: 25%;
     min-width: 300px;
     aspect-ratio: 1;
-    position:fixed;
+    position: fixed;
     z-index: -100;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
     border-radius: 35% 65% 70% 30% / 38% 46% 54% 62%;
-    background: linear-gradient(to right, aquamarine, mediumpurple);
+    background: var(--clr-blob);
     animation: blob-rotate 30s infinite;
     opacity: 0.8;
     filter: blur(100px);
@@ -205,8 +210,7 @@ h3{
 
 .header {
     background: var(--header-gradient);
-    padding: 1.4% 5%;
-    max-height: 50px;
+    padding: 20px 5%;
     position: fixed;
     width: 90%;
     z-index: 90;
@@ -282,18 +286,16 @@ h3{
 
 .titles {
     font-size: 140%;
-    font-weight: 500;
 }
 
 
 .about {
-    padding-bottom: 2em;
+    padding-bottom: 3%;
     background-color: var(--clr-background-two);
 }
 
 .about-horizontal {
-    padding: 0 10% 6em;
-    margin-top: 4em;
+    padding: 50px 10% 100px;
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
@@ -302,15 +304,15 @@ h3{
 .about-image-column {
     flex-basis: 30%;
     min-width: 300px;
-    max-width: 500px;
-    padding-right: 1em;
+    max-width: 600px;
+    padding-right: 5%;
 }
 
 .about-image-column>img {
-    border-radius: 1em;
+    border-radius: 20px;
     width: 100%;
     height: 100%;
-    margin: 1em;
+    margin: 5%;
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
@@ -323,13 +325,13 @@ h3{
 
 .about-text-column {
     flex-basis: 60%;
-    padding-top: 1em;
+    padding-top: 2%;
     margin-left: 1em;
 }
 
 .about-text>span {
     font-weight: bold;
-    font-size: 1.5em;
+    font-size: 150%;
     display: flex;
 }
 
@@ -341,17 +343,18 @@ h3{
     text-align: left;
     list-style: none;
     color: var(--clr-theme);
-    margin-top: 2em;
+    margin-top: 30px;
 }
 
 .about-details-list span {
     color: var(--clr-light);
     display: flex;
+    font-size: 110%;
 }
 
 .about-details-buttons {
-    margin-top: 2em;
-    width: 260px;
+    margin-top: 50px;
+    width: 265px;
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -367,6 +370,7 @@ h3{
     letter-spacing: 1px;
     cursor: pointer;
     transition-duration: 0.3s;
+    font-size: 90%;
 }
 
 .outline-button {
@@ -379,6 +383,7 @@ h3{
     letter-spacing: 1px;
     cursor: pointer;
     transition-duration: 0.3s;
+    font-size: 90%;
 }
 
 .filled-button:hover {
@@ -396,10 +401,9 @@ h3{
 }
 
 .timeline-full-screen {
-    text-align: center;
     position: fixed;
     height: 100vh;
-    padding-top: 15vh;
+    padding-top: 10vh;
     top: 0;
     right: 0;
     bottom: 0;
@@ -419,6 +423,7 @@ h3{
     scroll-behavior: smooth;
     list-style: none;
     height: 60vh;
+    text-align: left;
 }
 
 .timeline-content-item {
@@ -427,48 +432,51 @@ h3{
 }
 
 .timeline-content-item-title {
-    font-size: 2em;
+    font-size: 180%;
+    
 }
 
 .timeline-content-item-time {
+    font-size: 120%;
     color: var(--clr-theme);
 }
 
 .close-button {
     text-align: right;
     margin-right: 3%;
+    margin-top: 5vh;
 }
 
 .left-button {
     position: absolute;
-    left: 1em;
+    left: 2%;
     top: 50%;
     transform: translateY(-50%);
     padding: 15px;
     background-color: transparent;
     border: none;
     color: var(--clr-light);
-    font-size: 20px;
+    font-size: 150%;
     cursor: pointer;
 }
 
 .right-button {
     position: absolute;
-    right: 1em;
+    right: 2%;
     top: 50%;
     transform: translateY(-50%);
     padding: 15px;
     background-color: transparent;
     border: none;
     color: var(--clr-light);
-    font-size: 20px;
+    font-size: 150%;
     cursor: pointer;
 }
 
 
 .main-skills {
     list-style: none;
-    padding: 0 5% 2em 5%;
+    padding: 0 5% 50px 5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -477,7 +485,7 @@ h3{
 
 .main-skill {
     width: 400px;
-    padding: 2em 1em;
+    padding: 50px 4%;
     transition: 0.3s;
 }
 
@@ -486,27 +494,27 @@ h3{
     transform: scale(1.01);
 }
 
-.main-skill>i{
-    font-size: 2em;
-    padding-right: 0.5em;
+.main-skill>i {
+    font-size: 200%;
+    padding-right: 20px;
 }
 
 .main-skill>span {
-    font-size: 1.5em;
+    font-size: 150%;
 }
+
 
 .skill-categories {
     list-style: none;
     display: flex;
     justify-content: space-between;
-    padding:1em 20% 0 20%;
+    padding: 0 20%;
 }
-
 
 .skill-toggle-button {
     background: transparent;
     border: none;
-    font-size: 1.25em;
+    font-size: 130%;
     position: relative;
     transition: 0.3s;
     padding: 10px;
@@ -549,40 +557,36 @@ h3{
     width: 70%;
     height: 20vh;
     display: flex;
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    margin-bottom: 150px;
     position: relative;
     backdrop-filter: blur(30px);
 }
 
 .skill {
     position: absolute;
-    font-size: 1.1em;
-}
-
-.soft-skills-title{
-    padding-top: 4em;
 }
 
 .soft-skills {
     list-style: none;
-    padding: 0 5% 2em 5%;
+    padding: 0 5% 50px 5%;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
 }
 
-.soft-skill>i{
-    font-size: 1.5em;
-    padding: 0.5em 0;
+.soft-skill>i {
+    font-size: 150%;
+    padding: 20px 0;
 }
 
 .soft-skill {
     min-width: 150px;
-    padding: 2em 1em;
+    padding: 20px 10px;
     transition: 0.3s;
-    font-size: 1.25em;
+    font-size: 125%;
 }
 
 .soft-skill:hover {
@@ -592,9 +596,9 @@ h3{
 
 
 .card {
-    margin: 1em;
-    padding: 2.5em;
-    border-radius: 1em;
+    margin: 15px;
+    padding: 40px;
+    border-radius: 20px;
     background: var(--clr-card-color);
     min-width: 200px;
     backdrop-filter: blur(10px);
@@ -635,10 +639,10 @@ h3{
     grid-auto-flow: column;
     grid-auto-columns: 25%;
     overflow-x: auto;
-    padding: 1em;
+    padding: 15px;
 }
 
-.experience-card{
+.experience-card {
     justify-content: flex-start;
     padding-top: 0;
 }
@@ -647,7 +651,7 @@ h3{
     width: 80%;
     object-fit: cover;
     aspect-ratio: 1/1;
-    padding-top: 2.5em;
+    padding-top: 50px;
 }
 
 
@@ -657,11 +661,11 @@ h3{
     grid-auto-flow: column;
     grid-auto-columns: 33.33%;
     overflow-x: auto;
-    padding: 1em;
+    padding: 15px;
 }
 
 .project-card>img {
-    width: 70%;
+    width: 60%;
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
@@ -674,20 +678,21 @@ h3{
     grid-auto-flow: column;
     grid-auto-columns: 25%;
     overflow-x: auto;
-    padding: 1em;
+    padding: 15px;
 }
 
 .achievement-card {
-    font-size: medium;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    font-size: 100%;
 }
 
-.achievement-title {
-    font-size: large;
-    font-weight: 800;
+.achievement-card::before{
+    padding-bottom: 20px;
 }
 
-.achievement-issuer {
-    font-size: small;
+.achievement-card>span {
+    font-size: 90%;
 }
 
 .achievement-level-one::after,
@@ -700,7 +705,7 @@ h3{
     width: 60%;
     height: 80%;
     transform: skewX(-10deg);
-    transition: 1s ease-out;
+    transition: 0.5s ease-out;
     filter: blur(50px);
     z-index: -1;
 }
@@ -733,7 +738,7 @@ h3{
     grid-auto-columns: 20%;
     overflow-x: auto;
     overscroll-behavior-inline: contain;
-    padding: 1em;
+    padding: 15px;
 }
 
 .certification-card {
@@ -753,7 +758,7 @@ h3{
     bottom: 0;
     z-index: -1;
     opacity: 0.2;
-    transition: 0.3s ease-out;
+    transition: 0.5s ease-out;
 }
 
 .certification-card:hover>img {
@@ -761,19 +766,14 @@ h3{
     opacity: 0.1;
 }
 
-.certification-title {
-    font-size: large;
-    font-weight: 800;
-}
 
-
-.gallery{
-    padding-bottom: 5em;
+.gallery {
+    padding-bottom: 100px;
 }
 
 
 .contact {
-    padding: 5em;
+    padding: 100px;
     background-color: var(--clr-background-two);
 }
 
@@ -785,8 +785,7 @@ h3{
 }
 
 .social-list li {
-    /* font-size: 1.25em; */
-    padding: 1em;
+    padding: 20px;
 }
 
 .social-list a {
@@ -795,26 +794,26 @@ h3{
     transition: 0.3s;
 }
 
-.social-list a:hover{
+.social-list a:hover {
     color: var(--clr-theme-two);
 }
 
 
-.signature-name{
-    font-size: 2em;
-    font-family:var(--ff-signature);
+.signature-name {
+    font-size: 200%;
+    font-family: var(--ff-signature);
 }
 
-.copyright{
-    font-size:medium;
+.copyright {
+    font-size: 100%;
 }
 
 .footer {
     background-color: var(--clr-background-two);
-    padding: 2em;
+    padding: 50px;
 }
 
-.footer>img{
+.footer>img {
     border-radius: 50%;
     width: 7%;
     margin: 1em;
