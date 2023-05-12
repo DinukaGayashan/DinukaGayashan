@@ -1,23 +1,22 @@
 
-const blob = document.querySelector("#blob");
+const blob = document.querySelector('#blob');
 
-window.onpointermove = event => {
-    const { pageX, pageY } = event;
+document.addEventListener('mousemove', e => {
+    const targetX = e.clientX;
+    const targetY = e.clientY;
 
-    const maxX = document.body.clientWidth - blob.offsetWidth / 2;
-    const maxY = document.body.clientHeight - blob.offsetHeight / 2;
-    console.log(blob.offsetHeight);
     blob.animate(
         {
-            left: Math.min(pageX, maxX) + 'px',
-            top: Math.min(pageY, maxY) + 'px'
+            left : targetX + 'px',
+            top : targetY + 'px'
         },
         {
-            duration: 3000,
+            duration: 1500,
             fill: "forwards"
         }
     );
-};
+});
+
 
 
 class TextScramble {

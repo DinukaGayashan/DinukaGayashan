@@ -50,7 +50,6 @@ body {
     text-align: center;
     font-family: var(--ff-primary);
     color: var(--clr-light);
-    overflow: auto;
 }
 
 a {
@@ -58,8 +57,16 @@ a {
 }
 
 h1 {
-    padding-top: 2em;
-    font-size: 3em;
+    padding-top: 5%;
+    font-size: 350%;
+}
+
+h2{
+    font-size: 250%;
+}
+
+h3{
+    font-size: 150%;
 }
 
 
@@ -99,8 +106,8 @@ h1 {
     border-bottom: 0.15em solid var(--clr-theme);
 }
 
-.text-top div {
-    font-size: 4vw;
+.text-top>div {
+    font-size: 400%;
     bottom: 0;
     animation: showTopText 4s;
     animation-delay: 0.5s;
@@ -137,8 +144,8 @@ h1 {
     position: absolute;
 }
 
-.text-bottom div {
-    font-size: 5vw;
+.text-bottom>div {
+    font-size: 500%;
     top: 0;
     animation: showBottomText 3s;
     animation-delay: 1.5s;
@@ -169,22 +176,19 @@ h1 {
 
 
 .blob {
-    width: 30%;
+    width: 25%;
+    min-width: 300px;
     aspect-ratio: 1;
-    position: absolute;
+    position:fixed;
     z-index: -100;
     left: 50%;
     top: 50%;
     translate: -50% -50%;
     border-radius: 35% 65% 70% 30% / 38% 46% 54% 62%;
     background: linear-gradient(to right, aquamarine, mediumpurple);
-    animation: blob-rotate 20s infinite;
+    animation: blob-rotate 30s infinite;
     opacity: 0.8;
     filter: blur(100px);
-    
-    /* pointer-events: none;
-    touch-action: none;
-    z-index: -5; */
 }
 
 @keyframes blob-rotate {
@@ -201,7 +205,8 @@ h1 {
 
 .header {
     background: var(--header-gradient);
-    padding: 20px 5%;
+    padding: 1.4% 5%;
+    max-height: 50px;
     position: fixed;
     width: 90%;
     z-index: 90;
@@ -211,7 +216,7 @@ h1 {
 }
 
 .header-logo {
-    height: 50px;
+    height: 55px;
     transition: 0.3s;
 }
 
