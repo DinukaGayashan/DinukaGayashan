@@ -120,6 +120,7 @@ h4 {
     transform: translate(0, 100%);
     position: absolute;
     display: block;
+    text-align: left;
 }
 
 @keyframes showTopText {
@@ -158,6 +159,7 @@ h4 {
     transform: translate(0, -100%);
     position: absolute;
     display: block;
+    text-align: left;
 }
 
 @keyframes showBottomText {
@@ -205,7 +207,6 @@ h4 {
         rotate: 360deg;
     }
 }
-
 
 
 .header {
@@ -259,7 +260,7 @@ h4 {
     font-size: 700%;
     transition: 0.5s ease-out;
     color: transparent;
-    letter-spacing: 3px;
+    letter-spacing: 2px;
     background: var(--name-gradient);
     background-size: 1000%;
     animation: gradient 50s infinite alternate;
@@ -346,7 +347,7 @@ h4 {
     margin-top: 30px;
 }
 
-.about-details-list span {
+.about-details-list>span {
     color: var(--clr-light);
     display: flex;
     font-size: 110%;
@@ -433,7 +434,6 @@ h4 {
 
 .timeline-content-item-title {
     font-size: 180%;
-
 }
 
 .timeline-content-item-time {
@@ -778,17 +778,17 @@ h4 {
     padding: 0;
 }
 
-.social-list li {
+.social-list-item {
     padding: 20px;
 }
 
-.social-list a {
+.social-list-item>a {
     font-size: larger;
     color: var(--clr-theme);
     transition: 0.3s;
 }
 
-.social-list a:hover {
+.social-list-item>a:hover {
     color: var(--clr-theme-two);
 }
 
