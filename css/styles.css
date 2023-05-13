@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300&family=Reenie+Beanie&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300&family=Reenie+Beanie&display=swap');
 
 ::-webkit-scrollbar {
     width: 0px;
@@ -34,7 +34,7 @@
     --achievement-level-two-gradient: linear-gradient(315deg, rgba(34, 141, 212, 0.3), rgba(179, 22, 58, 0.3));
     --achievement-level-three-gradient: linear-gradient(315deg, rgba(255, 200, 0, 0.3), rgba(255, 0, 58, 0.3));
 
-    --ff-primary: 'Noto Sans', sans-serif;
+    --ff-primary: 'Inter', sans-serif;
     --ff-signature: 'Reenie Beanie', cursive;
 }
 
@@ -70,7 +70,7 @@ h3 {
     font-size: 200%;
 }
 
-h4{
+h4 {
     font-size: 125%;
 }
 
@@ -86,7 +86,7 @@ h4{
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    display: none;
+    /* display: none; */
 }
 
 @keyframes hide {
@@ -108,7 +108,7 @@ h4{
     width: 50%;
     overflow: hidden;
     position: absolute;
-    border-bottom: 0.15 solid var(--clr-theme);
+    border-bottom: 1px solid var(--clr-theme);
 }
 
 .text-top>div {
@@ -329,7 +329,7 @@ h4{
     margin-left: 1em;
 }
 
-.about-text>span {
+.tagline {
     font-weight: bold;
     font-size: 150%;
     display: flex;
@@ -433,7 +433,7 @@ h4{
 
 .timeline-content-item-title {
     font-size: 180%;
-    
+
 }
 
 .timeline-content-item-time {
@@ -503,15 +503,13 @@ h4{
     font-size: 150%;
 }
 
-
 .skill-categories {
-    list-style: none;
     display: flex;
     justify-content: space-between;
-    padding: 0 20%;
+    padding: 0 20% 20px 20%;
 }
 
-.skill-toggle-button {
+.skill-category {
     background: transparent;
     border: none;
     font-size: 130%;
@@ -523,29 +521,28 @@ h4{
     cursor: pointer;
 }
 
-
-.skill-toggle-button:hover {
+.skill-category:hover {
     border-bottom: 1px solid var(--clr-light);
-
 }
 
-.skill {
+.skill-pool>div {
     transition: 0.3s;
+    position: absolute;
 }
 
-.skill-toggle-button.programming-languages.skill-selected,
+.skill-category.programming-languages.skill-selected,
 .programming-language.skills-selected,
 .programming-language:hover {
     color: var(--clr-skill-one);
 }
 
-.skill-toggle-button.frameworks-libraries.skill-selected,
+.skill-category.frameworks-libraries.skill-selected,
 .framework-library.skills-selected,
 .framework-library:hover {
     color: var(--clr-skill-two);
 }
 
-.skill-toggle-button.tools-technologies.skill-selected,
+.skill-category.tools-technologies.skill-selected,
 .tool-technology.skills-selected,
 .tool-technology:hover {
     color: var(--clr-skill-three);
@@ -562,10 +559,6 @@ h4{
     margin-bottom: 150px;
     position: relative;
     backdrop-filter: blur(30px);
-}
-
-.skill {
-    position: absolute;
 }
 
 .soft-skills {
@@ -591,7 +584,7 @@ h4{
 
 .soft-skill:hover {
     text-shadow: 0 0 20px var(--clr-light);
-    transform: scale(1.02);
+    transform: scale(1.01);
 }
 
 
@@ -687,7 +680,7 @@ h4{
     font-size: 100%;
 }
 
-.achievement-card::before{
+.achievement-card::before {
     padding-bottom: 20px;
 }
 
@@ -695,9 +688,7 @@ h4{
     font-size: 90%;
 }
 
-.achievement-level-one::after,
-.achievement-level-two::after,
-.achievement-level-three::after {
+.achievement-card::after {
     content: '';
     position: absolute;
     top: 50;
@@ -722,9 +713,7 @@ h4{
     background: var(--achievement-level-three-gradient);
 }
 
-.achievement-level-one:hover::after,
-.achievement-level-two:hover::after,
-.achievement-level-three:hover::after {
+.achievement-card:hover::after {
     width: 100%;
     height: 100%;
     transform: skewX(0);
@@ -743,7 +732,12 @@ h4{
 
 .certification-card {
     position: relative;
-    font-size: medium;
+    font-size: 100%;
+    padding: 0 50px 30px;
+}
+
+.certification-card::before {
+    padding-bottom: 30px;
 }
 
 .certification-card>img {
@@ -800,22 +794,20 @@ h4{
 
 
 .signature-name {
-    font-size: 200%;
+    font-size: 35px;
     font-family: var(--ff-signature);
-}
-
-.copyright {
-    font-size: 100%;
 }
 
 .footer {
     background-color: var(--clr-background-two);
     padding: 50px;
+    font-size: 100%;
 }
 
 .footer>img {
     border-radius: 50%;
     width: 7%;
+    min-width: 100px;
     margin: 1em;
     aspect-ratio: 1/1;
     object-fit: cover;

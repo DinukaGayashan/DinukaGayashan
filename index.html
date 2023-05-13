@@ -43,9 +43,9 @@
     <div class="blob" id="blob"></div>
 
     <section class="home" id="home">
-        <!-- <span class="hello">Hello World!, I'm</span><br> -->
-        <span class="name"><strong>Dinuka Gayashan</strong></span><br>
-        <span class="titles" id="titles"></span>
+        <!-- <div class="hello">Hello World!, I'm</div><br> -->
+        <div class="name"><strong>Dinuka Gayashan</strong></div><br>
+        <div class="titles" id="titles"></div>
     </section>
 
     <section class="about" id="about">
@@ -56,7 +56,7 @@
             </div>
             <div class="about-text-column">
                 <p class="about-text">
-                    <span>I'm Dinuka Gayashan, a Computer Engineering Undergraduate.</span><br>
+                    <span class="tagline">I'm Dinuka Gayashan, a Computer Engineering Undergraduate.</span><br>
                     I am a passionate Computer Engineering Undergraduate enthusiastic about technology and willing to
                     explore new things in the field of computer engineering. I have interests in areas such as software
                     engineering, data science and cloud computing.
@@ -78,8 +78,8 @@
                         <button class="left-button" onclick="leftScroll()">&lt</button>
                         <ul class="timeline-content" id="timeline-content">
                             <li class="timeline-content-item">
-                                <span class="timeline-content-item-title">Undergraduate</span><br>
-                                <span class="timeline-content-item-time">Dec 2019-Present</span>
+                                <div class="timeline-content-item-title">Undergraduate</div>
+                                <div class="timeline-content-item-time">Dec 2019-Present</div>
                                 <hr>
                                 Studies at the Faculty of Engineering, University of Sri Jayewardenepura and
                                 pursuing Honours Degree of Bachelor of Science in Engineering (BscEngHons) with a
@@ -90,8 +90,8 @@
                                 <br>Activities and societies: IEEE, IESL, CENSOC (Computer Engineering Society)
                             </li>
                             <li class="timeline-content-item">
-                                <span class="timeline-content-item-title">Secondary Student</span><br>
-                                <span class="timeline-content-item-time">Jan 2010-Sep 2018</span>
+                                <div class="timeline-content-item-title">Secondary Student</div>
+                                <div class="timeline-content-item-time">Jan 2010-Sep 2018</div>
                                 <hr>
                                 Got secondary education at Bandaranayake College Gampaha. Got passed the
                                 G.C.E.(O/L) examination in 2015 and G.C.E.(A/L) examination in 2018.
@@ -129,8 +129,8 @@
                                 <br>Activities and societies: Cricket, Swimming, Science Society, X-Ban exhibition
                             </li>
                             <li class="timeline-content-item">
-                                <span class="timeline-content-item-title">Primary Student</span><br>
-                                <span class="timeline-content-item-time">Jan 2005-Dec 2009</span>
+                                <div class="timeline-content-item-title">Primary Student</div>
+                                <div class="timeline-content-item-time">Jan 2005-Dec 2009</div>
                                 <hr>
                                 Entered Gothami Junior School, Gampaha for primary education and got passed the
                                 grade 5 scholarship.
@@ -177,43 +177,37 @@
             </li>
         </ul>
         <h3>Tech Stack</h3>
-        <ul class="skill-categories">
-            <li class="skill-category">
-                <button class="skill-toggle-button programming-languages"
-                    onclick="toggleProgrammingLanguages()">Programming Languages</button>
-            </li>
-            <li class="skill-category">
-                <button class="skill-toggle-button frameworks-libraries" onclick="toggleFrameworkLibraries()">Frameworks
-                    & Libraries</button>
-            </li>
-            <li class="skill-category">
-                <button class="skill-toggle-button tools-technologies" onclick="toggleToolsTechnologies()">Tools &
-                    Technologies</button>
-            </li>
-        </ul>
+        <div class="skill-categories">
+            <div class="skill-category programming-languages" onclick="toggleProgrammingLanguages()">Programming
+                Languages</div>
+            <div class="skill-category frameworks-libraries" onclick="toggleFrameworkLibraries()">Frameworks
+                & Libraries</div>
+            <div class="skill-category tools-technologies" onclick="toggleToolsTechnologies()">Tools &
+                Technologies</div>
+        </div>
         <div class="skill-pool" id="skill-pool">
-            <div class="skill programming-language">C++</div>
-            <div class="skill programming-language">Python</div>
-            <div class="skill programming-language">Dart</div>
-            <div class="skill programming-language">Java</div>
-            <div class="skill programming-language">HTML</div>
-            <div class="skill programming-language">CSS</div>
-            <div class="skill programming-language">JavaScript</div>
-            <div class="skill programming-language">SQL</div>
-            <div class="skill framework-library">Flutter</div>
-            <div class="skill framework-library">NodeJS</div>
-            <div class="skill framework-library">Angular</div>
-            <div class="skill framework-library">Bootstrap</div>
-            <div class="skill framework-library">Keras</div>
-            <div class="skill framework-library">TensorFlow</div>
-            <div class="skill tool-technology">Git</div>
-            <div class="skill tool-technology">GitHub</div>
-            <div class="skill tool-technology">Docker</div>
-            <div class="skill tool-technology">Firebase</div>
-            <div class="skill tool-technology">GCP</div>
-            <div class="skill tool-technology">MongoDB</div>
-            <div class="skill tool-technology">Heroku</div>
-            <div class="skill tool-technology">Arduino</div>
+            <div class="programming-language">C++</div>
+            <div class="programming-language">Python</div>
+            <div class="programming-language">Dart</div>
+            <div class="programming-language">Java</div>
+            <div class="programming-language">HTML</div>
+            <div class="programming-language">CSS</div>
+            <div class="programming-language">JavaScript</div>
+            <div class="programming-language">SQL</div>
+            <div class="framework-library">Flutter</div>
+            <div class="framework-library">NodeJS</div>
+            <div class="framework-library">Angular</div>
+            <div class="framework-library">Bootstrap</div>
+            <div class="framework-library">Keras</div>
+            <div class="framework-library">TensorFlow</div>
+            <div class="tool-technology">Git</div>
+            <div class="tool-technology">GitHub</div>
+            <div class="tool-technology">Docker</div>
+            <div class="tool-technology">Firebase</div>
+            <div class="tool-technology">GCP</div>
+            <div class="tool-technology">MongoDB</div>
+            <div class="tool-technology">Heroku</div>
+            <div class="tool-technology">Arduino</div>
         </div>
         <h2>Soft Skills</h2>
         <ul class="soft-skills">
@@ -238,7 +232,6 @@
                 <br>Teamwork
             </li>
         </ul>
-
     </section>
 
     <section class="experiences" id="experiences">
@@ -279,7 +272,7 @@
             <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/CryptoPal')">
                 <img alt="ryptoPal-logo" src="assets/logos/projects/CryptoPal-logo.png">
                 <h4>CryptoPal</h4>
-                <span>Computer Engineering Project</span><br>
+                <div>Computer Engineering Project</div>
                 <span>Mar 2022-Oct 2022</span>
                 <p>
                     Advisory software system for cryptocurrency investments aims to provide users with the knowledge,
@@ -295,12 +288,13 @@
             <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/ezDelivery')">
                 <img alt="ezDelivery-logo" src="assets/logos/projects/ezDelivery-logo.png">
                 <h4>ezDelivery</h4>
-                <span>Cloud Computing Mini Project</span><br>
+                <div>Cloud Computing Mini Project</div>
                 <span>Mar 2022-Aug 2022</span>
                 <p>
                     Software solution to overcome issues with the traditional package
                     delivery systems with functionalities such as package delivery
-                    tracking, location sharing, and managing available times.</p>
+                    tracking, location sharing, and managing available times.
+                </p>
                 <p>
                     Flutter | Dart | Firebase (Firestore, Authentication, Cloud Functions) | NodeJS | Git | GitHub
                 </p>
@@ -308,14 +302,15 @@
             <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/Mereter')">
                 <img alt="Mereter-logo" src="assets/logos/projects/Mereter-logo.png">
                 <h4>Mereter</h4>
-                <span>Software Engineering Group Project</span><br>
+                <div>Software Engineering Group Project</div>
                 <span>Aug 2021-Dec 2021</span>
                 <p>
                     Software solution that enables softcopy-based reporting system and
                     more additional features related to procedures of a Sri Lankan
                     government hospital. The system includes a web application, mobile
                     application, and a backend.<br>
-                    Contribued on Backend development.</p>
+                    Contribued on Backend development.
+                </p>
                 <p>
                     Firebase (Firestore, Authentication, Cloud Functions, Storage, Hosting) |
                     NodeJS | Flutter | Dart | HTML | CSS | JavasScript | BootStrap | Git | GitHub
@@ -326,7 +321,7 @@
                 <img alt="Supermarket_Inventory_System-logo"
                     src="assets/logos/projects/Supermarket_Inventory_System-logo.png">
                 <h4>Supermarket Inventory Management System</h4>
-                <span>Object Oriented Programming Group Project</span><br>
+                <div>Object Oriented Programming Group Project</div>
                 <span>Apr 2021-Jul 2021</span>
                 <p>
                     Console based inventory management system to manage and store
@@ -338,7 +333,7 @@
             <li class="project-card card" onclick="openURL('https://github.com/DinukaGayashan/SKY-ATTACK-Game')">
                 <img alt="Sky_Attack-logo" src="assets/logos/projects/Sky_Attack-logo.png">
                 <h4>Sky Attack Game</h4>
-                <span>Programming for Engineers Group Project</span><br>
+                <div>Programming for Engineers Group Project</div>
                 <span>Aug 2020-Nov 2020</span>
                 <p>
                     Console based shooting game developed as the 2nd semester programming project using basic C++
@@ -520,8 +515,9 @@
 
     <footer class="footer">
         <img alt="profile-picture" src="assets/images/self/profile-picture.jpg">
-        <br><span class="signature-name">Dinuka Gayashan</span>
-        <br>© <span id="date"></span>. All rights reserved.
+        <br>
+        <div class="signature-name">Dinuka Gayashan</div>
+        © <span id="date"></span>. All rights reserved.
     </footer>
 
 </body>
