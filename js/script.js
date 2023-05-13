@@ -7,8 +7,8 @@ document.addEventListener('mousemove', e => {
 
     blob.animate(
         {
-            left : targetX + 'px',
-            top : targetY + 'px'
+            left: targetX + 'px',
+            top: targetY + 'px'
         },
         {
             duration: 3000,
@@ -114,42 +114,21 @@ function rightScroll() {
 }
 
 
-
-function toggleProgrammingLanguages() {
-    document.querySelector(".skill-toggle-button.programming-languages").classList.toggle("skill-selected");
-    let programmingLanguages = document.querySelectorAll(".programming-language");
-    for (let i = 0; i < programmingLanguages.length; i++) {
-        programmingLanguages[i].classList.toggle("skills-selected");
-    }
-}
-
-function toggleFrameworkLibraries() {
-    document.querySelector(".skill-toggle-button.frameworks-libraries").classList.toggle("skill-selected");
-    let frameworksLibraries = document.querySelectorAll(".framework-library");
-    for (let i = 0; i < frameworksLibraries.length; i++) {
-        frameworksLibraries[i].classList.toggle("skills-selected");
-    }
-}
-
-function toggleToolsTechnologies() {
-    document.querySelector(".skill-toggle-button.tools-technologies").classList.toggle("skill-selected");
-    let toolsTechnologies = document.querySelectorAll(".tool-technology");
-    for (let i = 0; i < toolsTechnologies.length; i++) {
-        toolsTechnologies[i].classList.toggle("skills-selected");
-    }
-}
-
-
-let skills = document.querySelectorAll(".skill");
+let programmingLanguages = document.querySelectorAll(".programming-language");
+let frameworksLibraries = document.querySelectorAll(".framework-library");
+let toolsTechnologies = document.querySelectorAll(".tool-technology");
+let skills = Array.from(programmingLanguages)
+    .concat(Array.from(frameworksLibraries))
+    .concat(Array.from(toolsTechnologies));
 let skillContainer = document.querySelector("#skill-pool");
+
 setSkillPositions();
 window.addEventListener("resize", setSkillPositions);
-document.querySelector("#skill-pool").addEventListener("click", setSkillPositions);
+skillContainer.addEventListener("click", setSkillPositions);
 
 function setSkillPositions() {
     let containerWidth = skillContainer.offsetWidth;
     let containerHeight = skillContainer.offsetHeight;
-
     let positions = [];
 
     for (let i = 0; i < skills.length; i++) {
@@ -185,6 +164,28 @@ function setSkillPositions() {
         element.style.top = randomY + 'px';
 
         positions.push({ x: randomX, y: randomY, width: elementWidth, height: elementHeight });
+    }
+}
+
+function toggleProgrammingLanguages() {
+    document.querySelector(".skill-category.programming-languages").classList.toggle("skill-selected");
+    for (let i = 0; i < programmingLanguages.length; i++) {
+        programmingLanguages[i].classList.toggle("skills-selected");
+    }
+}
+
+function toggleFrameworkLibraries() {
+    document.querySelector(".skill-category.frameworks-libraries").classList.toggle("skill-selected");
+
+    for (let i = 0; i < frameworksLibraries.length; i++) {
+        frameworksLibraries[i].classList.toggle("skills-selected");
+    }
+}
+
+function toggleToolsTechnologies() {
+    document.querySelector(".skill-category.tools-technologies").classList.toggle("skill-selected");
+    for (let i = 0; i < toolsTechnologies.length; i++) {
+        toolsTechnologies[i].classList.toggle("skills-selected");
     }
 }
 
