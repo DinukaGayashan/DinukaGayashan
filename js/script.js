@@ -98,8 +98,30 @@ changeTitle();
 
 
 
-function togglePopup() {
+const hellos = ['Hello', 'ආයුබෝවන්', 'வணக்கம்', 'नमस्ते', 'Hola', 'Bonjour', 'こんにちは', 'Ciao', 'Salve', 'Aloha', '안녕하세요', 'Merhaba', 'привет', 'Olá', '你好'];
+let index = 0;
+
+function changeText() {
+    const helloElement = document.querySelector('.hello');
+    helloElement.style.opacity = 0;
+
+    setTimeout(() => {
+        helloElement.textContent = hellos[index];
+        helloElement.style.opacity = 1;
+        index = (index + 1) % hellos.length;
+    }, 500);
+}
+
+setInterval(changeText, 3000);
+
+
+
+function toggleTimelinePopup() {
     document.querySelector("#timeline-full-screen").classList.toggle("hidden");
+}
+
+function toggleSocialPopup() {
+    document.querySelector("#social-full-screen").classList.toggle("hidden");
 }
 
 
