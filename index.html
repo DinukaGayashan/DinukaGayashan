@@ -44,9 +44,18 @@
     <div class="blob" id="blob"></div>
 
     <section class="home" id="home">
-        <!-- <div class="hello">Hello World!, I'm</div><br> -->
-        <div class="name"><strong>Dinuka Gayashan</strong></div><br>
-        <div class="titles" id="titles"></div>
+        <div class="landing-screen">
+            <div class="name">
+                <strong><span>D</span><span>i</span><span>n</span><span>u</span><span>k</span><span>a</span>
+                    <span>G</span><span>a</span><span>y</span><span>a</span><span>s</span><span>h</span><span>a</span><span>n</span></strong>
+            </div>
+            <div class="titles" id="titles"></div>
+        </div>
+
+        <div class="welcome">
+            <span class="hello">Hello</span>
+            <br>I'm Dinuka, welcome to my personal website.
+        </div>
     </section>
 
     <section class="about" id="about">
@@ -70,12 +79,11 @@
                 </div>
                 <div class="about-details-buttons">
                     <button class="filled-button" onclick="openURL('')">Curriculum Vitae</button>
-                    <button class="outline-button" onclick="togglePopup()">Timeline</button>
+                    <button class="outline-button" onclick="toggleTimelinePopup()">Timeline</button>
                     <div class="timeline-full-screen hidden" id="timeline-full-screen">
                         <div class="close-button">
-                            <button class="outline-button" onclick="togglePopup()">Close</button>
+                            <button class="outline-button" onclick="toggleTimelinePopup()">Close</button>
                         </div>
-
                         <button class="left-button" onclick="leftScroll()">&lt</button>
                         <ul class="timeline-content" id="timeline-content">
                             <li class="timeline-content-item">
@@ -508,10 +516,94 @@
                 </a>
             </li>
         </ul>
+        <!-- <span>dinukagayashankasthuriarachchi@gmail.com</span> -->
         <button class="outline-button" onclick="openURL('mailto:dinukagayashankasthuriarachchi@gmail.com')">
             <i class="fa-solid fa-paper-plane"></i> Write me an email
         </button>
-        <button class="outline-button">Find More</button>
+        <button class="outline-button" onclick="toggleSocialPopup()">Find More</button>
+        <div class="social-full-screen hidden" id="social-full-screen">
+            <div class="close-button">
+                <button class="outline-button" onclick="toggleSocialPopup()">Close</button>
+            </div>
+            <span>Find everywhere</span>
+            <div class="social-medias">
+                <a href="" target="_blank" aria-label="Find on 500px">
+                    <i class="fa-brands fa-500px"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Behance">
+                    <i class="fa-brands fa-behance"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Discord">
+                    <i class="fa-brands fa-discord"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Dribbble">
+                    <i class="fa-brands fa-dribbble"></i>
+                </a>
+                <a href="https://www.facebook.com/DinukaGayashan.di" target="_blank" aria-label="Find on Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Flickr">
+                    <i class="fa-brands fa-flickr"></i>
+                </a>
+                <a href="https://github.com/DinukaGayashan" target="_blank" aria-label="Find on GitHub">
+                    <i class="fa-brands fa-github"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on HackerRank">
+                    <i class="fa-brands fa-hackerrank"></i>
+                </a>
+                <a href="https://www.instagram.com/dinukagayashan.di" target="_blank" aria-label="Find on Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Kaggle">
+                    <i class="fa-brands fa-kaggle"></i>
+                </a>
+                <a href="https://www.linkedin.com/in/dinukagayashan" target="_blank" aria-label="Find on LinkedIn">
+                    <i class="fa-brands fa-linkedin-in"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Medium">
+                    <i class="fa-brands fa-medium"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Pinterest">
+                    <i class="fa-brands fa-pinterest"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Reddit">
+                    <i class="fa-brands fa-reddit"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Skype">
+                    <i class="fa-brands fa-skype"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Snapchat">
+                    <i class="fa-brands fa-snapchat"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Spotify">
+                    <i class="fa-brands fa-spotify"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Telegram">
+                    <i class="fa-brands fa-telegram"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on TikTok">
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Tumblr">
+                    <i class="fa-brands fa-tumblr"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Twitch">
+                    <i class="fa-brands fa-twitch"></i>
+                </a>
+                <a href="https://twitter.com/Dinuka_Gayashan" target="_blank" aria-label="Find on Twitter">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on Viber">
+                    <i class="fa-brands fa-viber"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on WhatsApp">
+                    <i class="fa-brands fa-whatsapp"></i>
+                </a>
+                <a href="" target="_blank" aria-label="Find on YouTube">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+            </div>
+        </div>
     </section>
 
     <footer class="footer">
