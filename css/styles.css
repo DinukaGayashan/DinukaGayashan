@@ -345,7 +345,7 @@ h4 {
     flex-basis: 30%;
     min-width: 300px;
     max-width: 600px;
-    padding-right: 5%;
+    padding-right: 10%;
 }
 
 .about-image-column>img {
@@ -366,7 +366,6 @@ h4 {
 .about-text-column {
     flex-basis: 60%;
     padding-top: 2%;
-    margin-left: 1em;
 }
 
 .tagline {
@@ -866,7 +865,7 @@ h4 {
 
 
 .signature-name {
-    font-size: 35px;
+    font-size: 200%;
     font-family: var(--ff-signature);
 }
 
@@ -896,19 +895,11 @@ h4 {
     }
 
     .text-bottom>div {
-        font-size: 400%;
+        font-size: 350%;
     }
 
     .name {
         font-size: 600%;
-    }
-
-    .achievement-cards {
-        grid-auto-columns: 33.33%;
-    }
-
-    .certification-cards {
-        grid-auto-columns: 25%;
     }
 
     .about-text-column {
@@ -918,56 +909,58 @@ h4 {
     .main-skill {
         padding: 40px 4%;
     }
+
+    .achievement-cards {
+        grid-auto-columns: 33.33%;
+    }
+
+    .certification-cards {
+        grid-auto-columns: 25%;
+    }
 }
 
 @media (max-width: 1280px) {
-    .experience-cards {
+    .main-skill {
+        padding: 30px 4%;
+    }
+
+    .experience-cards,
+    .certification-cards {
         grid-auto-columns: 33.33%;
     }
 
     .project-cards {
         grid-auto-columns: 50%;
     }
-
-    .certification-cards {
-        grid-auto-columns: 33.33%;
-    }
-
-    .main-skill {
-        padding: 30px 4%;
-    }
 }
 
 @media (max-width: 960px) {
-    .page-sections {
-        display: none;
-    }
-
     .text-top>div {
         font-size: 200%;
     }
 
     .text-bottom>div {
-        font-size: 300%;
+        font-size: 250%;
     }
 
-    .experience-cards {
-        grid-auto-columns: 50%;
+    .page-sections {
+        display: none;
     }
 
-    .achievement-cards {
-        grid-auto-columns: 50%;
-    }
-
+    .experience-cards,
+    .achievement-cards,
     .certification-cards {
         grid-auto-columns: 50%;
     }
-
 }
 
 @media (max-width: 720px) {
     .name {
         font-size: 500%;
+    }
+
+    .about-text-column {
+        flex-basis: 60%;
     }
 
     .skill-categories {
@@ -978,19 +971,19 @@ h4 {
         font-size: 100%;
     }
 
-    .experience-cards {
-        grid-auto-columns: 100%;
-    }
-
-    .project-cards {
-        grid-auto-columns: 100%;
-    }
-
-    .achievement-cards {
-        grid-auto-columns: 100%;
-    }
-
+    .experience-cards,
+    .project-cards,
+    .achievement-cards,
     .certification-cards {
-        grid-auto-columns: 50%;
+        grid-auto-columns: 100%;
+        scroll-snap-type: x mandatory;
+    }
+
+    .experience-card,
+    .project-card,
+    .achievement-card,
+    .certification-card {
+        scroll-snap-align: center;
+
     }
 }
