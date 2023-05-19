@@ -323,7 +323,7 @@ h4 {
     transition: opacity 0.5s ease-in-out;
 }
 
-.hello::before{
+.hello::before {
     content: '';
     font-size: 301%;
 }
@@ -337,7 +337,7 @@ h4 {
 .about-horizontal {
     padding: 50px 10% 100px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
 }
 
@@ -692,6 +692,7 @@ h4 {
 
 .experience-card>img {
     width: 80%;
+    max-width: 280px;
     object-fit: cover;
     aspect-ratio: 1/1;
     padding-top: 50px;
@@ -884,4 +885,112 @@ h4 {
     object-fit: cover;
     object-position: center;
     transition-duration: 1s;
+}
+
+
+
+
+@media (max-width: 1440px) {
+    .text-top>div {
+        font-size: 300%;
+    }
+
+    .text-bottom>div {
+        font-size: 400%;
+    }
+
+    .name {
+        font-size: 600%;
+    }
+
+    .achievement-cards {
+        grid-auto-columns: 33.33%;
+    }
+
+    .certification-cards {
+        grid-auto-columns: 25%;
+    }
+
+    .about-text-column {
+        flex-basis: 50%;
+    }
+
+    .main-skill {
+        padding: 40px 4%;
+    }
+}
+
+@media (max-width: 1280px) {
+    .experience-cards {
+        grid-auto-columns: 33.33%;
+    }
+
+    .project-cards {
+        grid-auto-columns: 50%;
+    }
+
+    .certification-cards {
+        grid-auto-columns: 33.33%;
+    }
+
+    .main-skill {
+        padding: 30px 4%;
+    }
+}
+
+@media (max-width: 960px) {
+    .page-sections {
+        display: none;
+    }
+
+    .text-top>div {
+        font-size: 200%;
+    }
+
+    .text-bottom>div {
+        font-size: 300%;
+    }
+
+    .experience-cards {
+        grid-auto-columns: 50%;
+    }
+
+    .achievement-cards {
+        grid-auto-columns: 50%;
+    }
+
+    .certification-cards {
+        grid-auto-columns: 50%;
+    }
+
+}
+
+@media (max-width: 720px) {
+    .name {
+        font-size: 500%;
+    }
+
+    .skill-categories {
+        padding: 0 5% 10px 5%;
+    }
+
+    .skill-category {
+        font-size: 100%;
+    }
+
+    .experience-cards {
+        grid-auto-columns: 100%;
+    }
+
+    .project-cards {
+        grid-auto-columns: 100%;
+    }
+
+    .achievement-cards {
+        grid-auto-columns: 100%;
+    }
+
+    .certification-cards {
+        grid-auto-columns: 50%;
+    }
 }
