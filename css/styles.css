@@ -10,6 +10,7 @@
     --clr-background-two: rgba(15, 19, 19, 0.5);
     --clr-theme: rgba(55, 170, 156, 0.9);
     --clr-theme-two: rgba(148, 243, 228, 0.9);
+    --clr-theme-three: rgba(148, 243, 228, 1);
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
     --clr-card-color: rgba(15, 15, 15, 0.7);
@@ -92,7 +93,7 @@ h4 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    /* display: none; */
+    display: none;
 }
 
 @keyframes hide {
@@ -200,6 +201,7 @@ h4 {
     animation: blob-rotate 30s infinite;
     opacity: 0.8;
     filter: blur(100px);
+    transition: 1s;
 }
 
 @keyframes blob-rotate {
@@ -817,50 +819,85 @@ h4 {
 
 
 .contact {
-    padding: 100px;
+    padding: 60px 0;
     background-color: var(--clr-background-two);
 }
 
-.social-list {
-    list-style: none;
-    display: flex;
-    justify-content: center;
-    padding: 0;
+.write-me-email{
+    position: relative;
+    margin: 60px 30%;
 }
 
-.social-list-item>a {
+.write-me {
+    font-size: 300%;
+    transition: 0.3s;
+}
+
+.write-me-email:hover .write-me{
+    text-shadow: 0px -12px 0 var(--clr-light),
+    0px 12px 0 var(--clr-light);
+    color: transparent;
+}
+
+.write-me-email:hover .email {
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+.email {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.3ms ease;
+    font-weight: lighter;
+    background: var(--clr-theme-three);
+    padding: 8px;
+    line-height: 100%;
+    cursor: pointer;
+}
+
+.social-list {
+    padding: 20px;
+}
+
+.social-list>a,
+.social-list-more>a {
     font-size: 130%;
     color: var(--clr-theme);
     transition: 0.3s;
     padding: 20px;
 }
 
-.social-list-item>a:hover {
+.social-list>a:hover,
+.social-list-more>a:hover {
     color: var(--clr-theme-two);
 }
 
-.social-full-screen {
-    position: fixed;
-    height: 50vh;
-    top: 25vh;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: var(--clr-card-color);
-    backdrop-filter: blur(20px);
-    z-index: 50;
-    animation: popup 0.3s ease-out forwards;
+.social-list-more {
+    height: 0;
+    overflow: hidden;
+    transition: 0.3s ease-out;
 }
 
-.social-media {
-    display: inline;
+.expanded {
+    height: 40px;
+    transition: 0.3s ease-out;
 }
 
-.social-medias>a {
+.more-button {
+    padding: 0 15px;
+    background-color: transparent;
+    border: none;
+    color: var(--clr-light);
     font-size: 150%;
-    color: var(--clr-theme);
-    transition: 0.3s;
-    padding: 20px;
+    cursor: pointer;
+}
+
+.more-button>i {
+    font-size: 80%;
+    color: var(--clr-card-hover);
 }
 
 
@@ -898,6 +935,10 @@ h4 {
         font-size: 350%;
     }
 
+    .blob {
+        width: 30%;
+    }
+
     .name {
         font-size: 600%;
     }
@@ -920,6 +961,10 @@ h4 {
 }
 
 @media (max-width: 1280px) {
+    .blob {
+        width: 40%;
+    }
+
     .main-skill {
         padding: 30px 4%;
     }
@@ -943,6 +988,10 @@ h4 {
         font-size: 250%;
     }
 
+    .blob {
+        width: 50%;
+    }
+
     .page-sections {
         display: none;
     }
@@ -955,6 +1004,10 @@ h4 {
 }
 
 @media (max-width: 720px) {
+    .blob {
+        width: 60%;
+    }
+
     .name {
         font-size: 500%;
     }
@@ -985,5 +1038,9 @@ h4 {
     .certification-card {
         scroll-snap-align: center;
 
+    }
+
+    .write-me {
+        font-size: 250%;
     }
 }

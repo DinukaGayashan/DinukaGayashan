@@ -120,9 +120,9 @@ function toggleTimelinePopup() {
     document.querySelector("#timeline-full-screen").classList.toggle("hidden");
 }
 
-function toggleSocialPopup() {
-    document.querySelector("#social-full-screen").classList.toggle("hidden");
-}
+// function toggleSocialPopup() {
+//     document.querySelector("#social-list-more-content").classList.toggle("hidden");
+// }
 
 
 function leftScroll() {
@@ -255,6 +255,22 @@ document.addEventListener("mousemove", (e) => {
         container.scrollLeft = scrollLeft - walk;
     });
 });
+
+
+function expandSocialList() {
+    let content = document.querySelector("#social-list-more");
+    let arrow=document.querySelector("#arrow");
+
+    content.classList.toggle("expanded");
+    if (content.classList.contains("expanded")) {
+        arrow.classList.remove("fa-angle-down");
+        arrow.classList.add("fa-angle-up");
+    }
+    else {
+        arrow.classList.remove("fa-angle-up");
+        arrow.classList.add("fa-angle-down");
+    }
+}
 
 
 function openURL(url) {

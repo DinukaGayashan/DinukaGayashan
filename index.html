@@ -84,7 +84,8 @@
                         <div class="close-button">
                             <button class="outline-button" onclick="toggleTimelinePopup()">Close</button>
                         </div>
-                        <button class="left-button" onclick="leftScroll()">&lt</button>
+                        <button class="left-button" onclick="leftScroll()"><i
+                                class="fa-solid fa-angle-left"></i></button>
                         <ul class="timeline-content" id="timeline-content">
                             <li class="timeline-content-item">
                                 <div class="timeline-content-item-title">Undergraduate</div>
@@ -148,7 +149,8 @@
                                 <br>Score: 164
                             </li>
                         </ul>
-                        <button class="right-button" onclick="rightScroll()">&gt</button>
+                        <button class="right-button" onclick="rightScroll()"><i
+                                class="fa-solid fa-angle-right"></i></button>
                     </div>
                 </div>
             </div>
@@ -489,120 +491,53 @@
     </section>
 
     <section class="contact" id="contact">
-        <ul class="social-list">
-            <li class="social-list-item">
-                <a href="https://www.facebook.com/DinukaGayashan.di" target="_blank" aria-label="Find on Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-            </li>
-            <li class="social-list-item">
-                <a href="https://www.linkedin.com/in/dinukagayashan" target="_blank" aria-label="Find on LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-            </li>
-            <li class="social-list-item">
-                <a href="https://twitter.com/Dinuka_Gayashan" target="_blank" aria-label="Find on Twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-            </li>
-            <li class="social-list-item">
-                <a href="https://www.instagram.com/dinukagayashan.di" target="_blank" aria-label="Find on Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-            </li>
-            <li class="social-list-item">
-                <a href="https://github.com/DinukaGayashan" target="_blank" aria-label="Find on GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-            </li>
-        </ul>
-        <!-- <span>dinukagayashankasthuriarachchi@gmail.com</span> -->
-        <button class="outline-button" onclick="openURL('mailto:dinukagayashankasthuriarachchi@gmail.com')">
-            <i class="fa-solid fa-paper-plane"></i> Write me an email
-        </button>
-        <button class="outline-button" onclick="toggleSocialPopup()">Find More</button>
-        <div class="social-full-screen hidden" id="social-full-screen">
-            <div class="close-button">
-                <button class="outline-button" onclick="toggleSocialPopup()">Close</button>
-            </div>
-            <span>Find everywhere</span>
-            <div class="social-medias">
-                <a href="" target="_blank" aria-label="Find on 500px">
-                    <i class="fa-brands fa-500px"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Behance">
-                    <i class="fa-brands fa-behance"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Discord">
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Dribbble">
-                    <i class="fa-brands fa-dribbble"></i>
-                </a>
-                <a href="https://www.facebook.com/DinukaGayashan.di" target="_blank" aria-label="Find on Facebook">
-                    <i class="fa-brands fa-facebook-f"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Flickr">
-                    <i class="fa-brands fa-flickr"></i>
-                </a>
-                <a href="https://github.com/DinukaGayashan" target="_blank" aria-label="Find on GitHub">
-                    <i class="fa-brands fa-github"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on HackerRank">
-                    <i class="fa-brands fa-hackerrank"></i>
-                </a>
-                <a href="https://www.instagram.com/dinukagayashan.di" target="_blank" aria-label="Find on Instagram">
-                    <i class="fa-brands fa-instagram"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Kaggle">
-                    <i class="fa-brands fa-kaggle"></i>
-                </a>
-                <a href="https://www.linkedin.com/in/dinukagayashan" target="_blank" aria-label="Find on LinkedIn">
-                    <i class="fa-brands fa-linkedin-in"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Medium">
-                    <i class="fa-brands fa-medium"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Pinterest">
-                    <i class="fa-brands fa-pinterest"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Reddit">
-                    <i class="fa-brands fa-reddit"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Skype">
-                    <i class="fa-brands fa-skype"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Snapchat">
-                    <i class="fa-brands fa-snapchat"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Spotify">
-                    <i class="fa-brands fa-spotify"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Telegram">
-                    <i class="fa-brands fa-telegram"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on TikTok">
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Tumblr">
-                    <i class="fa-brands fa-tumblr"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Twitch">
-                    <i class="fa-brands fa-twitch"></i>
-                </a>
-                <a href="https://twitter.com/Dinuka_Gayashan" target="_blank" aria-label="Find on Twitter">
-                    <i class="fa-brands fa-twitter"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on Viber">
-                    <i class="fa-brands fa-viber"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on WhatsApp">
-                    <i class="fa-brands fa-whatsapp"></i>
-                </a>
-                <a href="" target="_blank" aria-label="Find on YouTube">
-                    <i class="fa-brands fa-youtube"></i>
-                </a>
-            </div>
+        <div class="write-me-email">
+            <span class="write-me">Write Me</span>
+            <span class="email" onclick="openURL('mailto:dinukagayashankasthuriarachchi@gmail.com')">
+                dinukagayashankasthuriarachchi@gmail.com
+            </span>
+          </div>
+        <div class="social-list">
+            <a href="https://www.facebook.com/DinukaGayashan.di" target="_blank" aria-label="Find on Facebook">
+                <i class="fa-brands fa-facebook-f"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/dinukagayashan" target="_blank" aria-label="Find on LinkedIn">
+                <i class="fa-brands fa-linkedin-in"></i>
+            </a>
+            <a href="https://twitter.com/Dinuka_Gayashan" target="_blank" aria-label="Find on Twitter">
+                <i class="fa-brands fa-twitter"></i>
+            </a>
+            <a href="https://www.instagram.com/dinukagayashan.di" target="_blank" aria-label="Find on Instagram">
+                <i class="fa-brands fa-instagram"></i>
+            </a>
+            <a href="https://500px.com/p/dinukagayashan" target="_blank" aria-label="Find on 500px">
+                <i class="fa-brands fa-500px"></i>
+            </a>
+        </div>
+        <div class="social-list-more" id="social-list-more">
+            <a href="https://github.com/DinukaGayashan" target="_blank" aria-label="Find on GitHub">
+                <i class="fa-brands fa-github"></i>
+            </a>
+            <a href="https://www.hackerrank.com/DinukaGayashan" target="_blank" aria-label="Find on HackerRank">
+                <i class="fa-brands fa-hackerrank"></i>
+            </a>
+            <a href="https://www.kaggle.com/dinukagayashan" target="_blank" aria-label="Find on Kaggle">
+                <i class="fa-brands fa-kaggle"></i>
+            </a>
+            <a href="https://medium.com/@dinukagayashankasthuriarachchi" target="_blank" aria-label="Find on Medium">
+                <i class="fa-brands fa-medium"></i>
+            </a>
+            <a href="https://www.behance.net/dinukagayashan" target="_blank" aria-label="Find on Behance">
+                <i class="fa-brands fa-behance"></i>
+            </a>
+            <a href="https://stackoverflow.com/users/19168789/dinukagayashan" target="_blank" aria-label="Find on StackOverflow">
+                <i class="fa-brands fa-stack-overflow"></i>
+            </a>
+        </div>
+        <div>
+            <button class="more-button" onclick="expandSocialList()">
+                <i class="fa-solid fa-angle-down" id="arrow"></i>
+            </button>
         </div>
     </section>
 
