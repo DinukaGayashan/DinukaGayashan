@@ -98,7 +98,8 @@ changeTitle();
 
 
 
-const hellos = ['Hello', 'ආයුබෝවන්', 'வணக்கம்', 'नमस्ते', 'Hola', 'Bonjour', 'こんにちは', 'Ciao', 'Salve', 'Aloha', '안녕하세요', 'Merhaba', 'привет', 'Olá', '你好'];
+const hellos = ['Hello', 'ආයුබෝවන්', 'வணக்கம்', 'नमस्ते', 'Hola', 'Bonjour', 'こんにちは', 'Ciao',
+    'Salve', 'Aloha', '안녕하세요', 'Merhaba', 'привет', 'Olá', '你好'];
 let index = 0;
 
 function changeText() {
@@ -119,10 +120,6 @@ setInterval(changeText, 3000);
 function toggleTimelinePopup() {
     document.querySelector("#timeline-full-screen").classList.toggle("hidden");
 }
-
-// function toggleSocialPopup() {
-//     document.querySelector("#social-list-more-content").classList.toggle("hidden");
-// }
 
 
 function leftScroll() {
@@ -259,7 +256,7 @@ document.addEventListener("mousemove", (e) => {
 
 function expandSocialList() {
     let content = document.querySelector("#social-list-more");
-    let arrow=document.querySelector("#arrow");
+    let arrow = document.querySelector("#arrow");
 
     content.classList.toggle("expanded");
     if (content.classList.contains("expanded")) {
@@ -271,7 +268,6 @@ function expandSocialList() {
         arrow.classList.add("fa-angle-down");
     }
 }
-
 
 function openURL(url) {
     window.open(url);

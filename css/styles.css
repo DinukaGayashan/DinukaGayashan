@@ -823,7 +823,7 @@ h4 {
     background-color: var(--clr-background-two);
 }
 
-.write-me-email{
+.write-me-email {
     position: relative;
     margin: 60px 30%;
 }
@@ -833,9 +833,9 @@ h4 {
     transition: 0.3s;
 }
 
-.write-me-email:hover .write-me{
+.write-me-email:hover .write-me {
     text-shadow: 0px -12px 0 var(--clr-light),
-    0px 12px 0 var(--clr-light);
+        0px 12px 0 var(--clr-light);
     color: transparent;
 }
 
@@ -1001,6 +1001,10 @@ h4 {
     .certification-cards {
         grid-auto-columns: 50%;
     }
+
+    .write-me {
+        font-size: 250%;
+    }
 }
 
 @media (max-width: 720px) {
@@ -1041,6 +1045,6 @@ h4 {
     }
 
     .write-me {
-        font-size: 250%;
+        font-size: 200%;
     }
 }
