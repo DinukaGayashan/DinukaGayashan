@@ -9,7 +9,7 @@
     --clr-background: rgba(6, 6, 7, 0.5);
     --clr-background-two: rgba(15, 19, 19, 0.5);
     --clr-theme: rgba(55, 170, 156, 0.9);
-    --clr-theme-two: rgba(148, 243, 228, 0.9);
+    --clr-theme-two: rgba(18, 119, 104, 0.9);
     --clr-theme-three: rgba(55, 170, 156, 1);
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
@@ -94,7 +94,7 @@ h4 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    display: none;
+    /* display: none; */
 }
 
 @keyframes hide {

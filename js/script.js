@@ -89,7 +89,7 @@ let counter = 0;
 
 function changeTitle() {
     textScramble.setText(titles[counter]).then(() => {
-        setInterval(changeTitle, 1500);
+        setTimeout(changeTitle, 1500);
     });
     counter = (counter + 1) % titles.length;
 };
