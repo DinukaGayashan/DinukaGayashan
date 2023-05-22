@@ -1,9 +1,8 @@
-const cursor = document.querySelector("#cursor");
-const blob = document.querySelector("#blob");
+const blob = document.querySelector('#blob');
 
-document.addEventListener("mousemove", e => {
-    const targetX = cursor.style.left = e.clientX + "px";
-    const targetY = cursor.style.top = e.clientY + "px";
+document.addEventListener('mousemove', e => {
+    const targetX = e.clientX + 'px';
+    const targetY = e.clientY + 'px';
 
     blob.animate(
         {
@@ -12,70 +11,71 @@ document.addEventListener("mousemove", e => {
         },
         {
             duration: 3000,
-            fill: "forwards"
+            fill: 'forwards'
         }
     );
 });
 
 
-
 class TextScramble {
     constructor(element) {
-        this.element = element
-        this.chars = '!<>-_\\/[]{}—=+*^?#________'
-        this.update = this.update.bind(this)
+        this.element = element;
+        this.chars = '!<>-_\\/[]{}—=+*^?#________';
+        this.update = this.update.bind(this);
     }
+
     setText(newText) {
-        const oldText = this.element.innerText
-        const length = Math.max(oldText.length, newText.length)
-        const promise = new Promise((resolve) => this.resolve = resolve)
-        this.queue = []
+        const oldText = this.element.innerText;
+        const length = Math.max(oldText.length, newText.length);
+        const promise = new Promise(resolve => (this.resolve = resolve));
+        this.queue = [];
         for (let i = 0; i < length; i++) {
-            const from = oldText[i] || ''
-            const to = newText[i] || ''
-            const start = Math.floor(Math.random() * 40)
-            const end = start + Math.floor(Math.random() * 40)
-            this.queue.push({ from, to, start, end })
+            const from = oldText[i] || '';
+            const to = newText[i] || '';
+            const start = Math.floor(Math.random() * 40);
+            const end = start + Math.floor(Math.random() * 40);
+            this.queue.push({ from, to, start, end });
         }
-        cancelAnimationFrame(this.frameRequest)
-        this.frame = 0
-        this.update()
-        return promise
+        cancelAnimationFrame(this.frameRequest);
+        this.frame = 0;
+        this.update();
+        return promise;
     }
+
     update() {
-        let output = ''
-        let complete = 0
+        let output = '';
+        let complete = 0;
         for (let i = 0, n = this.queue.length; i < n; i++) {
-            let { from, to, start, end, char } = this.queue[i]
+            let { from, to, start, end, char } = this.queue[i];
             if (this.frame >= end) {
-                complete++
-                output += to
+                complete++;
+                output += to;
             } else if (this.frame >= start) {
                 if (!char || Math.random() < 0.28) {
-                    char = this.randomChar()
-                    this.queue[i].char = char
+                    char = this.randomChar();
+                    this.queue[i].char = char;
                 }
-                output += `<span class="dud">${char}</span>`
+                output += `<span class="dud">${char}</span>`;
             } else {
-                output += from
+                output += from;
             }
         }
-        this.element.innerHTML = output
+        this.element.innerHTML = output;
         if (complete === this.queue.length) {
-            this.resolve()
+            this.resolve();
         } else {
-            this.frameRequest = requestAnimationFrame(this.update)
-            this.frame++
+            this.frameRequest = requestAnimationFrame(this.update);
+            this.frame++;
         }
     }
+
     randomChar() {
-        return this.chars[Math.floor(Math.random() * this.chars.length)]
+        return this.chars[Math.floor(Math.random() * this.chars.length)];
     }
 }
 
-const title = document.querySelector("#titles");
+const title = document.querySelector('#titles');
 const textScramble = new TextScramble(title);
-
 const titles = [
     'A Human',
     'Tech Enthusiast',
@@ -85,25 +85,26 @@ const titles = [
     'Hobbyist Photographer',
     'Freelancer'
 ];
+let counter = 0;
 
-let counter = 0
-const changeTitle = () => {
+function changeTitle() {
     textScramble.setText(titles[counter]).then(() => {
-        setTimeout(changeTitle, 1500)
-    })
-    counter = (counter + 1) % titles.length
+        setInterval(changeTitle, 1500);
+    });
+    counter = (counter + 1) % titles.length;
 };
 
 changeTitle();
 
 
-
-const hellos = ['Hello', 'ආයුබෝවන්', 'வணக்கம்', 'नमस्ते', 'Hola', 'Bonjour', 'こんにちは', 'Ciao',
-    'Salve', 'Aloha', '안녕하세요', 'Merhaba', 'привет', 'Olá', '你好'];
+const hellos = [
+    'Hello', 'ආයුබෝවන්', 'வணக்கம்', 'नमस्ते', 'Hola', 'Bonjour', 'こんにちは', 'Ciao',
+    'Salve', 'Aloha', '안녕하세요', 'Merhaba', 'привет', 'Olá', '你好'
+];
 let index = 0;
 
-function changeText() {
-    const helloElement = document.querySelector('.hello');
+function changeHello() {
+    const helloElement = document.querySelector('#hello');
     helloElement.style.opacity = 0;
 
     setTimeout(() => {
@@ -113,41 +114,35 @@ function changeText() {
     }, 500);
 }
 
-setInterval(changeText, 3000);
-
+setInterval(changeHello, 3000);
 
 
 function toggleTimelinePopup() {
-    document.querySelector("#timeline-full-screen").classList.toggle("hidden");
+    document.querySelector('#timeline-full-screen').classList.toggle('hidden');
 }
 
-
 function leftScroll() {
-    const timeline = document.querySelector("#timeline-content");
+    const timeline = document.querySelector('#timeline-content');
     timeline.scrollBy(-10, 0);
 }
 
 function rightScroll() {
-    const timeline = document.querySelector("#timeline-content");
+    const timeline = document.querySelector('#timeline-content');
     timeline.scrollBy(10, 0);
 }
 
 
-let programmingLanguages = document.querySelectorAll(".programming-language");
-let frameworksLibraries = document.querySelectorAll(".framework-library");
-let toolsTechnologies = document.querySelectorAll(".tool-technology");
-let skills = Array.from(programmingLanguages)
+const programmingLanguages = document.querySelectorAll('.programming-language');
+const frameworksLibraries = document.querySelectorAll('.framework-library');
+const toolsTechnologies = document.querySelectorAll('.tool-technology');
+const skills = Array.from(programmingLanguages)
     .concat(Array.from(frameworksLibraries))
     .concat(Array.from(toolsTechnologies));
-let skillContainer = document.querySelector("#skill-pool");
-
-setSkillPositions();
-window.addEventListener("resize", setSkillPositions);
-skillContainer.addEventListener("click", setSkillPositions);
+const skillContainer = document.querySelector('#skill-pool');
 
 function setSkillPositions() {
-    let containerWidth = skillContainer.offsetWidth;
-    let containerHeight = skillContainer.offsetHeight;
+    const containerWidth = skillContainer.offsetWidth;
+    const containerHeight = skillContainer.offsetHeight;
     let positions = [];
 
     for (let i = 0; i < skills.length; i++) {
@@ -167,10 +162,12 @@ function setSkillPositions() {
             overlapping = false;
             for (let j = 0; j < positions.length; j++) {
                 let position = positions[j];
-                if (randomX < position.x + position.width &&
+                if (
+                    randomX < position.x + position.width &&
                     randomX + elementWidth > position.x &&
                     randomY < position.y + position.height &&
-                    randomY + elementHeight > position.y) {
+                    randomY + elementHeight > position.y
+                ) {
                     overlapping = true;
                     randomX = Math.floor(Math.random() * maxX);
                     randomY = Math.floor(Math.random() * maxY);
@@ -186,48 +183,48 @@ function setSkillPositions() {
     }
 }
 
+setSkillPositions();
+window.addEventListener('resize', setSkillPositions);
+skillContainer.addEventListener('click', setSkillPositions);
+
+
 function toggleProgrammingLanguages() {
-    document.querySelector(".skill-category.programming-languages").classList.toggle("skill-selected");
+    document.querySelector('.programming-languages').classList.toggle('skill-selected');
     for (let i = 0; i < programmingLanguages.length; i++) {
-        programmingLanguages[i].classList.toggle("skills-selected");
+        programmingLanguages[i].classList.toggle('skills-selected');
     }
 }
 
 function toggleFrameworkLibraries() {
-    document.querySelector(".skill-category.frameworks-libraries").classList.toggle("skill-selected");
-
+    document.querySelector('.frameworks-libraries').classList.toggle('skill-selected');
     for (let i = 0; i < frameworksLibraries.length; i++) {
-        frameworksLibraries[i].classList.toggle("skills-selected");
+        frameworksLibraries[i].classList.toggle('skills-selected');
     }
 }
 
 function toggleToolsTechnologies() {
-    document.querySelector(".skill-category.tools-technologies").classList.toggle("skill-selected");
+    document.querySelector('.tools-technologies').classList.toggle('skill-selected');
     for (let i = 0; i < toolsTechnologies.length; i++) {
-        toolsTechnologies[i].classList.toggle("skills-selected");
+        toolsTechnologies[i].classList.toggle('skills-selected');
     }
 }
 
 
-const handleOnMouseMove = e => {
-    const { currentTarget: target } = e;
-    const rect = target.getBoundingClientRect(),
-        x = e.clientX - rect.left;
-    y = e.clientY - rect.top;
+document.querySelectorAll('.card').forEach(card => {
+    card.onpointermove = ({ currentTarget, clientX, clientY }) => {
+        const { left, top } = currentTarget.getBoundingClientRect();
+        currentTarget.style.setProperty('--mouse-x', `${clientX - left}px`);
+        currentTarget.style.setProperty('--mouse-y', `${clientY - top}px`);
+    };
+});
 
-    target.style.setProperty("--mouse-x", `${x}px`);
-    target.style.setProperty("--mouse-y", `${y}px`);
-}
 
-for (const card of document.querySelectorAll(".card")) {
-    card.onpointermove = e => handleOnMouseMove(e);
-}
 
 let isDragging = false;
 let startX, scrollLeft, container;
 
-document.addEventListener("mousedown", (e) => {
-    container = e.target.closest("#experience-cards, #project-cards, #achievement-cards, #certification-cards, #timeline-content");
+document.addEventListener('mousedown', (e) => {
+    container = e.target.closest('#experience-cards, #project-cards, #achievement-cards, #certification-cards, #timeline-content');
     if (container) {
         isDragging = true;
         startX = e.pageX - container.offsetLeft;
@@ -235,15 +232,15 @@ document.addEventListener("mousedown", (e) => {
     }
 });
 
-document.addEventListener("mouseup", () => {
+document.addEventListener('mouseup', () => {
     isDragging = false;
 });
 
-document.addEventListener("mouseleave", () => {
+document.addEventListener('mouseleave', () => {
     isDragging = false;
 });
 
-document.addEventListener("mousemove", (e) => {
+document.addEventListener('mousemove', (e) => {
     if (!isDragging) return;
     e.preventDefault();
     const x = e.pageX - container.offsetLeft;
@@ -255,28 +252,23 @@ document.addEventListener("mousemove", (e) => {
 
 
 function expandSocialList() {
-    let content = document.querySelector("#social-list-more");
-    let arrow = document.querySelector("#arrow");
+    const content = document.querySelector('#social-list-more');
+    const arrow = document.querySelector('#arrow');
 
-    content.classList.toggle("expanded");
-    if (content.classList.contains("expanded")) {
-        arrow.classList.remove("fa-angle-down");
-        arrow.classList.add("fa-angle-up");
-    }
-    else {
-        arrow.classList.remove("fa-angle-up");
-        arrow.classList.add("fa-angle-down");
+    content.classList.toggle('expanded');
+    if (content.classList.contains('expanded')) {
+        arrow.classList.remove('fa-angle-down');
+        arrow.classList.add('fa-angle-up');
+    } else {
+        arrow.classList.remove('fa-angle-up');
+        arrow.classList.add('fa-angle-down');
     }
 }
+
 
 function openURL(url) {
     window.open(url);
 }
 
-let date = new Date();
-document.querySelector("#date").innerText = date.getFullYear();
 
-
-
-
-
+document.querySelector('#date').innerText = new Date().getFullYear();

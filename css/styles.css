@@ -14,7 +14,6 @@
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
     --clr-card-color: rgba(15, 15, 15, 0.7);
-    --clr-cursor-color: rgba(255, 255, 255, 0.3);
     --clr-blob: linear-gradient(to right, aquamarine, mediumpurple);
     --clr-3d-red: rgba(255, 0, 0, 0.67);
     --clr-3d-blue: rgba(0, 255, 255, 0.67);
@@ -59,7 +58,7 @@ body {
     text-align: center;
     font-family: var(--ff-primary);
     color: var(--clr-light);
-    cursor: none;
+    cursor: default;
 }
 
 a {
@@ -95,7 +94,7 @@ h4 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    /* display: none; */
+    display: none;
 }
 
 @keyframes hide {
@@ -190,17 +189,6 @@ h4 {
 }
 
 
-.cursor {
-    position: fixed;
-    width: 10px;
-    height: 10px;
-    translate: -50% -50%;
-    background-color: var(--clr-cursor-color);
-    border-radius: 50%;
-    pointer-events: none;
-    z-index: 99;
-}
-
 .blob {
     width: 25%;
     aspect-ratio: 1;
@@ -242,7 +230,7 @@ h4 {
 .header-logo {
     height: 55px;
     transition: 0.3s;
-    cursor: none;
+    cursor: pointer;
 }
 
 .header-logo:hover {
@@ -259,7 +247,6 @@ h4 {
     margin: 0 10px;
     color: var(--clr-light);
     transition: 0.3s;
-    cursor: none;
 }
 
 .page-sections a:hover {
@@ -293,6 +280,7 @@ h4 {
     background-clip: text;
     position: relative;
     text-align: center;
+    cursor: none;
 }
 
 @keyframes gradient {
@@ -373,6 +361,7 @@ h4 {
     object-fit: cover;
     object-position: center;
     transition-duration: 1s;
+    cursor: none;
 }
 
 .about-image-column>img:hover {
@@ -415,37 +404,28 @@ h4 {
     justify-content: space-between;
 }
 
-.filled-button {
-    display: inline-block;
-    padding: 12px 16px;
-    border-radius: 16px;
-    background-color: var(--clr-theme);
-    border: 2px solid var(--clr-theme);
-    color: var(--clr-light);
-    letter-spacing: 1px;
-    transition: 0.3s;
-    font-size: 90%;
-    cursor: none;
-}
-
+.filled-button,
 .outline-button {
     display: inline-block;
     padding: 12px 16px;
     border-radius: 16px;
-    background-color: transparent;
     border: 2px solid var(--clr-theme);
     color: var(--clr-light);
     letter-spacing: 1px;
     transition: 0.3s;
     font-size: 90%;
-    cursor: none;
+    cursor: pointer;
 }
 
-.filled-button:hover {
-    background-color: var(--clr-theme-two);
-    border: 2px solid var(--clr-theme-two);
+.filled-button {
+    background-color: var(--clr-theme);
 }
 
+.outline-button {
+    background-color: transparent;
+}
+
+.filled-button:hover,
 .outline-button:hover {
     background-color: var(--clr-theme-two);
     border: 2px solid var(--clr-theme-two);
@@ -522,8 +502,8 @@ h4 {
     border: none;
     color: var(--clr-card-hover);
     font-size: 150%;
-    cursor: none;
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .left-button:hover,
@@ -584,6 +564,7 @@ h4 {
     padding: 10px;
     color: var(--clr-light);
     border-bottom: 2px solid transparent;
+    cursor: pointer;
 }
 
 .skill-category:hover {
@@ -856,6 +837,7 @@ h4 {
 .write-me-email:hover .email {
     opacity: 1;
     transition: opacity 0.5s ease;
+    cursor: pointer;
 }
 
 .email {
@@ -881,7 +863,6 @@ h4 {
     color: var(--clr-theme);
     transition: 0.3s;
     padding: 20px;
-    cursor: none;
 }
 
 .social-list>a:hover,
@@ -901,16 +882,15 @@ h4 {
 }
 
 .more-button {
-    padding: 0 15px;
     background-color: transparent;
     border: none;
     font-size: 100%;
-    cursor: none;
 }
 
 .more-button>i {
     color: var(--clr-card-hover);
     transition: 0.3s;
+    cursor: pointer;
 }
 
 .more-button>i:hover {
@@ -938,6 +918,7 @@ h4 {
     object-fit: cover;
     object-position: center;
     transition-duration: 0.3s;
+    cursor: none;
 }
 
 .footer>img:hover {
