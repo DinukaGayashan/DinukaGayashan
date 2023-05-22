@@ -10,10 +10,11 @@
     --clr-background-two: rgba(15, 19, 19, 0.5);
     --clr-theme: rgba(55, 170, 156, 0.9);
     --clr-theme-two: rgba(148, 243, 228, 0.9);
-    --clr-theme-three: rgba(148, 243, 228, 1);
+    --clr-theme-three: rgba(55, 170, 156, 1);
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
     --clr-card-color: rgba(15, 15, 15, 0.7);
+    --clr-cursor-color: rgba(255, 255, 255, 0.3);
     --clr-blob: linear-gradient(to right, aquamarine, mediumpurple);
     --clr-3d-red: rgba(255, 0, 0, 0.67);
     --clr-3d-blue: rgba(0, 255, 255, 0.67);
@@ -58,6 +59,7 @@ body {
     text-align: center;
     font-family: var(--ff-primary);
     color: var(--clr-light);
+    cursor: none;
 }
 
 a {
@@ -93,7 +95,7 @@ h4 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    display: none;
+    /* display: none; */
 }
 
 @keyframes hide {
@@ -188,6 +190,17 @@ h4 {
 }
 
 
+.cursor {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    translate: -50% -50%;
+    background-color: var(--clr-cursor-color);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99;
+}
+
 .blob {
     width: 25%;
     aspect-ratio: 1;
@@ -229,6 +242,7 @@ h4 {
 .header-logo {
     height: 55px;
     transition: 0.3s;
+    cursor: none;
 }
 
 .header-logo:hover {
@@ -245,6 +259,7 @@ h4 {
     margin: 0 10px;
     color: var(--clr-light);
     transition: 0.3s;
+    cursor: none;
 }
 
 .page-sections a:hover {
@@ -278,7 +293,6 @@ h4 {
     background-clip: text;
     position: relative;
     text-align: center;
-    cursor: none;
 }
 
 @keyframes gradient {
@@ -297,7 +311,7 @@ h4 {
 }
 
 .name>strong>span {
-    transition: 0.2s ease-out;
+    transition: 0.3s ease-out;
 }
 
 .name>strong>span:hover {
@@ -409,9 +423,9 @@ h4 {
     border: 2px solid var(--clr-theme);
     color: var(--clr-light);
     letter-spacing: 1px;
-    cursor: pointer;
-    transition-duration: 0.3s;
+    transition: 0.3s;
     font-size: 90%;
+    cursor: none;
 }
 
 .outline-button {
@@ -422,9 +436,9 @@ h4 {
     border: 2px solid var(--clr-theme);
     color: var(--clr-light);
     letter-spacing: 1px;
-    cursor: pointer;
-    transition-duration: 0.3s;
+    transition: 0.3s;
     font-size: 90%;
+    cursor: none;
 }
 
 .filled-button:hover {
@@ -498,30 +512,31 @@ h4 {
     margin-top: 5vh;
 }
 
-.left-button {
+.left-button,
+.right-button {
     position: absolute;
-    left: 2%;
     top: 50%;
     transform: translateY(-50%);
     padding: 15px;
     background-color: transparent;
     border: none;
-    color: var(--clr-light);
+    color: var(--clr-card-hover);
     font-size: 150%;
-    cursor: pointer;
+    cursor: none;
+    transition: 0.3s;
+}
+
+.left-button:hover,
+.right-button:hover {
+    color: var(--clr-light);
+}
+
+.left-button {
+    left: 2%;
 }
 
 .right-button {
-    position: absolute;
     right: 2%;
-    top: 50%;
-    transform: translateY(-50%);
-    padding: 15px;
-    background-color: transparent;
-    border: none;
-    color: var(--clr-light);
-    font-size: 150%;
-    cursor: pointer;
 }
 
 
@@ -569,7 +584,6 @@ h4 {
     padding: 10px;
     color: var(--clr-light);
     border-bottom: 2px solid transparent;
-    cursor: pointer;
 }
 
 .skill-category:hover {
@@ -855,7 +869,6 @@ h4 {
     background: var(--clr-theme-three);
     padding: 8px;
     line-height: 100%;
-    cursor: pointer;
 }
 
 .social-list {
@@ -868,6 +881,7 @@ h4 {
     color: var(--clr-theme);
     transition: 0.3s;
     padding: 20px;
+    cursor: none;
 }
 
 .social-list>a:hover,
@@ -890,14 +904,17 @@ h4 {
     padding: 0 15px;
     background-color: transparent;
     border: none;
-    color: var(--clr-light);
-    font-size: 150%;
-    cursor: pointer;
+    font-size: 100%;
+    cursor: none;
 }
 
 .more-button>i {
-    font-size: 80%;
     color: var(--clr-card-hover);
+    transition: 0.3s;
+}
+
+.more-button>i:hover {
+    color: var(--clr-light);
 }
 
 
@@ -920,9 +937,12 @@ h4 {
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
-    transition-duration: 1s;
+    transition-duration: 0.3s;
 }
 
+.footer>img:hover {
+    transform: scale(1.02);
+}
 
 
 

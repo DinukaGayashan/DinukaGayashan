@@ -1,14 +1,14 @@
+const cursor = document.querySelector("#cursor");
+const blob = document.querySelector("#blob");
 
-const blob = document.querySelector('#blob');
-
-document.addEventListener('mousemove', e => {
-    const targetX = e.clientX;
-    const targetY = e.clientY;
+document.addEventListener("mousemove", e => {
+    const targetX = cursor.style.left = e.clientX + "px";
+    const targetY = cursor.style.top = e.clientY + "px";
 
     blob.animate(
         {
-            left: targetX + 'px',
-            top: targetY + 'px'
+            left: targetX,
+            top: targetY
         },
         {
             duration: 3000,
