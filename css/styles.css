@@ -5,21 +5,25 @@
     height: 0px;
 }
 
+::selection {
+    background: var(--clr-theme);
+}
+
 :root {
     --clr-background: rgba(6, 6, 7, 0.5);
     --clr-background-two: rgba(15, 19, 19, 0.5);
-    --clr-theme: rgba(55, 170, 156, 0.9);
-    --clr-theme-two: rgba(18, 119, 104, 0.9);
-    --clr-theme-three: rgba(55, 170, 156, 1);
+    --clr-theme: rgba(52, 202, 192, 0.9);
+    --clr-theme-two: rgba(17, 187, 164, 0.9);
+    --clr-theme-three: rgba(10, 160, 150, 1);
     --clr-light: rgba(238, 238, 238, 0.9);
     --clr-dark: rgba(0, 0, 0, 1);
     --clr-card-color: rgba(15, 15, 15, 0.7);
-    --clr-blob: linear-gradient(to right, aquamarine, mediumpurple);
+    --clr-blob: linear-gradient(to right, rgb(127, 255, 212), rgb(147, 112, 219));
     --clr-3d-red: rgba(255, 0, 0, 0.67);
     --clr-3d-blue: rgba(0, 255, 255, 0.67);
-    --clr-skill-one: #ff3ea5;
-    --clr-skill-two: #edff00;
-    --clr-skill-three: #00a4cc;
+    --clr-skill-one: rgba(250, 186, 155, 0.9);
+    --clr-skill-two: rgba(136, 223, 124, 0.9);
+    --clr-skill-three: rgba(148, 196, 225, 0.9);
     --clr-card-hover: rgba(255, 255, 255, 0.1);
     --header-gradient: linear-gradient(to bottom,
             rgba(0, 0, 0, 1),
@@ -30,21 +34,18 @@
             rgba(0, 0, 0, 0.5),
             rgba(0, 0, 0, 0));
     --name-gradient: linear-gradient(45deg,
-            #86e3ce, #d0e6a5, #ffdd94, #fa897b, #ccabdb);
+            rgba(134, 227, 206, 0.9), rgba(208, 230, 165, 0.9), rgba(255, 221, 148, 0.9),
+            rgba(250, 137, 123, 0.9), rgba(204, 171, 219, 0.9));
     --achievement-level-one-gradient: linear-gradient(315deg,
-            rgba(45, 196, 113, 0.3), rgba(100, 204, 58, 0.3));
-    --achievement-level-two-gradient: linear-gradient(315deg,
-            rgba(34, 141, 212, 0.3), rgba(179, 22, 58, 0.3));
-    --achievement-level-three-gradient: linear-gradient(315deg,
             rgba(255, 200, 0, 0.3), rgba(255, 0, 58, 0.3));
-
+    --achievement-level-two-gradient: linear-gradient(315deg,
+            rgba(45, 196, 113, 0.3), rgba(255, 200, 0, 0.3));
+    --achievement-level-three-gradient: linear-gradient(315deg,
+            rgba(1, 175, 255, 0.3), rgba(255, 0, 58, 0.3));
     --ff-primary: 'Inter', sans-serif;
     --ff-signature: 'Reenie Beanie', cursive;
 }
 
-::selection {
-    background: var(--clr-theme);
-}
 
 
 html {
