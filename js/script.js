@@ -83,7 +83,6 @@ const titles = [
     'Programmer',
     'Software Developer',
     'Hobbyist Photographer',
-    'Freelancer'
 ];
 let counter = 0;
 

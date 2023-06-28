@@ -231,7 +231,7 @@ h4 {
 .header-logo {
     height: 55px;
     transition: 0.3s;
-    cursor: pointer;
+    cursor: none;
 }
 
 .header-logo:hover {
