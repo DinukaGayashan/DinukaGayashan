@@ -95,7 +95,6 @@ h4 {
     background-color: var(--clr-dark);
     z-index: 100;
     animation: hide 0.5s forwards ease-in-out 3.5s;
-    /* display: none; */
 }
 
 @keyframes hide {
@@ -641,7 +640,9 @@ h4 {
     border-radius: 20px;
     background: var(--clr-card-color);
     min-width: 200px;
+    min-height: 200px;
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: 0.3s;
     overflow: hidden;
     position: relative;
@@ -653,6 +654,7 @@ h4 {
 
 .card:hover {
     transition: 0.3s transform ease-out;
+    -webkit-transition: 0.3s transform ease-out;
 }
 
 .card::before {
