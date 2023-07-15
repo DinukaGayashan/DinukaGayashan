@@ -202,6 +202,7 @@ h4 {
     animation: blob-rotate 30s infinite;
     opacity: 0.8;
     filter: blur(100px);
+    -webkit-filter: blur(100px);
     transition: 1s;
 }
 
@@ -445,6 +446,7 @@ h4 {
     left: 0;
     background: var(--clr-card-color);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     z-index: 50;
     animation: popup 0.3s ease-out forwards;
 }
@@ -605,6 +607,7 @@ h4 {
     margin-bottom: 150px;
     position: relative;
     backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
 }
 
 .soft-skills {
@@ -710,6 +713,7 @@ h4 {
 .project-card>img {
     width: 60%;
     aspect-ratio: 1/1;
+    -webkit-aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
 }
@@ -748,6 +752,7 @@ h4 {
     transform: skewX(-10deg);
     transition: 0.5s ease-out;
     filter: blur(50px);
+    -webkit-filter: blur(50px);
     z-index: -1;
 }
 
