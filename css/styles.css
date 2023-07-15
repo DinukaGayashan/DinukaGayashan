@@ -271,6 +271,7 @@ h4 {
 
 .name {
     font-size: 700%;
+    font-weight: bolder;
     transition: 0.5s ease-out;
     color: transparent;
     letter-spacing: 2px;
@@ -399,7 +400,7 @@ h4 {
 
 .about-details-buttons {
     margin-top: 50px;
-    width: 265px;
+    width: 270px;
     text-align: left;
     display: flex;
     justify-content: space-between;
@@ -712,8 +713,8 @@ h4 {
 
 .project-card>img {
     width: 60%;
+    max-width: 400px;
     aspect-ratio: 1/1;
-    -webkit-aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;
 }
@@ -921,6 +922,7 @@ h4 {
     border-radius: 50%;
     width: 7%;
     min-width: 100px;
+    max-width: 160px;
     margin: 1em;
     aspect-ratio: 1/1;
     object-fit: cover;
