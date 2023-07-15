@@ -533,7 +533,7 @@ h4 {
 }
 
 .main-skill {
-    width: 400px;
+    width: 420px;
     padding: 50px 4%;
     transition: 0.3s;
 }
@@ -712,8 +712,7 @@ h4 {
 }
 
 .project-card>img {
-    width: 60%;
-    max-width: 400px;
+    max-width: 300px;
     aspect-ratio: 1/1;
     object-fit: cover;
     object-position: center;

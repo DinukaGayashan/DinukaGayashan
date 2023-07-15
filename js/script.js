@@ -7,15 +7,15 @@ document.addEventListener('mousemove', e => {
     blob.animate(
         {
             left: targetX,
-            top: targetY,
-            webkitLeft: targetX,
-            webkitTop: targetY
+            top: targetY
         },
         {
-            duration: 1000,
-            fill: 'forwards'
+            duration: 1000
         }
-    );    
+    ).onfinish = () => {
+        blob.style.left = targetX;
+        blob.style.top = targetY;
+    };    
 });
 
 
