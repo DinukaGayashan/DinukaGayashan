@@ -1,6 +1,6 @@
-<h1>Hello World!👋, I'm Dinuka Gayashan.</h1>
+<h1>Hello World!👋🏻</h1>
 
-I am a passionate Computer Engineering Undergraduate enthusiastic about technology.
+<h4>I'm Dinuka Gayashan, a passionate Computer Engineering Undergraduate enthusiastic about technology.</h4>
 
 Here are some of my GitHub stats, 😉
 
