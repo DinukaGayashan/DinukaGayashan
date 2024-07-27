@@ -81,9 +81,9 @@ const textScramble = new TextScramble(title);
 const titles = [
     'A Human',
     'Tech Enthusiast',
+    'Software Engineer',
     'Computer Engineering Undergraduate',
     'Programmer',
-    'Software Developer',
     'Hobbyist Photographer',
 ];
 let counter = 0;
