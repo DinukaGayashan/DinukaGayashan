@@ -82,7 +82,7 @@ const titles = [
     'A Human',
     'Tech Enthusiast',
     'Software Engineer',
-    'Computer Engineering Undergraduate',
+    'Computer Engineering Graduate',
     'Programmer',
     'Hobbyist Photographer',
 ];
