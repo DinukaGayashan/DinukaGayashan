@@ -1,8 +1,8 @@
 <h1>Hello World!👋🏻</h1>
 
-<h4>I'm Dinuka Gayashan, a passionate Computer Engineering Undergraduate enthusiastic about technology.</h4>
+<h4>I'm Dinuka Gayashan, a passionate Software Engineer enthusiastic about technology.</h4>
 
-Here are some of my GitHub stats, 😉
+Some GitHub stats, 😉
 
 <p align="center"><img src="https://github-readme-streak-stats.herokuapp.com/?user=DinukaGayashan&theme=dark&hide_border=true"/></p>
 <p align="center"><img src="https://github-readme-stats.vercel.app/api/top-langs/?username=DinukaGayashan&theme=dark&hide_border=true&include_all_commits=true&count_private=true&layout=compact"/></p>
