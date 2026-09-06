@@ -364,14 +364,14 @@ body:not([data-section="intro"]) .content-shade {
     font-size: clamp(4rem, 13vw, 12.8rem);
     font-weight: 400;
     letter-spacing: -0.005em;
-    line-height: 0.84;
+    line-height: 1.1;
     text-wrap: balance;
 }
 
 .hero-word-window {
     position: relative;
     display: block;
-    height: 0.88em;
+    height: 1.1em;
     overflow: hidden;
 }
 

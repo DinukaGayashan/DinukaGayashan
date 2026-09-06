@@ -26,6 +26,8 @@
         activeIndex: 0,
         heroWord: 0,
         transitioning: false,
+        wordTransitioning: false,
+        heroWordTimer: null,
         wheelLock: false,
         touchStartY: 0,
         touchScrollArea: null,
@@ -136,38 +138,68 @@
 
     function setHeroWord(nextIndex, direction = 1) {
         const words = Array.from(document.querySelectorAll(".hero-word"));
-        const bounded = Math.max(0, Math.min(words.length - 1, nextIndex));
-        if (bounded === state.heroWord || state.transitioning) return false;
+        if (!words.length) return false;
+        const target = ((nextIndex % words.length) + words.length) % words.length;
+        if (target === state.heroWord || state.wordTransitioning) return false;
 
-        state.transitioning = true;
+        state.wordTransitioning = true;
         const current = words[state.heroWord];
-        const next = words[bounded];
-        const inY = direction > 0 ? 118 : -118;
-        const outY = direction > 0 ? -118 : 118;
-        const dur = reducedMotion ? 10 : 720;
+        const next = words[target];
+        const inY = direction > 0 ? 115 : -115;
+        const outY = direction > 0 ? -115 : 115;
+        const dur = reducedMotion ? 10 : 1150;
+        const ease = "cubic-bezier(0.16, 1, 0.3, 1)";
 
         next.classList.add("is-current");
         next.style.transform = `translateY(${inY}%)`;
-        next.style.opacity = "1";
+        next.style.opacity = "0";
 
         current.animate([
             { transform: "translateY(0)", opacity: 1 },
             { transform: `translateY(${outY}%)`, opacity: 0 }
-        ], { duration: dur, easing: "cubic-bezier(.75,0,.25,1)", fill: "forwards" });
+        ], { duration: dur, easing: ease, fill: "forwards" });
 
         const nextAnim = next.animate([
-            { transform: `translateY(${inY}%)`, opacity: 1 },
+            { transform: `translateY(${inY}%)`, opacity: 0 },
             { transform: "translateY(0)", opacity: 1 }
-        ], { duration: dur + 40, easing: "cubic-bezier(.75,0,.25,1)", fill: "forwards" });
+        ], { duration: dur, easing: ease, fill: "forwards" });
 
         nextAnim.finished.then(() => {
             current.classList.remove("is-current");
-            state.heroWord = bounded;
-            state.transitioning = false;
-            updateNavigation();
+            if (typeof current.getAnimations === "function") {
+                current.getAnimations().forEach(a => a.cancel());
+            }
+            if (typeof next.getAnimations === "function") {
+                next.getAnimations().forEach(a => a.cancel());
+            }
+            current.style.transform = "";
+            current.style.opacity = "";
+            next.style.transform = "";
+            next.style.opacity = "";
+            state.heroWord = target;
+            state.wordTransitioning = false;
+        }).catch(() => {
+            state.wordTransitioning = false;
         });
 
         return true;
+    }
+
+    function startHeroWordAutoCycle() {
+        stopHeroWordAutoCycle();
+        if (reducedMotion) return;
+        state.heroWordTimer = setInterval(() => {
+            if (state.activeIndex === 0 && !document.hidden && state.preloaderDone) {
+                setHeroWord(state.heroWord + 1, 1);
+            }
+        }, 3400);
+    }
+
+    function stopHeroWordAutoCycle() {
+        if (state.heroWordTimer) {
+            clearInterval(state.heroWordTimer);
+            state.heroWordTimer = null;
+        }
     }
 
 
@@ -197,7 +229,7 @@
         }
 
         if (previousButton) {
-            previousButton.disabled = state.activeIndex === 0 && state.heroWord === 0;
+            previousButton.disabled = state.activeIndex === 0;
         }
 
         document.querySelectorAll("[data-next]").forEach(btn => {
@@ -214,6 +246,12 @@
     function switchPanel(nextIndex, options = {}) {
         if (nextIndex < 0 || nextIndex >= panels.length || nextIndex === state.activeIndex || state.transitioning) return;
         state.transitioning = true;
+
+        if (nextIndex === 0) {
+            startHeroWordAutoCycle();
+        } else {
+            stopHeroWordAutoCycle();
+        }
 
         const currentIndex = state.activeIndex;
         const direction = nextIndex > currentIndex ? 1 : -1;
@@ -277,19 +315,6 @@
     function step(direction) {
         if (!state.preloaderDone || state.transitioning) return;
 
-        // On intro panel, cycle hero words first
-        if (state.activeIndex === 0) {
-            const heroWords = document.querySelectorAll(".hero-word");
-            if (direction > 0 && state.heroWord < heroWords.length - 1) {
-                setHeroWord(state.heroWord + 1, 1);
-                return;
-            }
-            if (direction < 0 && state.heroWord > 0) {
-                setHeroWord(state.heroWord - 1, -1);
-                return;
-            }
-        }
-
         // Wrap: if at last panel and scrolling forward, go back to intro
         if (state.activeIndex === panels.length - 1 && direction > 0) {
             navigateToId("intro");
@@ -303,7 +328,6 @@
         const nextIndex = panels.findIndex(p => p.id === id);
         if (nextIndex === -1) return;
         if (nextIndex === 0 && state.activeIndex === 0) {
-            if (state.heroWord !== 0) setHeroWord(0, -1);
             updateHash("intro");
             return;
         }
@@ -449,6 +473,10 @@
                 stagger: reducedMotion ? 0 : 110,
                 easing: "cubic-bezier(.2,.75,.2,1)"
             });
+
+            if (state.activeIndex === 0) {
+                startHeroWordAutoCycle();
+            }
         }, reducedMotion ? 10 : 700);
     }
 
@@ -500,6 +528,15 @@
             body.dataset.section = panels[targetIndex].id;
         }
     }
+
+
+    document.addEventListener("visibilitychange", () => {
+        if (document.hidden) {
+            stopHeroWordAutoCycle();
+        } else if (state.activeIndex === 0 && state.preloaderDone) {
+            startHeroWordAutoCycle();
+        }
+    });
 
 
     // ===== INIT =====
