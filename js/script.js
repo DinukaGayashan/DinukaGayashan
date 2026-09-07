@@ -221,7 +221,7 @@
         });
 
         if (scrollCursorLabel) {
-            scrollCursorLabel.textContent = state.activeIndex === panels.length - 1 ? "Back to top" : "Scroll";
+            scrollCursorLabel.textContent = "";
         }
 
         if (progressBar) {
