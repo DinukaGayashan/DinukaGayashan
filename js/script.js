@@ -267,7 +267,12 @@
         nextPanel.setAttribute("aria-hidden", "false");
 
         // Hide next items initially
-        setStyles(nextItems, { opacity: "0", transform: `translateY(${direction > 0 ? 42 : -42}px)` });
+        if (nextIndex === 0) {
+            const introCopy = nextPanel.querySelector(".intro-copy");
+            if (introCopy) setStyles(introCopy, { opacity: "0", transform: "scale(1.08)", filter: "blur(12px)" });
+        } else {
+            setStyles(nextItems, { opacity: "0", transform: `translateY(${direction > 0 ? 42 : -42}px)` });
+        }
 
         // Update nav immediately
         navButtons.forEach(btn => {
@@ -277,18 +282,39 @@
         });
 
         // Animate out current items
-        const outPromise = animateElements(currentItems, [
-            { opacity: 1, transform: "translateY(0)" },
-            { opacity: 0, transform: `translateY(${direction > 0 ? -24 : 24}px)` }
-        ], { duration: dur || 300, stagger: reducedMotion ? 0 : 25, easing: "cubic-bezier(.4,0,1,1)" });
+        let outPromise;
+        if (currentIndex === 0) {
+            const introCopy = currentPanel.querySelector(".intro-copy");
+            outPromise = animateElements(introCopy ? [introCopy] : [], [
+                { opacity: 1, transform: "scale(1)", filter: "blur(0px)" },
+                { opacity: 0, transform: "scale(1.08)", filter: "blur(12px)" }
+            ], { duration: dur || 350, easing: "cubic-bezier(.4,0,1,1)" });
+        } else {
+            outPromise = animateElements(currentItems, [
+                { opacity: 1, transform: "translateY(0)" },
+                { opacity: 0, transform: `translateY(${direction > 0 ? -24 : 24}px)` }
+            ], { duration: dur || 300, stagger: reducedMotion ? 0 : 25, easing: "cubic-bezier(.4,0,1,1)" });
+        }
 
         // Animate in next items (with delay)
         const inDelay = reducedMotion ? 0 : 400;
         setTimeout(() => {
-            animateElements(nextItems, [
-                { opacity: 0, transform: `translateY(${direction > 0 ? 42 : -42}px)` },
-                { opacity: 1, transform: "translateY(0)" }
-            ], { duration: dur || 680, stagger: reducedMotion ? 0 : 65, easing: "cubic-bezier(.2,.75,.2,1)" });
+            if (nextIndex === 0) {
+                const introCopy = nextPanel.querySelector(".intro-copy");
+                if (introCopy) {
+                    animateElements([introCopy], [
+                        { opacity: 0, transform: "scale(1.08)", filter: "blur(12px)" },
+                        { opacity: 1, transform: "scale(1)", filter: "blur(0px)" }
+                    ], { duration: dur || 750, delay: reducedMotion ? 0 : 200, easing: "cubic-bezier(.2,.75,.2,1)" }).then(() => {
+                        setStyles(introCopy, { opacity: "", transform: "", filter: "" });
+                    });
+                }
+            } else {
+                animateElements(nextItems, [
+                    { opacity: 0, transform: `translateY(${direction > 0 ? 42 : -42}px)` },
+                    { opacity: 1, transform: "translateY(0)" }
+                ], { duration: dur || 680, stagger: reducedMotion ? 0 : 65, easing: "cubic-bezier(.2,.75,.2,1)" });
+            }
         }, inDelay);
 
         // Complete transition
@@ -461,18 +487,6 @@
 
         setTimeout(() => {
             preloader.hidden = true;
-
-            // Reveal intro content
-            const introItems = Array.from(document.querySelectorAll(".intro-copy > *"));
-            setStyles(introItems, { opacity: "0", transform: "translateY(36px)" });
-            animateElements(introItems, [
-                { opacity: 0, transform: "translateY(36px)" },
-                { opacity: 1, transform: "translateY(0)" }
-            ], {
-                duration: reducedMotion ? 10 : 900,
-                stagger: reducedMotion ? 0 : 110,
-                easing: "cubic-bezier(.2,.75,.2,1)"
-            });
 
             if (state.activeIndex === 0) {
                 startHeroWordAutoCycle();

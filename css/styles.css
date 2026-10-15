@@ -335,6 +335,17 @@ body:not([data-section="intro"]) .content-shade {
 
 .intro-copy {
     width: min(94vw, 118rem);
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+    transition: filter 1.2s ease 0.35s, transform 1.2s ease 0.35s, opacity 1.2s ease 0.35s;
+}
+
+body.is-loading .intro-copy {
+    filter: blur(12px);
+    transform: scale(1.1);
+    opacity: 0;
+    transition: none;
 }
 
 .intro-subline {
