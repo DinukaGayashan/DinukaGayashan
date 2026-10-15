@@ -109,7 +109,7 @@ button:focus-visible, a:focus-visible {
     object-position: center;
     filter: grayscale(1) contrast(1.04) brightness(0.55);
     transform: scale(1.03);
-    transition: filter 1.2s ease, transform 1.2s ease;
+    transition: filter 2.04s ease, transform 2.04s ease;
     border: none;
     outline: none;
     -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 16%, #000 84%, transparent 100%);
@@ -141,7 +141,7 @@ body.is-loading .bg-image {
     pointer-events: none;
     opacity: 0;
     background: linear-gradient(90deg, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.76) 27%, rgba(0, 0, 0, 0.24) 48%, transparent 72%);
-    transition: opacity 700ms ease;
+    transition: opacity 1190ms ease;
 }
 
 body:not([data-section="intro"]) .content-shade {
@@ -159,7 +159,7 @@ body:not([data-section="intro"]) .content-shade {
     background-size: 180px 180px;
     mix-blend-mode: overlay;
     filter: contrast(1.4);
-    animation: grain-shift 0.18s steps(1, end) infinite;
+    animation: grain-shift 0.306s steps(1, end) infinite;
     will-change: transform;
 }
 
@@ -205,7 +205,7 @@ body:not([data-section="intro"]) .content-shade {
     backdrop-filter: blur(14px);
     -webkit-backdrop-filter: blur(14px);
     text-decoration: none;
-    transition: background-color 200ms ease, border-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+    transition: background-color 340ms ease, border-color 340ms ease, transform 340ms ease, box-shadow 340ms ease;
 }
 
 .home-mark img {
@@ -241,7 +241,7 @@ body:not([data-section="intro"]) .content-shade {
     text-decoration: none;
     backdrop-filter: blur(16px) saturate(120%);
     -webkit-backdrop-filter: blur(16px) saturate(120%);
-    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease, transform 180ms ease;
+    transition: color 306ms ease, background-color 306ms ease, border-color 306ms ease, transform 306ms ease;
 }
 
 .contact-button:hover {
@@ -276,7 +276,7 @@ body:not([data-section="intro"]) .content-shade {
     font-weight: 540;
     letter-spacing: 0.025em;
     white-space: nowrap;
-    transition: color 120ms ease;
+    transition: color 204ms ease;
 }
 
 .site-nav button::after {
@@ -289,7 +289,7 @@ body:not([data-section="intro"]) .content-shade {
     transform: scaleX(0);
     transform-origin: center;
     background: #fff;
-    transition: transform 180ms cubic-bezier(0.19, 1, 0.22, 1);
+    transition: transform 306ms cubic-bezier(0.19, 1, 0.22, 1);
 }
 
 .site-nav button:hover,
@@ -338,7 +338,7 @@ body:not([data-section="intro"]) .content-shade {
     filter: blur(0);
     transform: scale(1);
     opacity: 1;
-    transition: filter 1.2s ease 0.35s, transform 1.2s ease 0.35s, opacity 1.2s ease 0.35s;
+    transition: filter 2.04s ease 0.595s, transform 2.04s ease 0.595s, opacity 2.04s ease 0.595s;
 }
 
 body.is-loading .intro-copy {
@@ -401,6 +401,29 @@ body.is-loading .intro-copy {
 .hero-word.is-current {
     transform: translateY(0);
     opacity: 1;
+}
+
+/* Quote interlude: each line uses the shared panel entrance / exit animation. */
+.panel--quote {
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.quote-copy {
+    width: 100%;
+    max-width: 65rem;
+    font-family: var(--ff-body);
+    font-size: clamp(1.65rem, 5.8vw, 5.5rem);
+    font-weight: 400;
+    letter-spacing: -0.045em;
+    line-height: 1.25;
+    text-shadow: 0 2px 30px rgba(0, 0, 0, 0.5);
+}
+
+.quote-copy p + p {
+    margin-top: 0.12em;
+    color: var(--muted);
 }
 
 /* Content panels */
@@ -494,7 +517,7 @@ body.is-loading .intro-copy {
     color: var(--muted);
     font-weight: 500;
     letter-spacing: 0.02em;
-    transition: color 180ms ease, border-color 180ms ease;
+    transition: color 306ms ease, border-color 306ms ease;
 }
 
 .skill-tag:hover {
@@ -507,7 +530,7 @@ body.is-loading .intro-copy {
     padding: 1.2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
-    transition: opacity 180ms ease;
+    transition: opacity 306ms ease;
 }
 
 .project-item:last-child {
@@ -580,7 +603,7 @@ body.is-loading .intro-copy {
     font-size: 0.78rem;
     color: var(--muted);
     font-weight: 500;
-    transition: gap 200ms ease, color 200ms ease;
+    transition: gap 340ms ease, color 340ms ease;
 }
 
 .project-item:hover .project-item-arrow {
@@ -603,7 +626,7 @@ body.is-loading .intro-copy {
     font-size: 0.88rem;
     font-weight: 600;
     letter-spacing: 0.03em;
-    transition: border-color 200ms ease, background 200ms ease, transform 200ms ease;
+    transition: border-color 340ms ease, background 340ms ease, transform 340ms ease;
     margin-bottom: 1.8rem;
 }
 
@@ -631,7 +654,7 @@ body.is-loading .intro-copy {
     -webkit-backdrop-filter: blur(12px);
     color: rgba(255, 255, 255, 0.62);
     font-size: 0.95rem;
-    transition: color 180ms ease, border-color 180ms ease, background 180ms ease, transform 180ms ease;
+    transition: color 306ms ease, border-color 306ms ease, background 306ms ease, transform 306ms ease;
 }
 
 .social-link:hover {
@@ -663,7 +686,7 @@ body.is-loading .intro-copy {
     color: rgba(255, 255, 255, 0.72);
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    transition: color 180ms ease, background-color 180ms ease, border-color 180ms ease;
+    transition: color 306ms ease, background-color 306ms ease, border-color 306ms ease;
 }
 
 .section-controls svg {
@@ -701,7 +724,7 @@ body.is-loading .intro-copy {
     transform: scaleX(0);
     transform-origin: left center;
     background: #fff;
-    transition: transform 600ms cubic-bezier(0.2, 0.75, 0.2, 1);
+    transition: transform 1020ms cubic-bezier(0.2, 0.75, 0.2, 1);
 }
 
 /* ===== CUSTOM CURSOR ===== */
@@ -728,11 +751,11 @@ body.is-loading .intro-copy {
     backdrop-filter: blur(8px) saturate(125%);
     -webkit-backdrop-filter: blur(8px) saturate(125%);
     will-change: transform, opacity, width, height;
-    transition: width 220ms cubic-bezier(.2,.75,.2,1),
-                height 220ms cubic-bezier(.2,.75,.2,1),
-                border-color 220ms ease,
-                background 220ms ease,
-                box-shadow 220ms ease;
+    transition: width 374ms cubic-bezier(.2,.75,.2,1),
+                height 374ms cubic-bezier(.2,.75,.2,1),
+                border-color 374ms ease,
+                background 374ms ease,
+                box-shadow 374ms ease;
 }
 
 .scroll-cursor span {
@@ -780,11 +803,11 @@ body.cursor-link .scroll-cursor::after {
     opacity: 0;
     transform: translate(-50%, -50%) scale(1);
     pointer-events: none;
-    animation: cursor-link-pulse 1.45s cubic-bezier(.15,.62,.28,1) infinite;
+    animation: cursor-link-pulse 2.465s cubic-bezier(.15,.62,.28,1) infinite;
 }
 
 body.cursor-link .scroll-cursor::after {
-    animation-delay: 0.58s;
+    animation-delay: 0.986s;
 }
 
 @keyframes cursor-link-pulse {
@@ -823,7 +846,7 @@ body.cursor-link .scroll-cursor span {
     background: rgba(3, 3, 3, 0.5);
     backdrop-filter: blur(18px) saturate(108%);
     -webkit-backdrop-filter: blur(18px) saturate(108%);
-    transition: opacity 650ms ease, visibility 650ms ease;
+    transition: opacity 1105ms ease, visibility 1105ms ease;
 }
 
 .preloader.is-hidden {
@@ -842,7 +865,7 @@ body.cursor-link .scroll-cursor span {
     backdrop-filter: blur(22px) saturate(115%);
     -webkit-backdrop-filter: blur(22px) saturate(115%);
     text-align: center;
-    transition: transform 480ms cubic-bezier(.2,.75,.2,1), opacity 400ms ease;
+    transition: transform 816ms cubic-bezier(.2,.75,.2,1), opacity 680ms ease;
 }
 
 .preloader.is-hidden .preloader-glass {

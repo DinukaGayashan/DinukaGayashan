@@ -17,10 +17,12 @@
     const projectItems = Array.from(document.querySelectorAll(".project-item[data-url]"));
 
     const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    // Keep JavaScript motion in step with the slower CSS transitions.
+    const motionScale = reducedMotion ? 1 : 1.7;
     const mobileMenuQuery = window.matchMedia("(max-width: 900px)");
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    const sectionNames = ["Intro", "About", "Skills", "Projects", "Contact"];
+    const sectionNames = ["Intro", "Quote", "About", "Skills", "Projects", "Contact"];
 
     const state = {
         activeIndex: 0,
@@ -44,8 +46,8 @@
         const els = (Array.isArray(elements) ? elements : [elements]).filter(Boolean);
         const animations = els.map((el, i) => {
             return el.animate(keyframes, {
-                duration: options.duration || 600,
-                delay: i * (options.stagger || 0) + (options.delay || 0),
+                duration: (options.duration || 600) * motionScale,
+                delay: (i * (options.stagger || 0) + (options.delay || 0)) * motionScale,
                 easing: options.easing || "cubic-bezier(.2,.75,.2,1)",
                 fill: "forwards"
             });
@@ -94,7 +96,7 @@
 
     function renderCursor() {
         if (!scrollCursor || !finePointer) return;
-        const ease = reducedMotion ? 1 : 0.18;
+        const ease = reducedMotion ? 1 : 0.11;
         cursorPos.currentX += (cursorPos.targetX - cursorPos.currentX) * ease;
         cursorPos.currentY += (cursorPos.targetY - cursorPos.currentY) * ease;
         scrollCursor.style.setProperty("--cursor-x", `${cursorPos.currentX}px`);
@@ -147,7 +149,7 @@
         const next = words[target];
         const inY = direction > 0 ? 115 : -115;
         const outY = direction > 0 ? -115 : 115;
-        const dur = reducedMotion ? 10 : 1150;
+        const dur = reducedMotion ? 10 : 1150 * motionScale;
         const ease = "cubic-bezier(0.16, 1, 0.3, 1)";
 
         next.classList.add("is-current");
@@ -192,7 +194,7 @@
             if (state.activeIndex === 0 && !document.hidden && state.preloaderDone) {
                 setHeroWord(state.heroWord + 1, 1);
             }
-        }, 3400);
+        }, 3400 * motionScale);
     }
 
     function stopHeroWordAutoCycle() {
@@ -243,95 +245,73 @@
         history.replaceState(null, "", hash);
     }
 
-    function switchPanel(nextIndex, options = {}) {
+    function switchPanel(nextIndex) {
         if (nextIndex < 0 || nextIndex >= panels.length || nextIndex === state.activeIndex || state.transitioning) return;
         state.transitioning = true;
 
-        if (nextIndex === 0) {
-            startHeroWordAutoCycle();
-        } else {
-            stopHeroWordAutoCycle();
-        }
+        if (nextIndex === 0) startHeroWordAutoCycle();
+        else stopHeroWordAutoCycle();
 
-        const currentIndex = state.activeIndex;
-        const direction = nextIndex > currentIndex ? 1 : -1;
-        const currentPanel = panels[currentIndex];
+        const direction = nextIndex > state.activeIndex ? 1 : -1;
+        const currentPanel = panels[state.activeIndex];
         const nextPanel = panels[nextIndex];
-        const currentItems = panelChildren(currentPanel);
-        const nextItems = panelChildren(nextPanel);
+        const transitionItems = panel => panel.id === "intro"
+            ? [panel.querySelector(".intro-copy")].filter(Boolean)
+            : panelChildren(panel);
+        const currentItems = transitionItems(currentPanel);
+        const nextItems = transitionItems(nextPanel);
+        const entrance = reducedMotion ? "none" : `translateY(${direction * 24}px)`;
+        const exit = reducedMotion ? "none" : `translateY(${direction * -16}px)`;
+        const resting = reducedMotion ? "none" : "translateY(0)";
 
-        const dur = reducedMotion ? 10 : undefined;
+        // Clear completed effects before replaying a section's animation.
+        [...currentItems, ...nextItems].forEach(item => {
+            item.getAnimations().forEach(animation => animation.cancel());
+        });
+        setStyles(currentItems, { opacity: "1", transform: resting });
+        setStyles(nextItems, { opacity: "0", transform: entrance });
 
-        // Show next panel
+        const contentPanel = nextPanel.querySelector(".content-panel");
+        if (contentPanel) contentPanel.scrollTop = 0;
         nextPanel.classList.add("is-active");
         nextPanel.setAttribute("aria-hidden", "false");
+        body.dataset.section = nextPanel.id;
 
-        // Hide next items initially
-        if (nextIndex === 0) {
-            const introCopy = nextPanel.querySelector(".intro-copy");
-            if (introCopy) setStyles(introCopy, { opacity: "0", transform: "scale(1.08)", filter: "blur(12px)" });
-        } else {
-            setStyles(nextItems, { opacity: "0", transform: `translateY(${direction > 0 ? 42 : -42}px)` });
-        }
-
-        // Update nav immediately
         navButtons.forEach(btn => {
             const active = btn.dataset.target === nextPanel.id;
             btn.classList.toggle("is-active", active);
             btn.setAttribute("aria-current", active ? "page" : "false");
         });
 
-        // Animate out current items
-        let outPromise;
-        if (currentIndex === 0) {
-            const introCopy = currentPanel.querySelector(".intro-copy");
-            outPromise = animateElements(introCopy ? [introCopy] : [], [
-                { opacity: 1, transform: "scale(1)", filter: "blur(0px)" },
-                { opacity: 0, transform: "scale(1.08)", filter: "blur(12px)" }
-            ], { duration: dur || 350, easing: "cubic-bezier(.4,0,1,1)" });
-        } else {
-            outPromise = animateElements(currentItems, [
-                { opacity: 1, transform: "translateY(0)" },
-                { opacity: 0, transform: `translateY(${direction > 0 ? -24 : 24}px)` }
-            ], { duration: dur || 300, stagger: reducedMotion ? 0 : 25, easing: "cubic-bezier(.4,0,1,1)" });
-        }
+        // Overlap a gentle exit with the entrance so there is no empty pause.
+        const outgoing = animateElements(currentItems, [
+            { opacity: 1, transform: resting },
+            { opacity: 0, transform: exit }
+        ], {
+            duration: reducedMotion ? 10 : 480,
+            stagger: reducedMotion ? 0 : 20,
+            easing: "cubic-bezier(.4,0,.2,1)"
+        }).then(() => {
+            currentPanel.classList.remove("is-active");
+            currentPanel.setAttribute("aria-hidden", "true");
+        });
 
-        // Animate in next items (with delay)
-        const inDelay = reducedMotion ? 0 : 400;
-        setTimeout(() => {
-            if (nextIndex === 0) {
-                const introCopy = nextPanel.querySelector(".intro-copy");
-                if (introCopy) {
-                    animateElements([introCopy], [
-                        { opacity: 0, transform: "scale(1.08)", filter: "blur(12px)" },
-                        { opacity: 1, transform: "scale(1)", filter: "blur(0px)" }
-                    ], { duration: dur || 750, delay: reducedMotion ? 0 : 200, easing: "cubic-bezier(.2,.75,.2,1)" }).then(() => {
-                        setStyles(introCopy, { opacity: "", transform: "", filter: "" });
-                    });
-                }
-            } else {
-                animateElements(nextItems, [
-                    { opacity: 0, transform: `translateY(${direction > 0 ? 42 : -42}px)` },
-                    { opacity: 1, transform: "translateY(0)" }
-                ], { duration: dur || 680, stagger: reducedMotion ? 0 : 65, easing: "cubic-bezier(.2,.75,.2,1)" });
-            }
-        }, inDelay);
+        const incoming = animateElements(nextItems, [
+            { opacity: 0, transform: entrance },
+            { opacity: 1, transform: resting }
+        ], {
+            duration: reducedMotion ? 10 : 900,
+            delay: reducedMotion ? 0 : 180,
+            stagger: reducedMotion ? 0 : 80,
+            easing: "cubic-bezier(.22,1,.36,1)"
+        });
 
-        // Complete transition
-        outPromise.then(() => {
-            setTimeout(() => {
-                currentPanel.classList.remove("is-active");
-                currentPanel.setAttribute("aria-hidden", "true");
-
-                // Reset scroll position of content panels
-                const contentPanel = nextPanel.querySelector(".content-panel");
-                if (contentPanel) contentPanel.scrollTop = 0;
-
-                state.activeIndex = nextIndex;
-                state.transitioning = false;
-                updateNavigation();
-                updateHash(nextPanel.id);
-            }, reducedMotion ? 10 : 500);
+        // Keep scroll input locked until every entering line has settled.
+        Promise.all([outgoing, incoming]).then(() => {
+            state.activeIndex = nextIndex;
+            state.transitioning = false;
+            updateNavigation();
+            updateHash(nextPanel.id);
         });
     }
 
@@ -394,7 +374,14 @@
 
     // Wheel navigation
     window.addEventListener("wheel", (e) => {
-        if (state.menuOpen || !state.preloaderDone || state.wheelLock || Math.abs(e.deltaY) < 18) return;
+        if (state.menuOpen || !state.preloaderDone) return;
+        // Ignore input during a transition without starting another scroll lock.
+        if (state.transitioning || state.wheelLock) {
+            e.preventDefault();
+            return;
+        }
+        const deltaY = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1);
+        if (Math.abs(deltaY) < 4) return;
 
         // Allow scrolling inside content panels
         const scrollArea = e.target.closest(".content-panel");
@@ -407,7 +394,7 @@
         e.preventDefault();
         state.wheelLock = true;
         step(e.deltaY > 0 ? 1 : -1);
-        setTimeout(() => { state.wheelLock = false; }, reducedMotion ? 80 : 760);
+        setTimeout(() => { state.wheelLock = false; }, reducedMotion ? 80 : 760 * motionScale);
     }, { passive: false });
 
     // Touch navigation
@@ -491,7 +478,7 @@
             if (state.activeIndex === 0) {
                 startHeroWordAutoCycle();
             }
-        }, reducedMotion ? 10 : 700);
+        }, reducedMotion ? 10 : 700 * motionScale);
     }
 
     // Wait for image and fonts, then finish
