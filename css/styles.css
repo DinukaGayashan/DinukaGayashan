@@ -437,6 +437,7 @@ body.is-loading .intro-copy {
     width: min(35vw, 42rem);
     max-height: calc(100dvh - 12rem);
     overflow-y: auto;
+    overflow-anchor: none;
     overscroll-behavior-y: contain;
     -webkit-overflow-scrolling: touch;
     touch-action: pan-y;
@@ -485,6 +486,63 @@ body.is-loading .intro-copy {
     margin-bottom: 0;
 }
 
+.personal-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.personal-nav button {
+    padding: 0.35rem 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+    border-bottom: 1px solid transparent;
+}
+
+.personal-nav button:hover,
+.personal-nav button.is-active {
+    color: var(--text);
+    border-bottom-color: var(--text);
+}
+
+.personal-card {
+    padding: 1.25rem 0;
+    border-top: 1px solid var(--line);
+}
+
+.personal-card h3 {
+    margin-bottom: 0.6rem;
+    font-family: var(--ff-body);
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.personal-card a {
+    display: inline-block;
+    padding: 0.4rem 0;
+    text-decoration: underline;
+    text-underline-offset: 0.3em;
+    font-size: 0.85rem;
+}
+
+.content-panel .last-updated,
+.content-panel .writing-prompt {
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+.writing-prompt span {
+    font-weight: 600;
+    color: var(--text);
+    margin-right: 0.35rem;
+}
+
+.personal-quote {
+    font-family: var(--ff-body);
+    margin-bottom: 0.8rem;
+}
+
 /* Skills list styling */
 .skills-list {
     margin-top: 1.2rem;
@@ -530,7 +588,7 @@ body.is-loading .intro-copy {
     padding: 1.2rem 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
     cursor: pointer;
-    transition: opacity 306ms ease;
+    transition: border-color 306ms ease;
 }
 
 .project-item:last-child {
@@ -538,7 +596,7 @@ body.is-loading .intro-copy {
 }
 
 .project-item:hover {
-    opacity: 0.85;
+    border-bottom-color: var(--glass-border-hover);
 }
 
 .project-item-header {

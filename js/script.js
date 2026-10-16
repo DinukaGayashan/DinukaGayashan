@@ -3,7 +3,10 @@
 
     const body = document.body;
     const panels = Array.from(document.querySelectorAll(".panel"));
-    const navButtons = Array.from(document.querySelectorAll(".site-nav [data-target]"));
+    const sectionKey = panel => panel.dataset.sectionGroup || panel.id;
+    const mainSections = [...new Set(panels.map(sectionKey))];
+    const selectedPanels = new Map(mainSections.map(key => [key, panels.findIndex(panel => sectionKey(panel) === key)]));
+    const navButtons = Array.from(document.querySelectorAll(".site-nav [data-target], .personal-nav [data-target]"));
     const homeLink = document.querySelector(".home-mark");
     const hamburgerBtn = document.getElementById("hamburger-btn");
     const menuBackdrop = document.getElementById("menu-backdrop");
@@ -22,7 +25,6 @@
     const mobileMenuQuery = window.matchMedia("(max-width: 900px)");
     const finePointer = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
-    const sectionNames = ["Intro", "Quote", "About", "Skills", "Projects", "Contact"];
 
     const state = {
         activeIndex: 0,
@@ -30,7 +32,10 @@
         transitioning: false,
         wordTransitioning: false,
         heroWordTimer: null,
-        wheelLock: false,
+        wheelLastEvent: -Infinity,
+        wheelConsumed: false,
+        wheelNavigated: false,
+        wheelDistance: 0,
         touchStartY: 0,
         touchScrollArea: null,
         touchStartedAtTop: false,
@@ -214,10 +219,13 @@
     function updateNavigation() {
         const activePanel = panels[state.activeIndex];
         const id = activePanel.id;
+        const sectionIndex = mainSections.indexOf(sectionKey(activePanel));
+        selectedPanels.set(sectionKey(activePanel), state.activeIndex);
         body.dataset.section = id;
 
         navButtons.forEach(btn => {
-            const active = btn.dataset.target === id;
+            const target = panels.find(panel => panel.id === btn.dataset.target);
+            const active = btn.dataset.target === id || Boolean(btn.closest(".site-nav") && target && sectionKey(target) === sectionKey(activePanel));
             btn.classList.toggle("is-active", active);
             btn.setAttribute("aria-current", active ? "page" : "false");
         });
@@ -227,15 +235,15 @@
         }
 
         if (progressBar) {
-            progressBar.style.transform = `scaleX(${state.activeIndex / (panels.length - 1)})`;
+            progressBar.style.transform = `scaleX(${sectionIndex / (mainSections.length - 1)})`;
         }
 
         if (previousButton) {
-            previousButton.disabled = state.activeIndex === 0;
+            previousButton.disabled = sectionIndex === 0;
         }
 
         document.querySelectorAll("[data-next]").forEach(btn => {
-            btn.disabled = state.activeIndex === panels.length - 1;
+            btn.disabled = sectionIndex === mainSections.length - 1;
         });
     }
 
@@ -245,7 +253,7 @@
         history.replaceState(null, "", hash);
     }
 
-    function switchPanel(nextIndex) {
+    function switchPanel(nextIndex, quoteAdvanceDirection = 0) {
         if (nextIndex < 0 || nextIndex >= panels.length || nextIndex === state.activeIndex || state.transitioning) return;
         state.transitioning = true;
 
@@ -278,7 +286,8 @@
         body.dataset.section = nextPanel.id;
 
         navButtons.forEach(btn => {
-            const active = btn.dataset.target === nextPanel.id;
+            const target = panels.find(panel => panel.id === btn.dataset.target);
+            const active = btn.dataset.target === nextPanel.id || Boolean(btn.closest(".site-nav") && target && sectionKey(target) === sectionKey(nextPanel));
             btn.classList.toggle("is-active", active);
             btn.setAttribute("aria-current", active ? "page" : "false");
         });
@@ -312,6 +321,10 @@
             state.transitioning = false;
             updateNavigation();
             updateHash(nextPanel.id);
+            if (quoteAdvanceDirection && nextPanel.id === "quote" && !document.hidden) {
+                // Continue in the same direction as soon as the entrance finishes.
+                step(quoteAdvanceDirection);
+            }
         });
     }
 
@@ -321,13 +334,15 @@
     function step(direction) {
         if (!state.preloaderDone || state.transitioning) return;
 
-        // Wrap: if at last panel and scrolling forward, go back to intro
-        if (state.activeIndex === panels.length - 1 && direction > 0) {
+        const sectionIndex = mainSections.indexOf(sectionKey(panels[state.activeIndex]));
+        // Scroll through main sections, preserving each section's chosen tab.
+        if (sectionIndex === mainSections.length - 1 && direction > 0) {
             navigateToId("intro");
             return;
         }
 
-        switchPanel(state.activeIndex + direction);
+        const nextSection = mainSections[sectionIndex + direction];
+        if (nextSection !== undefined) switchPanel(selectedPanels.get(nextSection), nextSection === "quote" ? direction : 0);
     }
 
     function navigateToId(id) {
@@ -374,27 +389,55 @@
 
     // Wheel navigation
     window.addEventListener("wheel", (e) => {
-        if (state.menuOpen || !state.preloaderDone) return;
-        // Ignore input during a transition without starting another scroll lock.
-        if (state.transitioning || state.wheelLock) {
+        if (state.menuOpen || !state.preloaderDone || e.ctrlKey) return;
+        if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) return;
+
+        // A trackpad gesture includes its momentum tail. Re-arm only after
+        // input stops, rather than letting a fixed timer split one gesture.
+        const now = performance.now();
+        if (now - state.wheelLastEvent > 180) {
+            state.wheelConsumed = false;
+            state.wheelNavigated = false;
+            state.wheelDistance = 0;
+        }
+        state.wheelLastEvent = now;
+        if (state.transitioning) {
+            state.wheelConsumed = true;
+            state.wheelNavigated = true;
+            e.preventDefault();
+            return;
+        }
+        if (state.wheelNavigated) {
             e.preventDefault();
             return;
         }
         const deltaY = e.deltaY * (e.deltaMode === 1 ? 16 : e.deltaMode === 2 ? window.innerHeight : 1);
-        if (Math.abs(deltaY) < 4) return;
+        if (!deltaY) return;
 
-        // Allow scrolling inside content panels
-        const scrollArea = e.target.closest(".content-panel");
-        if (scrollArea && scrollArea.scrollHeight > scrollArea.clientHeight) {
-            const atTop = scrollArea.scrollTop <= 0;
-            const atBottom = Math.ceil(scrollArea.scrollTop + scrollArea.clientHeight) >= scrollArea.scrollHeight;
-            if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) return;
+        // Keep the gesture inside its content, including when it reaches an
+        // edge. A fresh gesture at that edge can move to the next section.
+        const scrollArea = panels[state.activeIndex].querySelector(".content-panel");
+        if (scrollArea && scrollArea.scrollHeight > scrollArea.clientHeight + 2) {
+            const atTop = scrollArea.scrollTop <= 1;
+            const atBottom = scrollArea.scrollTop + scrollArea.clientHeight >= scrollArea.scrollHeight - 1;
+            if ((deltaY < 0 && !atTop) || (deltaY > 0 && !atBottom)) {
+                state.wheelConsumed = true;
+                if (!scrollArea.contains(e.target)) {
+                    e.preventDefault();
+                    scrollArea.scrollTop += deltaY;
+                }
+                return;
+            }
         }
 
         e.preventDefault();
-        state.wheelLock = true;
-        step(e.deltaY > 0 ? 1 : -1);
-        setTimeout(() => { state.wheelLock = false; }, reducedMotion ? 80 : 760 * motionScale);
+        if (state.wheelConsumed) return;
+        if (Math.sign(deltaY) !== Math.sign(state.wheelDistance)) state.wheelDistance = 0;
+        state.wheelDistance += deltaY;
+        if (Math.abs(state.wheelDistance) < 40) return;
+        state.wheelConsumed = true;
+        state.wheelNavigated = true;
+        step(Math.sign(state.wheelDistance));
     }, { passive: false });
 
     // Touch navigation
@@ -517,7 +560,8 @@
 
     // ===== HANDLE INITIAL HASH =====
 
-    const initialHash = window.location.hash.replace("#", "");
+    const requestedHash = window.location.hash.replace("#", "");
+    const initialHash = requestedHash === "skills" ? "work" : requestedHash;
     if (initialHash && initialHash !== "intro") {
         const targetIndex = panels.findIndex(p => p.id === initialHash);
         if (targetIndex > 0) {

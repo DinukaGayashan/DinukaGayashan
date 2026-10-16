@@ -43,8 +43,8 @@
 
             <nav class="site-nav" id="site-nav" aria-label="Main navigation">
                 <button type="button" data-target="about">About</button>
-                <button type="button" data-target="skills">Skills</button>
-                <button type="button" data-target="projects">Projects</button>
+                <button type="button" data-target="work">Work</button>
+                <button type="button" data-target="life-lately">Personal</button>
                 <button type="button" data-target="contact">Contact</button>
             </nav>
 
@@ -84,12 +84,11 @@
             <section class="panel panel--content" id="about" data-index="2"
                 aria-labelledby="about-title" aria-hidden="true">
                 <div class="content-panel panel-copy">
-                    <p class="section-kicker"><span>01</span> About Me</p>
+                    <p class="section-kicker"><span>01</span> About</p>
                     <h2 id="about-title">A Human Behind the Code</h2>
-                    <p>I'm Dinuka Gayashan, a passionate Software Engineer currently working at LSEG
-                        (London Stock Exchange Group). With a strong foundation in Computer Engineering from the
-                        University of Sri Jayewardenepura, I bring both technical depth and creative curiosity to
-                        every project I build.</p>
+                    <p>I'm a passionate Software Engineer currently working at LSEG
+                        (London Stock Exchange Group). With a strong foundation in Computer Engineering, 
+                        I bring both technical depth and creative curiosity to every project I build.</p>
                     <p>My journey in technology began with a fascination for how things work and has
                         evolved into a career dedicated to building meaningful digital solutions. From backend
                         architectures to cross-platform applications, I thrive at the intersection of complex
@@ -97,28 +96,17 @@
                     <p>Beyond the screen, I'm an avid hobbyist photographer who believes that observation and
                         attention to detail are skills that translate across every discipline. Whether I'm writing
                         code or composing a shot, I aim for clarity, intention, and craft.</p>
-                    <p>I graduated with Second Class Honours (Upper Division) and two Dean's List awards.
-                        My internship at Axiata Digital Labs shaped my approach to production-grade software and
-                        agile workflows.</p>
                 </div>
             </section>
 
-            <!-- Panel 3: Skills -->
-            <section class="panel panel--content" id="skills" data-index="3"
-                aria-labelledby="skills-title" aria-hidden="true">
+            <section class="panel panel--content" id="work" data-section-group="work" data-index="3" aria-labelledby="work-title" aria-hidden="true">
                 <div class="content-panel panel-copy">
-                    <p class="section-kicker"><span>02</span> Skills &amp; Expertise</p>
-                    <h2 id="skills-title">Building With Substance</h2>
-                    <p>Good engineering starts with understanding the problem, not the first line of code. I
-                        combine analytical thinking with a deep respect for software architecture, performance,
-                        and user experience.</p>
-                    <p>From backend systems and cloud deployments to machine learning pipelines and
-                        mobile interfaces, I work across the full stack with tools that match the task.</p>
-
-                    <div class="skills-list">
-                        <div class="skill-group">
-                            <div class="skill-group-title">Languages</div>
-                            <div class="skill-tags">
+                    <p class="section-kicker"><span>02</span> Work</p>
+                    <h2 id="work-title">Skills &amp; Expertise</h2>
+                    <nav class="personal-nav" aria-label="Work sections"><button type="button" data-target="work">Skills &amp; Expertise</button><button type="button" data-target="projects">Projects</button></nav>
+                    <article class="personal-card">
+                        <h3>Languages</h3>
+                        <div class="skill-tags">
                                 <span class="skill-tag">C++</span>
                                 <span class="skill-tag">Java</span>
                                 <span class="skill-tag">Python</span>
@@ -129,10 +117,10 @@
                                 <span class="skill-tag">CSS</span>
                                 <span class="skill-tag">SQL</span>
                             </div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="skill-group-title">Frameworks &amp; Libraries</div>
-                            <div class="skill-tags">
+                    </article>
+                    <article class="personal-card">
+                        <h3>Frameworks &amp; Libraries</h3>
+                        <div class="skill-tags">
                                 <span class="skill-tag">Flutter</span>
                                 <span class="skill-tag">Spring Boot</span>
                                 <span class="skill-tag">Node.js</span>
@@ -143,10 +131,10 @@
                                 <span class="skill-tag">Keras</span>
                                 <span class="skill-tag">Bootstrap</span>
                             </div>
-                        </div>
-                        <div class="skill-group">
-                            <div class="skill-group-title">Tools &amp; Cloud</div>
-                            <div class="skill-tags">
+                    </article>
+                    <article class="personal-card">
+                        <h3>Tools &amp; Cloud</h3>
+                        <div class="skill-tags">
                                 <span class="skill-tag">Git</span>
                                 <span class="skill-tag">Docker</span>
                                 <span class="skill-tag">Jenkins</span>
@@ -160,19 +148,16 @@
                                 <span class="skill-tag">Linux</span>
                                 <span class="skill-tag">Postman</span>
                             </div>
-                        </div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
-            <!-- Panel 4: Projects -->
-            <section class="panel panel--content" id="projects" data-index="4"
-                aria-labelledby="projects-title" aria-hidden="true">
+            <section class="panel panel--content" id="projects" data-section-group="work" data-index="4" aria-labelledby="projects-title" aria-hidden="true">
                 <div class="content-panel panel-copy">
-                    <p class="section-kicker"><span>03</span> Featured Projects</p>
+                    <p class="section-kicker"><span>02</span> Work</p>
                     <h2 id="projects-title">Ideas Brought to Life</h2>
-
-                    <div class="project-item" data-url="https://github.com/ChathurindaRanasinghe/Gen2Rec">
+                    <nav class="personal-nav" aria-label="Work sections"><button type="button" data-target="work">Skills &amp; Expertise</button><button type="button" data-target="projects">Projects</button></nav>
+                    <article class="personal-card project-item" data-url="https://github.com/ChathurindaRanasinghe/Gen2Rec">
                         <div class="project-item-type">Final Year Project</div>
                         <div class="project-item-header">
                             <div class="project-item-title">Gen2Rec</div>
@@ -188,9 +173,9 @@
                             <span class="project-tech-tag">Docker</span>
                         </div>
                         <div class="project-item-arrow">View on GitHub <i class="fa-solid fa-arrow-right"></i></div>
-                    </div>
+                    </article>
 
-                    <div class="project-item" data-url="https://github.com/DinukaGayashan/Musc">
+                    <article class="personal-card project-item" data-url="https://github.com/DinukaGayashan/Musc">
                         <div class="project-item-type">Data Management Project</div>
                         <div class="project-item-header">
                             <div class="project-item-title">Musc</div>
@@ -205,9 +190,9 @@
                             <span class="project-tech-tag">Docker</span>
                         </div>
                         <div class="project-item-arrow">View on GitHub <i class="fa-solid fa-arrow-right"></i></div>
-                    </div>
+                    </article>
 
-                    <div class="project-item" data-url="https://github.com/DinukaGayashan/CryptoPal">
+                    <article class="personal-card project-item" data-url="https://github.com/DinukaGayashan/CryptoPal">
                         <div class="project-item-type">Computer Engineering Project</div>
                         <div class="project-item-header">
                             <div class="project-item-title">CryptoPal</div>
@@ -222,9 +207,9 @@
                             <span class="project-tech-tag">Node.js</span>
                         </div>
                         <div class="project-item-arrow">View on GitHub <i class="fa-solid fa-arrow-right"></i></div>
-                    </div>
+                    </article>
 
-                    <div class="project-item" data-url="https://github.com/DinukaGayashan/ezDelivery">
+                    <article class="personal-card project-item" data-url="https://github.com/DinukaGayashan/ezDelivery">
                         <div class="project-item-type">Cloud Computing Project</div>
                         <div class="project-item-header">
                             <div class="project-item-title">ezDelivery</div>
@@ -239,9 +224,9 @@
                             <span class="project-tech-tag">Node.js</span>
                         </div>
                         <div class="project-item-arrow">View on GitHub <i class="fa-solid fa-arrow-right"></i></div>
-                    </div>
+                    </article>
 
-                    <div class="project-item" data-url="https://github.com/DinukaGayashan/Mereter">
+                    <article class="personal-card project-item" data-url="https://github.com/DinukaGayashan/Mereter">
                         <div class="project-item-type">Software Engineering Project</div>
                         <div class="project-item-header">
                             <div class="project-item-title">Mereter</div>
@@ -256,16 +241,62 @@
                             <span class="project-tech-tag">Bootstrap</span>
                         </div>
                         <div class="project-item-arrow">View on GitHub <i class="fa-solid fa-arrow-right"></i></div>
-                    </div>
+                    </article>
                 </div>
             </section>
 
-            <!-- Panel 5: Contact -->
-            <section class="panel panel--content" id="contact" data-index="5"
+            <section class="panel panel--content" id="life-lately" data-section-group="personal" data-index="5" aria-labelledby="life-lately-title" aria-hidden="true">
+                <div class="content-panel panel-copy">
+                    <p class="section-kicker"><span>04</span> Personal</p>
+                    <h2 id="life-lately-title">Life lately</h2>
+                    <nav class="personal-nav" aria-label="Personal sections"><button type="button" data-target="life-lately">Lately</button><button type="button" data-target="things-made">Made</button><button type="button" data-target="my-corner">My corner</button><button type="button" data-target="thoughts-notes">Notes</button><button type="button" data-target="coming-back-to">Favorites</button></nav>
+                    <p class="last-updated">Last updated <time datetime="2026-10-17">17 October 2026</time></p>
+<p>A place for the things taking up my time and attention.</p><article class="personal-card"><h3>Working on</h3><p class="writing-prompt"><span>To add</span> What are you building or spending time on this month?</p></article><article class="personal-card"><h3>Learning</h3><p class="writing-prompt"><span>To add</span> Something you’re learning, and what made you curious about it.</p></article><article class="personal-card"><h3>Enjoying &amp; thinking about</h3><p class="writing-prompt"><span>To add</span> A recent pleasure, a small discovery, or a question on your mind.</p></article>
+                </div>
+            </section>
+
+            <section class="panel panel--content" id="things-made" data-section-group="personal" data-index="6" aria-labelledby="things-made-title" aria-hidden="true">
+                <div class="content-panel panel-copy">
+                    <p class="section-kicker"><span>05</span> Personal</p>
+                    <h2 id="things-made-title">Things I’ve made</h2>
+                    <nav class="personal-nav" aria-label="Personal sections"><button type="button" data-target="life-lately">Lately</button><button type="button" data-target="things-made">Made</button><button type="button" data-target="my-corner">My corner</button><button type="button" data-target="thoughts-notes">Notes</button><button type="button" data-target="coming-back-to">Favorites</button></nav>
+                    <p>A few projects from the intersection of software, curiosity, and creativity.</p><article class="personal-card"><h3>Gen2Rec</h3><p>A final-year project exploring LLMs for personalized, context-aware recommendations.</p><p class="writing-prompt"><span>To add</span> Why did you choose this problem? What did building it teach you about recommendations?</p><a href="https://github.com/ChathurindaRanasinghe/Gen2Rec" target="_blank" rel="noopener noreferrer">Explore Gen2Rec ↗</a></article><article class="personal-card"><h3>Musc</h3><p>An AI-based project for generating musical melodies tailored to user preferences, using custom model training.</p><p class="writing-prompt"><span>To add</span> What drew you to music generation? What surprised you while training the model?</p><a href="https://github.com/DinukaGayashan/Musc" target="_blank" rel="noopener noreferrer">Explore Musc ↗</a></article>
+                </div>
+            </section>
+
+            <section class="panel panel--content" id="my-corner" data-section-group="personal" data-index="7" aria-labelledby="my-corner-title" aria-hidden="true">
+                <div class="content-panel panel-copy">
+                    <p class="section-kicker"><span>06</span> Personal</p>
+                    <h2 id="my-corner-title">My little corner of the world</h2>
+                    <nav class="personal-nav" aria-label="Personal sections"><button type="button" data-target="life-lately">Lately</button><button type="button" data-target="things-made">Made</button><button type="button" data-target="my-corner">My corner</button><button type="button" data-target="thoughts-notes">Notes</button><button type="button" data-target="coming-back-to">Favorites</button></nav>
+                    <article class="personal-card"><h3>Behind the camera</h3><p>Photography is one of my interests beyond software. Observation and attention to detail connect both sides of what I do.</p><a href="https://www.instagram.com/dinukagayashan.di" target="_blank" rel="noopener noreferrer">Find me on Instagram ↗</a><p class="writing-prompt"><span>To add</span> Choose a personal photograph and tell the story of the moment behind it.</p></article><article class="personal-card"><h3>Places &amp; small rituals</h3><p class="writing-prompt"><span>To add</span> A favorite place in Sri Lanka, an everyday ritual, or a collection—and the story that makes it yours.</p></article>
+                </div>
+            </section>
+
+            <section class="panel panel--content" id="thoughts-notes" data-section-group="personal" data-index="8" aria-labelledby="thoughts-notes-title" aria-hidden="true">
+                <div class="content-panel panel-copy">
+                    <p class="section-kicker"><span>07</span> Personal</p>
+                    <h2 id="thoughts-notes-title">Thoughts &amp; notes</h2>
+                    <nav class="personal-nav" aria-label="Personal sections"><button type="button" data-target="life-lately">Lately</button><button type="button" data-target="things-made">Made</button><button type="button" data-target="my-corner">My corner</button><button type="button" data-target="thoughts-notes">Notes</button><button type="button" data-target="coming-back-to">Favorites</button></nav>
+                    <p>A space for short reflections, lessons, and questions still taking shape.</p><article class="personal-card"><h3>Something I learned</h3><p class="writing-prompt"><span>To add</span> A recent lesson, the experience behind it, and what you’ll do differently.</p></article><article class="personal-card"><h3>A question I’m exploring</h3><p class="writing-prompt"><span>To add</span> What do you keep wondering about, even without an answer yet?</p></article><article class="personal-card"><h3>A change of mind</h3><p class="writing-prompt"><span>To add</span> An opinion you once held, and the experience that changed it.</p></article>
+                </div>
+            </section>
+
+            <section class="panel panel--content" id="coming-back-to" data-section-group="personal" data-index="9" aria-labelledby="coming-back-to-title" aria-hidden="true">
+                <div class="content-panel panel-copy">
+                    <p class="section-kicker"><span>08</span> Personal</p>
+                    <h2 id="coming-back-to-title">Things I keep coming back to</h2>
+                    <nav class="personal-nav" aria-label="Personal sections"><button type="button" data-target="life-lately">Lately</button><button type="button" data-target="things-made">Made</button><button type="button" data-target="my-corner">My corner</button><button type="button" data-target="thoughts-notes">Notes</button><button type="button" data-target="coming-back-to">Favorites</button></nav>
+                    <p>A small shelf of favorites, with room for the reasons they matter.</p><article class="personal-card"><h3>An idea</h3><blockquote class="personal-quote">Do what you love. Love what you do.</blockquote><p class="writing-prompt"><span>To add</span> What does this motto mean in your everyday life?</p></article><article class="personal-card"><h3>Books, music &amp; films</h3><p class="writing-prompt"><span>To add</span> Choose a few favorites. For each, add the title, creator, and one sentence about why you return to it.</p></article>
+                </div>
+            </section>
+
+            <!-- Final page: Contact -->
+            <section class="panel panel--content" id="contact" data-index="10"
                 aria-labelledby="contact-title" aria-hidden="true">
                 <div class="content-panel panel-copy">
                     <p class="section-kicker"><span>04</span> Get In Touch</p>
-                    <h2 id="contact-title">Let's Build Something</h2>
+                    <h2 id="contact-title">Say hello</h2>
                     <p>I'm always open to discussing new projects, creative ideas, or opportunities to
                         contribute to meaningful work. Whether you have a question or just want to say hello,
                         feel free to reach out.</p>
